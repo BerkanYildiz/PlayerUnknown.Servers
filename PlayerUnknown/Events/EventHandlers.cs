@@ -37,9 +37,6 @@
         /// </summary>
         public static async Task Run()
         {
-            EventHandlersMouse.Run();
-            EventHandlersKeyboard.Run();
-
             while (true)
             {
                 if (PUBG.IsAttached)

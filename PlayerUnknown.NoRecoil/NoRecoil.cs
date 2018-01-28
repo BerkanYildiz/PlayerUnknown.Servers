@@ -11,11 +11,7 @@
         /// <summary>
         /// Gets or sets a value indicating whether the <see cref="NoRecoil"/> is enabled.
         /// </summary>
-        public static bool IsEnabled
-        {
-            get;
-            set;
-        }
+        public static bool IsEnabled;
 
         /// <summary>
         /// Enables the no recoil.
@@ -33,7 +29,7 @@
 
             while (true)
             {
-                while (NoRecoil.IsEnabled && PUBG.IsOnScreen)
+                if (NoRecoil.IsEnabled && PUBG.IsOnScreen)
                 {
                     var Weapon = Player.GetWeapon();
 
@@ -50,8 +46,10 @@
                         }
                     }
                 }
-
-                await Task.Delay(1000);
+                else
+                {
+                    await Task.Delay(50);
+                }
             }
         }
 

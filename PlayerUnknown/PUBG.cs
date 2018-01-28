@@ -175,7 +175,7 @@
             {
                 return;
             }
-            
+
             EventHandlers.Run();
 
             PUBG.Initialized = true;
