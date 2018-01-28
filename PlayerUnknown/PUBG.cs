@@ -4,36 +4,23 @@
     using System.Diagnostics;
 
     using PlayerUnknown.Exceptions;
-    using PlayerUnknown.Reader;
+    using PlayerUnknown.Helpers;
+    using PlayerUnknown.Reader.Native;
 
-    public class PUBG
+    public static class PUBG
     {
-        /// <summary>
-        /// Gets a value indicating whether this instance is attached.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance is attached; otherwise, <c>false</c>.
-        /// </value>
-        public bool IsAttached
-        {
-            get
-            {
-                return this.AttachedProcess != null;
-            }
-        }
-
         /// <summary>
         /// Gets the attached <see cref="PUBG"/> process.
         /// </summary>
-        public Process AttachedProcess
+        public static Process AttachedProcess
         {
             get
             {
-                if (this._AttachedProcess != null)
+                if (PUBG._AttachedProcess != null)
                 {
-                    if (this._AttachedProcess.HasExited == false)
+                    if (PUBG._AttachedProcess.HasExited == false)
                     {
-                        return this._AttachedProcess;
+                        return PUBG._AttachedProcess;
                     }
                 }
 
@@ -41,32 +28,152 @@
             }
         }
 
-        private Process _AttachedProcess;
+        /// <summary>
+        /// Gets a value indicating whether <see cref="PUBG"/> is attached.
+        /// </summary>
+        public static bool IsAttached
+        {
+            get
+            {
+                return PUBG.AttachedProcess != null;
+            }
+        }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PUBG"/> class.
+        /// Gets a value indicating whether <see cref="PUBG"/> is detached.
         /// </summary>
-        public PUBG()
+        public static bool IsDetached
         {
-            // PUBG.
+            get
+            {
+                return PUBG.AttachedProcess == null;
+            }
         }
+
+        /// <summary>
+        /// Gets a value indicating whether <see cref="PUBG"/> is running.
+        /// </summary>
+        public static bool IsRunning
+        {
+            get
+            {
+                if (PUBG.AttachedProcess != null)
+                {
+                    if (PUBG._AttachedProcess.HasExited == false)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether <see cref="PUBG"/> is responding.
+        /// </summary>
+        public static bool IsResponding
+        {
+            get
+            {
+                if (PUBG.AttachedProcess != null)
+                {
+                    return PUBG._AttachedProcess.Responding;
+                }
+
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether <see cref="PUBG"/> is minimized.
+        /// </summary>
+        public static bool IsMinimized
+        {
+            get
+            {
+                if (PUBG.AttachedProcess != null)
+                {
+                    var Placement = Win32.GetWindowPlacement(PUBG._AttachedProcess.MainWindowHandle);
+
+                    if (Placement.ShowCmd == WindowStates.Hide || Placement.ShowCmd == WindowStates.Minimize)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether <see cref="PUBG"/> is maximized.
+        /// </summary>
+        public static bool IsMaximized
+        {
+            get
+            {
+                if (PUBG.AttachedProcess != null)
+                {
+                    var Placement = Win32.GetWindowPlacement(PUBG._AttachedProcess.MainWindowHandle);
+
+                    if (Placement.ShowCmd == WindowStates.Maximize || Placement.ShowCmd == WindowStates.ShowMaximized)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether <see cref="PUBG"/> is displayed on the screen.
+        /// </summary>
+        public static bool IsOnScreen
+        {
+            get
+            {
+                if (PUBG.AttachedProcess != null)
+                {
+                    var Placement = Win32.GetWindowPlacement(PUBG._AttachedProcess.MainWindowHandle);
+                    var Flag      = Placement.ShowCmd;
+
+                    if (PUBG.IsMaximized)
+                    {
+                        return true;
+                    }
+
+                    if (Flag == WindowStates.Restore || Flag == WindowStates.Show || Flag == WindowStates.ShowNormal || Flag == WindowStates.ShowDefault)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        private static Process _AttachedProcess;
 
         /// <summary>
         /// Attaches this instance to <see cref="PUBG"/>.
         /// </summary>
-        public void Attach()
+        public static void Attach()
         {
-            var Processes = Process.GetProcessesByName("notepad++");
+            var Processes = Process.GetProcessesByName("TslGame");
             var Processus = (Process) null;
 
             if (Processes.Length == 0)
             {
-                throw new ProcessNotFoundException("Processes.Length == 0 at PUBG.Attach().");
+                return;
+
+                // throw new ProcessNotFoundException("Processes.Length == 0 at PUBG.Attach().");
             }
 
             if (Processes.Length > 1)
             {
-                Logging.Info(this.GetType(), "Processes.Length > 1 at PUBG.Attach().");
+                Logging.Info(typeof(PUBG), "Processes.Length > 1 at PUBG.Attach().");
 
                 foreach (var Match in Processes)
                 {
@@ -80,56 +187,29 @@
 
             if (Processus == null)
             {
-                throw new ProcessNotFoundException("Processes.Length == 0 at PUBG.Attach().");
+                return;
+                
+                // throw new ProcessNotFoundException("Processus == null at PUBG.Attach().");
             }
             else
             {
-                this._AttachedProcess = Processus;
+                PUBG._AttachedProcess = Processus;
             }
 
-            Logging.Info(this.GetType(), "Process has been attached.");
+            // Logging.Info(typeof(PUBG), "Process has been attached.");
         }
 
         /// <summary>
         /// Detaches this instance to <see cref="PUBG"/>.
         /// </summary>
-        public void Detach()
+        public static void Detach()
         {
-            if (this._AttachedProcess == null)
+            if (PUBG._AttachedProcess == null)
             {
-                Logging.Info(this.GetType(), "_AttachedProcess == null at PUBG.Detach().");
+                Logging.Info(typeof(PUBG), "_AttachedProcess == null at PUBG.Detach().");
             }
 
-            this._AttachedProcess = null;
-        }
-
-        /// <summary>
-        /// Writes the specified message to the attached <see cref="Process"/>.
-        /// </summary>
-        public void Write(string Message)
-        {
-            if (this.IsAttached == false)
-            {
-                return;
-            }
-
-            if (string.IsNullOrEmpty(Message))
-            {
-                return;
-            }
-
-            using (var Hooker = new BattleGroundMemory(Process.GetCurrentProcess()))
-            {
-                foreach (var Window in Hooker.Windows.RemoteWindows)
-                {
-                    if (Window.IsActivated)
-                    {
-                        Window.Keyboard.Write(Message);
-                    }
-                }
-            }
-
-            Logging.Info(this.GetType(), "Message written to the attached process.");
+            PUBG._AttachedProcess = null;
         }
     }
 }

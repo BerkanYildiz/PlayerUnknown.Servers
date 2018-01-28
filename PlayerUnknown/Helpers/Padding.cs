@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown
+﻿namespace PlayerUnknown.Helpers
 {
     using System;
 

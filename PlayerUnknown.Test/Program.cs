@@ -9,7 +9,6 @@
         /// </summary>
         internal static void Main()
         {
-            var PUBG = new PUBG();
             PUBG.Attach();
 
             if (PUBG.IsAttached)

@@ -3,6 +3,8 @@
     using System;
     using System.Diagnostics;
 
+    using PlayerUnknown.Helpers;
+
     public static class Logging
     {
         /// <summary>

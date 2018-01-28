@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D5C4B791-E097-43C6-8921-048C3E1B7170}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>PlayerUnknown</RootNamespace>
-    <AssemblyName>PlayerUnknown</AssemblyName>
+    <ProjectGuid>{BED55CA4-1F04-45DE-948D-E25CD441B371}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PlayerUnknown.NoRecoil</RootNamespace>
+    <AssemblyName>PlayerUnknown.NoRecoil</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>1</WarningLevel>
-    <FileAlignment>512</FileAlignment>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,31 +31,40 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
-    <FileAlignment>1024</FileAlignment>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>PlayerUnknown.NoRecoil.NoRecoil</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\ProcessNotFoundException.cs" />
-    <Compile Include="Helpers\Win32.cs" />
-    <Compile Include="Logging.cs" />
-    <Compile Include="Helpers\Padding.cs" />
-    <Compile Include="PUBG.cs" />
+    <Compile Include="Events\Event.cs" />
+    <Compile Include="Events\EventHandlers.cs" />
+    <Compile Include="Events\Handlers\PubgDetachedEvent.cs" />
+    <Compile Include="Events\Handlers\PubgAttachedEvent.cs" />
+    <Compile Include="Events\Handlers\Weapon\WeaponChangedEvent.cs" />
+    <Compile Include="Events\Handlers\Windows\WindowsMinimizedEvent.cs" />
+    <Compile Include="Events\Handlers\Windows\WindowsNotOnScreenEvent.cs" />
+    <Compile Include="Events\Handlers\Windows\WindowsOnScreenEvent.cs" />
+    <Compile Include="Events\Handlers\Windows\WindowsMaximizedEvent.cs" />
+    <Compile Include="Logic\Mouse.cs" />
+    <Compile Include="Logic\Player.cs" />
+    <Compile Include="Logic\Weapons\Ak47.cs" />
+    <Compile Include="NoRecoil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Logic\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlayerUnknown.Reader\PlayerUnknown.Reader.csproj">
-      <Project>{78a6f97d-5ca8-4e92-8e17-2545983c9555}</Project>
-      <Name>PlayerUnknown.Reader</Name>
+    <ProjectReference Include="..\PlayerUnknown\PlayerUnknown.csproj">
+      <Project>{d5c4b791-e097-43c6-8921-048c3e1b7170}</Project>
+      <Name>PlayerUnknown</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reader\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
