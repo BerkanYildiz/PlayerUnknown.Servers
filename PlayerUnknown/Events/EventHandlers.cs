@@ -1,12 +1,11 @@
-﻿namespace PlayerUnknown.NoRecoil.Events
+﻿namespace PlayerUnknown.Events
 {
     using System;
     using System.Threading.Tasks;
 
-    using PlayerUnknown.NoRecoil.Events.Handlers;
-    using PlayerUnknown.NoRecoil.Events.Handlers.Weapon;
-    using PlayerUnknown.NoRecoil.Events.Handlers.Windows;
-    using PlayerUnknown.NoRecoil.Logic;
+    using PlayerUnknown.Events.Handlers;
+    using PlayerUnknown.Events.Handlers.Weapon;
+    using PlayerUnknown.Events.Handlers.Windows;
 
     public static class EventHandlers
     {
@@ -33,13 +32,14 @@
 
         private static bool IsOnScreen;
 
-        private static Weapon Weapon;
-
         /// <summary>
         /// Runs this instance.
         /// </summary>
         public static async Task Run()
         {
+            EventHandlersMouse.Run();
+            EventHandlersKeyboard.Run();
+
             while (true)
             {
                 if (PUBG.IsAttached)
@@ -138,20 +138,6 @@
                                 EventHandlers.OnWindowsNotShowed.Invoke(null, Event);
                             }
                         }
-                    }
-
-                    var NewWeapon = Player.GetWeapon();
-
-                    if (NewWeapon != EventHandlers.Weapon)
-                    {
-                        var Event = new WeaponChangedEvent(EventHandlers.Weapon, NewWeapon);
-
-                        if (EventHandlers.OnWeaponChanged != null)
-                        {
-                            EventHandlers.OnWeaponChanged.Invoke(null, Event);
-                        }
-
-                        EventHandlers.Weapon = NewWeapon;
                     }
                 }
 

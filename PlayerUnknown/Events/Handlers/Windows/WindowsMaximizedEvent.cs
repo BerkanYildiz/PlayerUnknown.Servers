@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.NoRecoil.Events.Handlers.Windows
+﻿namespace PlayerUnknown.Events.Handlers.Windows
 {
     public class WindowsMaximizedEvent : Event
     {

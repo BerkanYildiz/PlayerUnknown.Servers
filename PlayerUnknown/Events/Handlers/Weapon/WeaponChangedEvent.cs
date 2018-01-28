@@ -1,6 +1,6 @@
-﻿namespace PlayerUnknown.NoRecoil.Events.Handlers.Weapon
+﻿namespace PlayerUnknown.Events.Handlers.Weapon
 {
-    using PlayerUnknown.NoRecoil.Logic;
+    using PlayerUnknown.Logic;
 
     public class WeaponChangedEvent : Event
     {

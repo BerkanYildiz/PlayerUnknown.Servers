@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.NoRecoil.Logic.Weapons
+﻿namespace PlayerUnknown.Logic.Weapons
 {
     public sealed class Ak47 : Weapon
     {

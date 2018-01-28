@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.NoRecoil.Logic
+﻿namespace PlayerUnknown
 {
     using System;
     using System.Drawing;

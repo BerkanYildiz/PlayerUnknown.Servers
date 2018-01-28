@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.NoRecoil.Events.Handlers
+﻿namespace PlayerUnknown.Events.Handlers
 {
     public class PubgAttachedEvent : Event
     {

@@ -3,12 +3,22 @@
     using System;
     using System.Diagnostics;
 
+    using PlayerUnknown.Events;
     using PlayerUnknown.Exceptions;
     using PlayerUnknown.Helpers;
     using PlayerUnknown.Reader.Native;
 
     public static class PUBG
     {
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="PUBG"/> is initiliazed.
+        /// </summary>
+        public static bool Initialized
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets the attached <see cref="PUBG"/> process.
         /// </summary>
@@ -157,6 +167,21 @@
         private static Process _AttachedProcess;
 
         /// <summary>
+        /// Initializes this instance.
+        /// </summary>
+        public static void Initialize()
+        {
+            if (PUBG.Initialized)
+            {
+                return;
+            }
+            
+            EventHandlers.Run();
+
+            PUBG.Initialized = true;
+        }
+
+        /// <summary>
         /// Attaches this instance to <see cref="PUBG"/>.
         /// </summary>
         public static void Attach()
@@ -166,37 +191,33 @@
 
             if (Processes.Length == 0)
             {
-                return;
-
                 // throw new ProcessNotFoundException("Processes.Length == 0 at PUBG.Attach().");
-            }
-
-            if (Processes.Length > 1)
-            {
-                Logging.Info(typeof(PUBG), "Processes.Length > 1 at PUBG.Attach().");
-
-                foreach (var Match in Processes)
-                {
-                    // Get the correct instance.
-                }
             }
             else
             {
-                Processus = Processes[0];
+                if (Processes.Length > 1)
+                {
+                    Logging.Info(typeof(PUBG), "Processes.Length > 1 at PUBG.Attach().");
+
+                    foreach (var Match in Processes)
+                    {
+                        // Get the correct instance.
+                    }
+                }
+                else
+                {
+                    Processus = Processes[0];
+                }
             }
 
             if (Processus == null)
             {
-                return;
-                
                 // throw new ProcessNotFoundException("Processus == null at PUBG.Attach().");
             }
             else
             {
                 PUBG._AttachedProcess = Processus;
             }
-
-            // Logging.Info(typeof(PUBG), "Process has been attached.");
         }
 
         /// <summary>

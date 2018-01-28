@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.NoRecoil.Events
+﻿namespace PlayerUnknown.Events
 {
     public class Event
     {

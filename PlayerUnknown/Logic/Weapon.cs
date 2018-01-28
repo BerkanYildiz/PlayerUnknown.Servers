@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.NoRecoil.Logic
+﻿namespace PlayerUnknown.Logic
 {
     public class Weapon
     {

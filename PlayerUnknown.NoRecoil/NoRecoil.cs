@@ -4,9 +4,7 @@
     using System.Drawing;
     using System.Threading.Tasks;
 
-    using PlayerUnknown.NoRecoil.Events;
-    using PlayerUnknown.NoRecoil.Logic;
-    using PlayerUnknown.NoRecoil.Logic.Weapons;
+    using PlayerUnknown.Logic;
 
     public static class NoRecoil
     {
@@ -17,24 +15,6 @@
         {
             get;
             set;
-        }
-
-        /// <summary>
-        /// Defines the entry point of the application.
-        /// </summary>
-        public static void Main()
-        {
-            PUBG.Attach();
-
-            if (PUBG.IsAttached && PUBG.IsRunning)
-            {
-                Player.SetWeapon(new Ak47());
-            }
-
-            EventHandlers.Run();
-            NoRecoil.Run();
-
-            Console.ReadKey(false);
         }
 
         /// <summary>
@@ -59,11 +39,14 @@
 
                     if (Weapon != null)
                     {
-                        DoRecoil(Weapon.RecoilRate);
-
                         if (Weapon.IsRecoilEnabled)
                         {
-                            await Task.Delay(Weapon.FireRate);
+                            DoRecoil(Weapon.RecoilRate);
+
+                            if (Weapon.FireRate > 0)
+                            {
+                                await Task.Delay(Weapon.FireRate);
+                            }
                         }
                     }
                 }
