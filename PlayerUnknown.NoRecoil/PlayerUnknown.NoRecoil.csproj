@@ -52,6 +52,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PlayerUnknown.Reader\PlayerUnknown.Reader.csproj">
+      <Project>{78A6F97D-5CA8-4E92-8E17-2545983C9555}</Project>
+      <Name>PlayerUnknown.Reader</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlayerUnknown\PlayerUnknown.csproj">
       <Project>{d5c4b791-e097-43c6-8921-048c3e1b7170}</Project>
       <Name>PlayerUnknown</Name>

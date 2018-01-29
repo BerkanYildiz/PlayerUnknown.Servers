@@ -305,6 +305,17 @@
         public int Y;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Point"/> struct.
+        /// </summary>
+        /// <param name="X">The x.</param>
+        /// <param name="Y">The y.</param>
+        public Point(int X, int Y)
+        {
+            this.X = X;
+            this.Y = Y;
+        }
+
+        /// <summary>
         /// Returns a string that represents the current object.
         /// </summary>
         public override string ToString()

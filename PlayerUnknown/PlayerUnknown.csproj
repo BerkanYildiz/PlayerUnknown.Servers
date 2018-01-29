@@ -45,6 +45,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Input.Manipulations" />
+    <Reference Include="System.Windows.Presentation" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\Event.cs" />

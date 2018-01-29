@@ -17,6 +17,17 @@
         {
             get;
         }
+        
+        /// <summary>
+        /// Gets how much time we're gonna multiply the random range.
+        /// </summary>
+        public virtual int RandomnessMultiplier
+        {
+            get
+            {
+                return 1;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether the no recoil is enabled.

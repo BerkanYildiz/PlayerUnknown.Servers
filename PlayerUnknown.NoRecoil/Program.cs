@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading;
+    using System.Windows.Forms;
 
     using Gma.System.MouseKeyHook;
 
@@ -44,10 +45,13 @@
         /// Globals the hook mouse down ext.
         /// </summary>
         /// <param name="Sender">The sender.</param>
-        /// <param name="E">The e.</param>
-        public static void OnMouseClick(object Sender, MouseEventExtArgs E)
+        /// <param name="Args">The args.</param>
+        public static void OnMouseClick(object Sender, MouseEventExtArgs Args)
         {
-            Volatile.Write(ref NoRecoil.IsEnabled, E.IsMouseButtonDown);
+            if ((Args.Button & MouseButtons.Left) != 0)
+            {
+                Volatile.Write(ref NoRecoil.IsEnabled, Args.IsMouseButtonDown);
+            }
         }
     }
 }
