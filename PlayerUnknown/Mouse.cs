@@ -59,8 +59,6 @@
                 throw new ArgumentNullException(nameof(NewPosition) + " == null at Mouse.SetPosition(NewPosition).");
             }
 
-            // Cursor.Position = NewPosition;
-
             if (SimulateEvent)
             {
                 mouse_event((int) MouseEventFlags.Move, 3, 3, 0, 0);

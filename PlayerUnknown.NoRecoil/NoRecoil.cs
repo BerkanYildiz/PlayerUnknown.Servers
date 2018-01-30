@@ -1,7 +1,6 @@
 ﻿namespace PlayerUnknown.NoRecoil
 {
     using System;
-    using System.Drawing;
     using System.Threading.Tasks;
 
     using PlayerUnknown.Logic;
@@ -12,6 +11,11 @@
         /// Gets or sets a value indicating whether the <see cref="NoRecoil"/> is enabled.
         /// </summary>
         public static bool IsEnabled;
+
+        /// <summary>
+        /// Gets or sets the <see cref="Random"/> used to make the <see cref="NoRecoil"/> a bit random.
+        /// </summary>
+        public static Random Random;
 
         /// <summary>
         /// Enables the no recoil.
@@ -26,6 +30,8 @@
             {
                 NoRecoil.IsEnabled = true;
             }
+
+            NoRecoil.Random = new Random();
 
             while (true)
             {
@@ -58,56 +64,25 @@
         /// </summary>
         /// <param name="RecoilRate">The recoil rate.</param>
         /// <param name="Smooth">If set to true, moves the mouse pixel per pixel.</param>
-        private static void DoRecoil(Weapon Weapon, bool Smooth = true)
+        private static void DoRecoil(Weapon Weapon, bool Smooth = false)
         {
-            var CurrentPosition = Mouse.GetPosition();
+            var Randomness      = (1 * Weapon.RandomnessMultiplier);
 
-            var CurrentX        = CurrentPosition.X;
-            var CurrentY        = CurrentPosition.Y;
+            var DiffX           = Random.Next(-Randomness, Randomness + 1);
+            var DiffY           = Random.Next(Weapon.RecoilRate, (Weapon.RecoilRate * 2) + 1);
 
-            var Randomness      = (3 * Weapon.RandomnessMultiplier);
-
-            Random Random       = new Random();
-
-            var DiffX           = Random.Next(-Randomness, Randomness);
-            var DiffY           = Random.Next(Weapon.RecoilRate, (Weapon.RecoilRate * 2));
-
-            var NextPosition    = new Point(CurrentX, CurrentY);
+            var TargetX         = DiffX;
+            var TargetY         = DiffY;
 
             if (Smooth)
             {
-                /* while (true)
+                while (TargetX != 0 && TargetY != 0)
                 {
-                    if (CurrentX < NextX)
-                    {
-                        CurrentX++;
-                    }
-                    else if (CurrentX > NextX)
-                    {
-                        CurrentX--;
-                    }
+                    TargetX     = (TargetX > 0 ? TargetX - 1 : TargetX + 1);
+                    TargetY     = (TargetY > 0 ? TargetY - 1 : TargetY + 1);
 
-                    if (CurrentY < NextY)
-                    {
-                        CurrentY++;
-                    }
-                    else if (CurrentY > NextY)
-                    {
-                        CurrentY--;
-                    }
-
-                    NextPosition.X = CurrentX;
-                    NextPosition.Y = CurrentY;
-
-                    Logging.Info(typeof(Mouse), CurrentX + " - " + CurrentY);
-
-                    Mouse.SetPosition(NextPosition);
-
-                    if (CurrentX == NextX && CurrentY == NextY)
-                    {
-                        break;
-                    }
-                } */
+                    Mouse.MovePosition((DiffX > 0 ? +1 : -1), (DiffY > 0 ? +1 : -1));
+                }
             }
             else
             {

@@ -23,5 +23,16 @@
                 return 3;
             }
         }
+
+        /// <summary>
+        /// Gets how much time we're gonna multiply the random range.
+        /// </summary>
+        public override int RandomnessMultiplier
+        {
+            get
+            {
+                return 3;
+            }
+        }
     }
 }
