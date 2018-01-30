@@ -57,53 +57,61 @@
         /// Does the recoil hack and move the mouse with some randomness.
         /// </summary>
         /// <param name="RecoilRate">The recoil rate.</param>
-        private static void DoRecoil(Weapon Weapon)
+        /// <param name="Smooth">If set to true, moves the mouse pixel per pixel.</param>
+        private static void DoRecoil(Weapon Weapon, bool Smooth = true)
         {
             var CurrentPosition = Mouse.GetPosition();
 
             var CurrentX        = CurrentPosition.X;
             var CurrentY        = CurrentPosition.Y;
 
+            var Randomness      = (3 * Weapon.RandomnessMultiplier);
+
             Random Random       = new Random();
 
-            var NextX           = Random.Next(CurrentX - (3 * Weapon.RandomnessMultiplier), CurrentX + (3 * Weapon.RandomnessMultiplier));
-            var NextY           = Random.Next(CurrentY + Weapon.RecoilRate, CurrentY + (Weapon.RecoilRate * 2));
+            var DiffX           = Random.Next(-Randomness, Randomness);
+            var DiffY           = Random.Next(Weapon.RecoilRate, (Weapon.RecoilRate * 2));
 
             var NextPosition    = new Point(CurrentX, CurrentY);
 
-            Logging.Warning(typeof(Mouse), NextX    + " - " + NextY);
-
-            while (true)
+            if (Smooth)
             {
-                if (CurrentX < NextX)
+                /* while (true)
                 {
-                    CurrentX++;
-                }
-                else if (CurrentX > NextX)
-                {
-                    CurrentX--;
-                }
+                    if (CurrentX < NextX)
+                    {
+                        CurrentX++;
+                    }
+                    else if (CurrentX > NextX)
+                    {
+                        CurrentX--;
+                    }
 
-                if (CurrentY < NextY)
-                {
-                    CurrentY++;
-                }
-                else if (CurrentY > NextY)
-                {
-                    CurrentY--;
-                }
+                    if (CurrentY < NextY)
+                    {
+                        CurrentY++;
+                    }
+                    else if (CurrentY > NextY)
+                    {
+                        CurrentY--;
+                    }
 
-                NextPosition.X = CurrentX;
-                NextPosition.Y = CurrentY;
+                    NextPosition.X = CurrentX;
+                    NextPosition.Y = CurrentY;
 
-                Logging.Info(typeof(Mouse), CurrentX + " - " + CurrentY);
+                    Logging.Info(typeof(Mouse), CurrentX + " - " + CurrentY);
 
-                Mouse.SetPosition(NextPosition);
+                    Mouse.SetPosition(NextPosition);
 
-                if (CurrentX == NextX && CurrentY == NextY)
-                {
-                    break;
-                }
+                    if (CurrentX == NextX && CurrentY == NextY)
+                    {
+                        break;
+                    }
+                } */
+            }
+            else
+            {
+                Mouse.MovePosition(DiffX, DiffY);
             }
         }
     }
