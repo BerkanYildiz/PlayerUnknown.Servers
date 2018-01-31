@@ -43,7 +43,7 @@
                     {
                         if (Weapon.IsRecoilEnabled)
                         {
-                            DoRecoil(Weapon);
+                            await DoRecoil(Weapon);
 
                             if (Weapon.FireRate > 0)
                             {
@@ -64,7 +64,7 @@
         /// </summary>
         /// <param name="RecoilRate">The recoil rate.</param>
         /// <param name="Smooth">If set to true, moves the mouse pixel per pixel.</param>
-        private static void DoRecoil(Weapon Weapon, bool Smooth = false)
+        private static async Task DoRecoil(Weapon Weapon, bool Smooth = false)
         {
             var Randomness      = (1 * Weapon.RandomnessMultiplier);
 
@@ -76,12 +76,39 @@
 
             if (Smooth)
             {
-                while (TargetX != 0 && TargetY != 0)
+                while (true)
                 {
-                    TargetX     = (TargetX > 0 ? TargetX - 1 : TargetX + 1);
-                    TargetY     = (TargetY > 0 ? TargetY - 1 : TargetY + 1);
-
                     Mouse.MovePosition((DiffX > 0 ? +1 : -1), (DiffY > 0 ? +1 : -1));
+
+                    if (TargetX > 0)
+                    {
+                        TargetX = TargetX - 1;
+                    }
+                    else if (TargetX < 0)
+                    {
+                        TargetX = TargetX + 1;
+                    }
+
+                    if (TargetY > 0)
+                    {
+                        TargetY = TargetY - 1;
+                    }
+                    else if (TargetY < 0)
+                    {
+                        TargetY = TargetY + 1;
+                    }
+
+                    if (TargetX == 0 && TargetY == 0)
+                    {
+                        break;
+                    }
+
+                    int Delay = (Weapon.FireRate / 5);
+
+                    if (Delay >= 10)
+                    {
+                        await Task.Delay(Delay);
+                    }
                 }
             }
             else
