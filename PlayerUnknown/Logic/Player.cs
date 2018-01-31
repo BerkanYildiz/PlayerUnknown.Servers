@@ -2,6 +2,7 @@
 {
     using Newtonsoft.Json;
 
+    [JsonObject(MemberSerialization.OptIn)]
     public sealed class Player
     {
         [JsonProperty("profile")]   public Profile Profile;
@@ -51,8 +52,8 @@
         public Player()
         {
             this.Profile    = new Profile();
-            // this.Inventory  = new Inventory();
-            // this.Record     = new Record();
+            this.Inventory  = new Inventory();
+            this.Record     = new Record();
             this.Account    = new Account();
         }
     }

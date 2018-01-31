@@ -84,6 +84,8 @@
     <Compile Include="Database\Models\PlayerDb.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Api\ClientApi.cs" />
+    <Compile Include="Services\Api\UserProxyApi.cs" />
     <Compile Include="Services\UserProxy.cs" />
     <Compile Include="Models\Sessions\PubgSession.cs" />
   </ItemGroup>
@@ -99,6 +101,9 @@
       <Project>{d5c4b791-e097-43c6-8921-048c3e1b7170}</Project>
       <Name>PlayerUnknown</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

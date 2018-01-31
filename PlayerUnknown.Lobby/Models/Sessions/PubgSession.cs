@@ -105,8 +105,6 @@
         /// <param name="Version">The version.</param>
         public async Task<bool> Authenticate(string Provider, string Ticket, string Username, string Password, string PlayerNetId, string CountryCode, string Version)
         {
-            Logging.Info(this.GetType(), Provider + ":");
-
             this.Player = new Player();
 
             if (Provider == "bro")

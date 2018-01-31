@@ -1,7 +1,13 @@
 ﻿namespace PlayerUnknown.Lobby.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Reflection;
+
+    using Newtonsoft.Json.Linq;
+
     using PlayerUnknown.Lobby.Models.Sessions;
-    using PlayerUnknown.Logic;
+    using PlayerUnknown.Network;
 
     using WebSocketSharp;
     using WebSocketSharp.Server;
@@ -43,7 +49,19 @@
 
                     if (Authenticated)
                     {
-                        this.Send("[0,null,\"ClientApi\",\"ConnectionAccepted\",\"account.d97a9d0dc25948f18348816373392734\", " + JsonConvert.SerializeObject(PubgSession.Player) + "]");
+                        var Packet = new Message
+                        {
+                            Service = "ClientApi",
+                            Method  = "ConnectionAccepted"
+                        };
+
+                        Packet.Parameters.Add(PubgSession.Account.AccountId);
+                        Packet.Parameters.Add(JObject.Parse(JsonConvert.SerializeObject(PubgSession.Player)));
+
+                        this.SendAsync(Packet.ToJson(), Completed =>
+                        {
+                            Packet.Log();
+                        });
                     }
                     else
                     {
@@ -54,6 +72,10 @@
                 {
                     Logging.Warning(this.GetType(), "At OnOpen(), TryAdd(PubgSession) == false, aborting.");
                 }
+            }
+            else
+            {
+                Logging.Warning(this.GetType(), "TryGetSession(ID, out IWebSocketSession) != true at UserProxy.OnOpen().");
             }
         }
 
@@ -69,7 +91,34 @@
                 return;
             }
 
-            Logging.Info(this.GetType(), Args.Data + ".");
+            Message Message = new Message(Args.Data);
+
+            if (Message.IsValid)
+            {
+                Type Class = Type.GetType("PlayerUnknown.Lobby.Services.Api." + Message.Service);
+
+                if (Class != null)
+                {
+                    MethodInfo Method = Class.GetMethod(Message.Method, BindingFlags.Static | BindingFlags.Public);
+
+                    if (Method != null)
+                    {
+                        Method.Invoke(null, new object[] { Args, Message });
+                    }
+                    else
+                    {
+                        Logging.Warning(this.GetType(), "Method == null at OnMessage(Args).");
+                    }
+                }
+                else
+                {
+                    Logging.Warning(this.GetType(), "Class(" + Message.Service + ") == null at OnMessage(Args).");
+                }
+            }
+            else
+            {
+                Logging.Warning(this.GetType(), "Message.IsValid != true at OnMessage(Args).");
+            }
         }
     }
 }

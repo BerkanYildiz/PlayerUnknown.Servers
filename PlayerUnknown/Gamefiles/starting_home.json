@@ -1,37 +1,30 @@
-﻿[
-	0,
-	null,
-	"ClientApi",
-	"ConnectionAccepted",
-	"account.d97a9d0dc25948f18348816373392734",	
+﻿{
+	"profile": 
 	{
-		"profile": 
+		"Nickname": null,
+		"ProfileStatus": null,
+		"InviteAllow": null,
+		"Skin": 
 		{
-			"Nickname": "Developer",
-			"ProfileStatus": null,
-			"InviteAllow": null,
-			"Skin": 
-			{
-				"Gender": "male",
-				"Hair": "skindesc.male.hair.02.02",
-				"Face": "skindesc.male.face.01.01",
-				"Presets": "male:M_Hair_B_02:M_Face_01:M_NudeBody_01"
-			}
-		},
-		"inventory": null,
-		"record": null,
-		"account": 
-		{
-			"AccountId": "account.d97a9d0dc25948f18348816373392734",
-			"Region": "na",
-			"PartnerId": null
-		},
-		"inviteAllow": null,
-		"playinggame": null,
-		"avatarUrl": "http://www.eclypsia.com/content/PlayerUnknowns_Battleground/Logo_Jeu.png",
-		"lobbyAppConfig": 
-		{
-			"REPORT_URL": "http://report.playbattlegrounds.com/report"
+			"Gender": "male",
+			"Hair": "skindesc.male.hair.02.02",
+			"Face": "skindesc.male.face.01.01",
+			"Presets": "male:M_Hair_B_02:M_Face_01:M_NudeBody_01"
 		}
+	},
+	"inventory": null,
+	"record": null,
+	"account": 
+	{
+		"AccountId": null,
+		"Region": null,
+		"PartnerId": null
+	},
+	"inviteAllow": null,
+	"playinggame": null,
+	"avatarUrl": null,
+	"lobbyAppConfig": 
+	{
+		"REPORT_URL": "http://report.playbattlegrounds.com/report"
 	}
-]
+}

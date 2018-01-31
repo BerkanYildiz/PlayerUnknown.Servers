@@ -62,6 +62,7 @@
     <Compile Include="Events\Handlers\Windows\WindowsMinimizedEvent.cs" />
     <Compile Include="Events\Handlers\Windows\WindowsNotOnScreenEvent.cs" />
     <Compile Include="Events\Handlers\Windows\WindowsOnScreenEvent.cs" />
+    <Compile Include="Exceptions\PubgMessageException.cs" />
     <Compile Include="Exceptions\PubgSessionException.cs" />
     <Compile Include="Exceptions\ProcessNotFoundException.cs" />
     <None Include="Gamefiles\starting_home.json" />
@@ -78,6 +79,7 @@
     <Compile Include="Logic\Weapon.cs" />
     <Compile Include="Logic\Weapons\Ak47.cs" />
     <Compile Include="Mouse.cs" />
+    <Compile Include="Network\Message.cs" />
     <Compile Include="PUBG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
