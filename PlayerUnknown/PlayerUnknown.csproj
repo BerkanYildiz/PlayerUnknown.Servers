@@ -41,6 +41,9 @@
     <Reference Include="Gma.System.MouseKeyHook, Version=5.6.130.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MouseKeyHook.5.6.0\lib\net40\Gma.System.MouseKeyHook.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -49,6 +52,7 @@
     <Reference Include="System.Windows.Presentation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="Events\Event.cs" />
     <Compile Include="Events\EventHandlers.cs" />
     <Compile Include="Events\Handlers\PubgAttachedEvent.cs" />
@@ -58,11 +62,19 @@
     <Compile Include="Events\Handlers\Windows\WindowsMinimizedEvent.cs" />
     <Compile Include="Events\Handlers\Windows\WindowsNotOnScreenEvent.cs" />
     <Compile Include="Events\Handlers\Windows\WindowsOnScreenEvent.cs" />
+    <Compile Include="Exceptions\PubgSessionException.cs" />
     <Compile Include="Exceptions\ProcessNotFoundException.cs" />
+    <None Include="Gamefiles\starting_home.json" />
     <Compile Include="Helpers\Win32.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="Helpers\Padding.cs" />
+    <Compile Include="Enums\Rank.cs" />
+    <Compile Include="Logic\Account.cs" />
     <Compile Include="Logic\Player.cs" />
+    <Compile Include="Logic\Record.cs" />
+    <Compile Include="Logic\Inventory.cs" />
+    <Compile Include="Logic\Profile.cs" />
+    <Compile Include="Logic\Skin.cs" />
     <Compile Include="Logic\Weapon.cs" />
     <Compile Include="Logic\Weapons\Ak47.cs" />
     <Compile Include="Mouse.cs" />

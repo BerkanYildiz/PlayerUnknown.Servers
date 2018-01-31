@@ -13,6 +13,11 @@
         public static bool IsEnabled;
 
         /// <summary>
+        /// Gets or sets the <see cref="Player"/>, currently playing the game.
+        /// </summary>
+        public static Profile Player;
+
+        /// <summary>
         /// Gets or sets the <see cref="Random"/> used to make the <see cref="NoRecoil"/> a bit random.
         /// </summary>
         public static Random Random;

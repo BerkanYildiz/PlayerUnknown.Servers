@@ -1,37 +1,59 @@
 ﻿namespace PlayerUnknown.Logic
 {
-    using System;
+    using Newtonsoft.Json;
 
-    public static class Player
+    public sealed class Player
     {
-        private static Weapon Weapon;
+        [JsonProperty("profile")]   public Profile Profile;
+        [JsonProperty("inventory")] public Inventory Inventory;
+        [JsonProperty("record")]    public Record Record;
+        [JsonProperty("account")]   public Account Account;
 
-        /// <summary>
-        /// Gets the <see cref="Weapon"/> the <see cref="Player"/> is currently using.
-        /// </summary>
-        public static Weapon GetWeapon()
+        [JsonProperty("inviteAllow")]
+        public object InviteAllow
         {
-            if (Player.Weapon != null)
+            get
             {
-                return Player.Weapon;
+                return this.Profile.InviteAllow;
             }
+        }
 
-            return null;
+        [JsonProperty("playinggame")]
+        public object PlayingGame
+        {
+            get
+            {
+                return null;
+            }
+        }
+        
+        [JsonProperty("avatarUrl")]
+        public string AvatarUrl
+        {
+            get
+            {
+                return string.Empty;
+            }
+        }
+
+        [JsonProperty("lobbyAppConfig")]
+        public object LobbyAppConfig
+        {
+            get
+            {
+                return null;
+            }
         }
 
         /// <summary>
-        /// Sets the weapon.
+        /// Initializes a new instance of the <see cref="Player"/> class.
         /// </summary>
-        /// <param name="Weapon">The weapon.</param>
-        /// <exception cref="ArgumentNullException">Weapon is null.</exception>
-        public static void SetWeapon(Weapon NewWeapon)
+        public Player()
         {
-            if (NewWeapon == null)
-            {
-                throw new ArgumentNullException(nameof(NewWeapon) + " == null at Player.SetWeapon(NewWeapon).");
-            }
-
-            Player.Weapon = NewWeapon;
+            this.Profile    = new Profile();
+            // this.Inventory  = new Inventory();
+            // this.Record     = new Record();
+            this.Account    = new Account();
         }
     }
 }

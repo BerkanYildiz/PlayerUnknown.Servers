@@ -24,7 +24,8 @@
 
             if (PUBG.IsAttached && PUBG.IsRunning)
             {
-                Player.SetWeapon(new Ak47());
+                NoRecoil.Player = new Profile();
+                NoRecoil.Player.SetWeapon(new Ak47());
             }
 
             NoRecoil.Run().Wait();
