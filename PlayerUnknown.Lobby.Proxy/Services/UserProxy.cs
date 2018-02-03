@@ -1,17 +1,13 @@
-﻿namespace PlayerUnknown.Lobby.Services
+﻿namespace PlayerUnknown.Lobby.Proxy.Services
 {
     using System;
     using System.Reflection;
 
-    using Newtonsoft.Json.Linq;
-
-    using PlayerUnknown.Lobby.Models.Sessions;
+    using PlayerUnknown.Lobby.Proxy.Models.Sessions;
     using PlayerUnknown.Network;
 
     using WebSocketSharp;
     using WebSocketSharp.Server;
-
-    using JsonConvert = Newtonsoft.Json.JsonConvert;
 
     public sealed class UserProxy : WebSocketBehavior
     {
@@ -28,44 +24,13 @@
         /// </summary>
         protected override async void OnOpen()
         {
-            Logging.Warning(this.GetType(), "Query : " + this.Context.QueryString.ToString().Replace("&", "  -  "));
-
-            string Provider = this.Context.QueryString.Get("provider");
-            string Ticket   = this.Context.QueryString.Get("ticket");
-            string Username = this.Context.QueryString.Get("id");
-            string Password = this.Context.QueryString.Get("password");
-            string PlayerId = this.Context.QueryString.Get("playerNetId");
-            string Country  = this.Context.QueryString.Get("cc");
-            string Version  = this.Context.QueryString.Get("clientGameVersion");
-
             if (this.Sessions.TryGetSession(this.ID, out IWebSocketSession Session))
             {
-                var PubgSession = new PubgSession(Session);
+                var PubgSession = new PubgSession(Session, this);
 
                 if (Collections.Sessions.TryAdd(PubgSession))
                 {
-                    var Authenticated = await PubgSession.Authenticate(Provider, Ticket, Username, Password, PlayerId, Country, Version);
-
-                    if (Authenticated)
-                    {
-                        var Packet = new Message
-                        {
-                            Service = "ClientApi",
-                            Method  = "ConnectionAccepted"
-                        };
-
-                        Packet.Parameters.Add(PubgSession.Account.AccountId);
-                        Packet.Parameters.Add(JObject.Parse(JsonConvert.SerializeObject(PubgSession.Player)));
-
-                        this.SendAsync(Packet.ToJson(), Completed =>
-                        {
-                            Packet.Log();
-                        });
-                    }
-                    else
-                    {
-                        Logging.Warning(this.GetType(), "Player is not authenticated.");
-                    }
+                    PubgSession.ConnectToServer(this.Context.QueryString.ToString());
                 }
                 else
                 {
@@ -94,7 +59,7 @@
 
             if (Message.IsValid)
             {
-                Type Class = Type.GetType("PlayerUnknown.Lobby.Services.Api." + Message.Service);
+                Type Class = Type.GetType("PlayerUnknown.Lobby.Proxy.Services.Api." + Message.Service);
 
                 if (Class != null)
                 {
@@ -118,6 +83,29 @@
             {
                 Logging.Warning(this.GetType(), "Message.IsValid != true at OnMessage(Args).");
             }
+            
+            var PubgSession = Collections.Sessions.Get(this.ID);
+
+            if (PubgSession != null)
+            {
+                PubgSession.SendMessageToServer(Message);
+            }
+            else
+            {
+                Logging.Warning(this.GetType(), "At OnOpen(), TryAdd(PubgSession) == false, aborting.");
+            }
+        }
+
+        /// <summary>
+        /// Sends the specified <see cref="Message"/> to the client.
+        /// </summary>
+        /// <param name="Message">The message.</param>
+        public void SendMessage(Message Message)
+        {
+            this.SendAsync(Message.ToJson(), Completed =>
+            {
+                Message.Log();
+            });
         }
     }
 }

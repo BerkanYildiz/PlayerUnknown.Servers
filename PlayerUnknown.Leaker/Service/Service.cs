@@ -20,10 +20,15 @@
         {
             Kernel32.Startupinfoex si       = new Kernel32.Startupinfoex();
             Kernel32.ProcessInformation pi  = new Kernel32.ProcessInformation();
-            IntPtr ProcessToken             = IntPtr.Zero, UserToken = IntPtr.Zero, PEnvironment = IntPtr.Zero, CbAttributeListSize = IntPtr.Zero, PAttributeList = IntPtr.Zero;
             Advapi32.SecurityAttributes sa  = new Advapi32.SecurityAttributes();
 
-            pi.hProcess = IntPtr.Zero;
+            IntPtr ProcessToken             = IntPtr.Zero;
+            IntPtr UserToken                = IntPtr.Zero;
+            IntPtr PEnvironment             = IntPtr.Zero;
+            IntPtr CbAttributeListSize      = IntPtr.Zero;
+            IntPtr PAttributeList           = IntPtr.Zero;
+
+            pi.hProcess                     = IntPtr.Zero;
 
             if (!Kernel32.OpenProcessToken(Kernel32.GetCurrentProcess(), Kernel32.TOKEN_ALL_ACCESS, ref ProcessToken))
             {
@@ -204,11 +209,7 @@
                 {
                     if (status == 0xc0000004)
                     {
-                        if (buffer != null)
-                        {
-                            Kernel32.VirtualFree(buffer, BufferSize, 0x8000);
-                        }
-
+                        Kernel32.VirtualFree(buffer, BufferSize, 0x8000);
                         buffer = Kernel32.VirtualAlloc(IntPtr.Zero, BufferSize, 0x1000, 0x40);
                         continue;
                     }
@@ -247,6 +248,7 @@
                         if (Options.UseDuplicateHandle)
                         {
                             ProcessHandle = Kernel32.OpenProcess(0x0040, false, WHandles.ProcessID);
+
                             if (Kernel32.DuplicateHandle(ProcessHandle, (IntPtr) WHandles.Handle, Kernel32.GetCurrentProcess(), ref ProcessCopy, 0x0400, false, 0))
                             {
                                 if (Kernel32.GetProcessId(ProcessCopy) == ProcessId && WHandles.ProcessID != ProcessId)

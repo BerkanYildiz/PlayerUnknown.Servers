@@ -3,7 +3,7 @@
     using System;
     using System.Runtime.InteropServices;
 
-    using PlayerUnknown.Reader.Native;
+    using PlayerUnknown.Native;
 
     public static class Win32
     {

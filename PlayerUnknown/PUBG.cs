@@ -3,10 +3,10 @@
     using System;
     using System.Diagnostics;
 
+    using PlayerUnknown.Enums;
     using PlayerUnknown.Events;
     using PlayerUnknown.Exceptions;
     using PlayerUnknown.Helpers;
-    using PlayerUnknown.Reader.Native;
 
     public static class PUBG
     {

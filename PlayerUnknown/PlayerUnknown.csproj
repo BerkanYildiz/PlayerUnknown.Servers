@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="Enums\WindowStates.cs" />
     <Compile Include="Events\Event.cs" />
     <Compile Include="Events\EventHandlers.cs" />
     <Compile Include="Events\Handlers\PubgAttachedEvent.cs" />
@@ -79,19 +80,12 @@
     <Compile Include="Logic\Weapon.cs" />
     <Compile Include="Logic\Weapons\Ak47.cs" />
     <Compile Include="Mouse.cs" />
+    <Compile Include="Native\Point.cs" />
+    <Compile Include="Native\Rectangle.cs" />
+    <Compile Include="Native\WindowPlacement.cs" />
     <Compile Include="Network\Message.cs" />
     <Compile Include="PUBG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PlayerUnknown.Leaker\PlayerUnknown.Leaker.csproj">
-      <Project>{53939c7a-a5dd-451f-a743-c91a188a3b0f}</Project>
-      <Name>PlayerUnknown.Leaker</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PlayerUnknown.Reader\PlayerUnknown.Reader.csproj">
-      <Project>{78a6f97d-5ca8-4e92-8e17-2545983c9555}</Project>
-      <Name>PlayerUnknown.Reader</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Events\Hooks\" />

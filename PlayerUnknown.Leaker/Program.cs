@@ -3,10 +3,10 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Windows.Forms;
 
     using PlayerUnknown.Leaker.Imports;
     using PlayerUnknown.Leaker.Proc;
+    using PlayerUnknown.Leaker.Service;
 
     internal static class Program
     {
@@ -14,74 +14,65 @@
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        private static void Main(string[] Args)
+        private static void Main()
         {
             CProcess CurrentProcess    = new CProcess();
             CProcess TargetProcess     = new CProcess(Options.TargetProcess);
-            CProcess ServProcess;
 
-            IntPtr HProcess = IntPtr.Zero;
+            Logging.Info(typeof(Program), "Leaker has been configured.");
 
-            int counter  = 0;
-            int MaxCount = 1;
+            CurrentProcess.SetPrivilege("SeDebugPrivilege", true);
+            CurrentProcess.SetPrivilege("SeTcbPrivilege", true);
 
-            List<Service.Service.HandleInfo> HandleList = new List<Service.Service.HandleInfo>();
+            Logging.Info(typeof(Program), "Waiting for a few seconds..");
 
-            if (Args.Length == 0)
+            TargetProcess.Wait(Options.DelayToWait);
+
+            Logging.Info(typeof(Program), "Resuming..");
+
+            if (TargetProcess.IsValidProcess())
             {
-                CurrentProcess.SetPrivilege("SeDebugPrivilege", true);
-                CurrentProcess.SetPrivilege("SeTcbPrivilege", true);
+                Logging.Info(typeof(Program), "The target process is valid.");
 
-                TargetProcess.Wait(Options.DelayToWait);
+                var Handles = Service.Service.ServiceEnumHandles(TargetProcess.GetPid(), Options.DesiredAccess);
 
-                if (TargetProcess.IsValidProcess())
+                Logging.Info(typeof(Program), "We've detected " + Handles.Count + " processes : ");
+                
+                foreach (HandleInfo HandleInfo in Handles)
                 {
-                    HandleList = Service.Service.ServiceEnumHandles(TargetProcess.GetPid(), Options.DesiredAccess);
-
-                    if (HandleList.Count > 0)
+                    Logging.Info(typeof(Program), " - " + HandleInfo.Pid + ".");
+                    
+                    if (HandleInfo.Pid == Kernel32.GetCurrentProcessId())
                     {
-                        foreach (Service.Service.HandleInfo enumerator in HandleList)
-                        {
-                            if (counter == MaxCount)
-                            {
-                                break;
-                            }
-
-                            if (enumerator.Pid == Kernel32.GetCurrentProcessId())
-                            {
-                                continue;
-                            }
-
-                            ServProcess = new CProcess(enumerator.Pid);
-
-                            if (Service.Service.ServiceSetHandleStatus(ServProcess, enumerator.HProcess, true, true))
-                            {
-                                HProcess = Service.Service.ServiceStartProcess(null, Directory.GetCurrentDirectory() + "\\" + Options.YourProcess + " " + enumerator.HProcess, null, true, ServProcess.GetHandle());
-                                Service.Service.ServiceSetHandleStatus(ServProcess, enumerator.HProcess, false, false);
-                                counter++;
-                            }
-
-                            if (HProcess != null)
-                            {
-                                Kernel32.CloseHandle(HProcess);
-                            }
-
-                            ServProcess.Close();
-                        }
+                        Logging.Info(typeof(Program), "The detected process was PlayerUnknown.Leaker");
+                        continue;
                     }
 
-                    TargetProcess.Close();
+                    var ServProcess = new CProcess(HandleInfo.Pid);
+
+                    IntPtr HProcess;
+
+                    if (Service.Service.ServiceSetHandleStatus(ServProcess, HandleInfo.HProcess, true, true))
+                    {
+                        // HProcess = Service.Service.ServiceStartProcess(null, Directory.GetCurrentDirectory() + "\\" + Options.YourProcess + " " + HandleInfo.HProcess, null, true, ServProcess.GetHandle());
+                        // Service.Service.ServiceSetHandleStatus(ServProcess, HandleInfo.HProcess, false, false);
+                        // Kernel32.CloseHandle(HProcess);
+                    }
+
+                    // ServProcess.Close();
                 }
 
-                CurrentProcess.SetPrivilege("SeDebugPrivilege", false);
-                CurrentProcess.SetPrivilege("SeTcbPrivilege", false);
+                // TargetProcess.Close();
             }
-            else if (Args.Length == 1)
+            else
             {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new HLeakerGui((IntPtr) Convert.ToInt32(Args[Args.Length - 1])));
+                Logging.Warning(typeof(Program), "The target process is not valid.");
             }
+
+            CurrentProcess.SetPrivilege("SeDebugPrivilege", false);
+            CurrentProcess.SetPrivilege("SeTcbPrivilege", false);
+
+            Console.ReadKey(false);
         }
     }
 }

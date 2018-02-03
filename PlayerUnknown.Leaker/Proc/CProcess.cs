@@ -61,7 +61,7 @@
         /// </summary>
         public bool Wait(int Interval)
         {
-            if (this.ProcessName.Length == 0)
+            if (string.IsNullOrEmpty(this.ProcessName))
             {
                 return false;
             }
@@ -155,7 +155,7 @@
         /// </summary>
         public bool Open(uint DesiredAccess = 0x1fffff)
         {
-            if (this.ProcessName.Length == 0)
+            if (string.IsNullOrEmpty(this.ProcessName))
             {
                 return false;
             }

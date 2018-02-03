@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{53939C7A-A5DD-451F-A743-C91A188A3B0F}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlayerUnknown.Leaker</RootNamespace>
     <AssemblyName>PlayerUnknown.Leaker</AssemblyName>
@@ -93,12 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Imports\Advapi32.cs" />
-    <Compile Include="HLeaker_GUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HLeaker_GUI.Designer.cs">
-      <DependentUpon>HLeaker_GUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="Imports\Kernel32.cs" />
     <Compile Include="Proc\CProcess.cs" />
     <Compile Include="Imports\ntdll.cs" />
@@ -110,9 +104,6 @@
     <Compile Include="Service\Service.cs" />
     <Compile Include="Imports\UserEnv.cs" />
     <Compile Include="Service\ThreadIn.cs" />
-    <EmbeddedResource Include="HLeaker_GUI.resx">
-      <DependentUpon>HLeaker_GUI.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -136,6 +127,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlayerUnknown\PlayerUnknown.csproj">
+      <Project>{d5c4b791-e097-43c6-8921-048c3e1b7170}</Project>
+      <Name>PlayerUnknown</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
