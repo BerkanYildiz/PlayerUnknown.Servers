@@ -3,6 +3,7 @@
     using System;
     using System.Threading.Tasks;
 
+    using PlayerUnknown.Lobby.Services;
     using PlayerUnknown.Logic;
 
     using WebSocketSharp;
@@ -17,7 +18,7 @@
         /// <value>
         /// The parent.
         /// </value>
-        public IWebSocketSession Parent
+        public UserProxy Client
         {
             get;
         }
@@ -32,7 +33,7 @@
         {
             get
             {
-                return this.Parent.ID;
+                return this.Client?.ID;
             }
         }
 
@@ -87,10 +88,10 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="PubgSession"/> class.
         /// </summary>
-        /// <param name="Session">The session.</param>
-        public PubgSession(IWebSocketSession Session)
+        /// <param name="UserProxy">The client.</param>
+        public PubgSession(UserProxy UserProxy)
         {
-            this.Parent = Session;
+            this.Client = UserProxy;
         }
 
         /// <summary>

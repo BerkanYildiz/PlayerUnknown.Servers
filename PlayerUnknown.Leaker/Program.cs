@@ -1,8 +1,6 @@
 ﻿namespace PlayerUnknown.Leaker
 {
     using System;
-    using System.Collections.Generic;
-    using System.IO;
 
     using PlayerUnknown.Leaker.Imports;
     using PlayerUnknown.Leaker.Proc;

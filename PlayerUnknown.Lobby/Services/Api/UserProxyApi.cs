@@ -6,6 +6,10 @@
 
     public static class UserProxyApi
     {
+        public static void Ping(MessageEventArgs Args, Message Message)
+        {
+            // Ping.
+        }
         public static void GetInventory(MessageEventArgs Args, Message Message)
         {
             // GetInventory.

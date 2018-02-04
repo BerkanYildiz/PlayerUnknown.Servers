@@ -40,7 +40,7 @@
 
             if (this.Sessions.TryGetSession(this.ID, out IWebSocketSession Session))
             {
-                var PubgSession = new PubgSession(Session);
+                var PubgSession = new PubgSession(this);
 
                 if (Collections.Sessions.TryAdd(PubgSession))
                 {
