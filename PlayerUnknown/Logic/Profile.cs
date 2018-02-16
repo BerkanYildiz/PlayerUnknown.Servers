@@ -14,8 +14,8 @@
         /// </summary>
         public Profile()
         {
-            this.Nickname = "Developer";
-            this.Skin = new Skin();
+            this.Nickname   = "Developer";
+            this.Skin       = new Skin();
         }
     }
 }

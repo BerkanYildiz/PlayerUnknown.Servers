@@ -5,6 +5,9 @@
     [JsonObject(MemberSerialization.OptIn)]
     public sealed class Player
     {
+        [JsonProperty("username")]  public string Username;
+        [JsonProperty("password")]  public string Password;
+
         [JsonProperty("profile")]   public Profile Profile;
         [JsonProperty("inventory")] public Inventory Inventory;
         [JsonProperty("record")]    public Record Record;

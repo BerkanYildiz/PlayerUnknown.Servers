@@ -57,7 +57,7 @@
         {
             this.HighId     = BattleLog.HighId;
             this.LowId      = BattleLog.LowId;
-            this.Profile    = BsonDocument.Parse(JsonConvert.SerializeObject(BattleLog, BattleDb.JsonSettings));
+            this.Content    = BsonDocument.Parse(JsonConvert.SerializeObject(BattleLog, BattleDb.JsonSettings));
         }
 
         /// <summary>
@@ -79,7 +79,7 @@
                 BattleDb.HighId == BattleLog.HighId &&
                 BattleDb.LowId  == BattleLog.LowId,
                 
-                Builders<BattleDb>.Update.Set(BattleDb => BattleDb.Profile, BsonDocument.Parse(JsonConvert.SerializeObject(BattleLog, BattleDb.JsonSettings)))
+                Builders<BattleDb>.Update.Set(BattleDb => BattleDb.Content, BsonDocument.Parse(JsonConvert.SerializeObject(BattleLog, BattleDb.JsonSettings)))
             );
 
             if (UpdatedEntity != null)
@@ -181,9 +181,9 @@
         /// </summary>
         public bool Deserialize(out BattleLog BattleLog)
         {
-            if (this.Profile != null)
+            if (this.Content != null)
             {
-                BattleLog = JsonConvert.DeserializeObject<BattleLog>(this.Profile.ToJson(), BattleDb.JsonSettings);
+                BattleLog = JsonConvert.DeserializeObject<BattleLog>(this.Content.ToJson(), BattleDb.JsonSettings);
 
                 if (BattleLog != null)
                 {

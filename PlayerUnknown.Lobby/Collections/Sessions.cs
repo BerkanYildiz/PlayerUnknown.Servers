@@ -97,6 +97,31 @@
         }
 
         /// <summary>
+        /// Removes the specified entity.
+        /// </summary>
+        /// <param name="ID">The identifier.</param>
+        public static bool TryRemove(string ID)
+        {
+            if (Sessions.Entities.TryRemove(ID, out PubgSession TmpEntity))
+            {
+                if (TmpEntity.ID == ID)
+                {
+                    return true;
+                }
+                else
+                {
+                    Logging.Error(typeof(Sessions), "TmpEntity.ID != ID at Remove(ID).");
+                }
+            }
+            else
+            {
+                Logging.Error(typeof(Sessions), "TryRemove(ID, out TmpEntity) != true at Remove(ID).");
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// Gets the entity using the specified identifier.
         /// </summary>
         /// <param name="Identifier">The identifier.</param>

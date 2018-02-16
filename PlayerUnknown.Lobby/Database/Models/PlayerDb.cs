@@ -24,7 +24,7 @@
         };
 
         [BsonId]                    public BsonObjectId _id;
-        [BsonElement("profile")]    public BsonDocument Profile;
+        [BsonElement("profile")]    public BsonDocument Content;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerDb"/> class.
@@ -46,7 +46,7 @@
             }
 
             this._id     = ObjectId.Parse(Player.Account.AccountId);
-            this.Profile = BsonDocument.Parse(JsonConvert.SerializeObject(Player, PlayerDb.JsonSettings));
+            this.Content = BsonDocument.Parse(JsonConvert.SerializeObject(Player, PlayerDb.JsonSettings));
         }
 
         /// <summary>
@@ -65,7 +65,7 @@
         {
             var UpdatedEntity = await GameDb.Players.FindOneAndUpdateAsync(PlayerDb =>
                 PlayerDb._id == Player.Account.AccountId,
-                Builders<PlayerDb>.Update.Set(PlayerDb => PlayerDb.Profile, BsonDocument.Parse(JsonConvert.SerializeObject(Player, PlayerDb.JsonSettings)))
+                Builders<PlayerDb>.Update.Set(PlayerDb => PlayerDb.Content, BsonDocument.Parse(JsonConvert.SerializeObject(Player, PlayerDb.JsonSettings)))
             );
 
             if (UpdatedEntity != null)
@@ -95,6 +95,41 @@
             if (!string.IsNullOrEmpty(AccountId))
             {
                 var Entities = await GameDb.Players.FindAsync(Player => Player._id == AccountId);
+
+                if (Entities != null)
+                {
+                    var Entity = Entities.FirstOrDefault();
+
+                    if (Entity != null)
+                    {
+                        return Entity;
+                    }
+                    else
+                    {
+                        Logging.Error(typeof(PlayerDb), "Entity == null at Load().");
+                    }
+                }
+                else
+                {
+                    Logging.Error(typeof(PlayerDb), "Entities == null at Load().");
+                }
+            }
+            else
+            {
+                Logging.Error(typeof(PlayerDb), "this.LowId < 0 at Load().");
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Loads this instance from the database.
+        /// </summary>
+        public static async Task<PlayerDb> Load(string Username, string Password)
+        {
+            if (!string.IsNullOrEmpty(Username))
+            {
+                var Entities = await GameDb.Players.FindAsync(Player => Player.Content["username"] == Username);
 
                 if (Entities != null)
                 {
@@ -167,9 +202,9 @@
         /// </summary>
         public bool Deserialize(out Player Player)
         {
-            if (this.Profile != null)
+            if (this.Content != null)
             {
-                Player = JsonConvert.DeserializeObject<Player>(this.Profile.ToJson(), PlayerDb.JsonSettings);
+                Player = JsonConvert.DeserializeObject<Player>(this.Content.ToJson(), PlayerDb.JsonSettings);
 
                 if (Player != null)
                 {

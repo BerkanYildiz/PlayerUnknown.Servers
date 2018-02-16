@@ -94,11 +94,6 @@
                 Entity = new Player();
             }
 
-            if (string.IsNullOrEmpty(Entity.Account.Password))
-            {
-                // Entity.Password = XorShift.NextToken();
-            }
-
             await PlayerDb.Create(Entity);
 
             if (Store)
@@ -139,6 +134,47 @@
                     else
                     {
                         Logging.Error(typeof(Players), "PlayerDb.Deserialize(out Player) != true at Get(" + AccountId + ").");
+                    }
+                }
+                else
+                {
+                    Logging.Warning(typeof(Players), "PlayerDb == null at Get(HighId, LowId).");
+                }
+            }
+
+            return Player;
+        }
+        
+        /// <summary>
+        /// Gets the entity using the specified identifier.
+        /// </summary>
+        /// <param name="AccountId">The account identifier.</param>
+        /// <param name="Store">Whether it has to be stored.</param>
+        public static async Task<Player> Get(string Username, string Password, bool Store = true)
+        {
+            PlayerDb PlayerDb = await PlayerDb.Load(Username, Password);
+            Player Player     = null;
+
+            /* if (Players.Entities.TryGetValue(PlayerDb., out Player))
+            {
+                return Player;
+            }
+            else */
+            {
+                if (PlayerDb != null)
+                {
+                    if (PlayerDb.Deserialize(out Player))
+                    {
+                        if (Store)
+                        {
+                            Players.Add(Player);
+                        }
+
+                        return Player;
+                    }
+                    else
+                    {
+                        Logging.Error(typeof(Players), "PlayerDb.Deserialize(out Player) != true at Get(" + Username + ", " + Password + ").");
                     }
                 }
                 else

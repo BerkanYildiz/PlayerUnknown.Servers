@@ -6,7 +6,6 @@
     using PlayerUnknown.Lobby.Database;
     using PlayerUnknown.Lobby.Services;
 
-    using WebSocketSharp;
     using WebSocketSharp.Server;
 
     public class Program

@@ -3,11 +3,11 @@
     using System;
     using System.Threading.Tasks;
 
+    using PlayerUnknown.Lobby.Collections;
+    using PlayerUnknown.Lobby.Database;
     using PlayerUnknown.Lobby.Services;
     using PlayerUnknown.Logic;
 
-    using WebSocketSharp;
-    using WebSocketSharp.Net.WebSockets;
     using WebSocketSharp.Server;
 
     public sealed class PubgSession
@@ -106,19 +106,29 @@
         /// <param name="Version">The version.</param>
         public async Task<bool> Authenticate(string Provider, string Ticket, string Username, string Password, string PlayerNetId, string CountryCode, string Version)
         {
-            this.Player = new Player();
-
             if (Provider == "bro")
             {
-                this.Account.Password   = Password;
-                this.Account.Region     = "EU";
+                this.Player = await Players.Get(Username, Password);
+
+                if (this.Player != null)
+                {
+                    return true;
+                }
             }
             else if (Provider == "steam")
             {
-                // Steam, use Ticket + NetId
+                // Not implemented yet.
+            }
+            else if (Provider == "outer")
+            {
+                // Not implemented yet.
+            }
+            else if (Provider == "xbox")
+            {
+                // How ?
             }
 
-            return true;
+            return false;
         }
     }
 }
