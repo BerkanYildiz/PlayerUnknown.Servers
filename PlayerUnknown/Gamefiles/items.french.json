@@ -1,0 +1,1068 @@
+﻿{
+    "ITEM:21090001": {
+        "item_id": 21090001,
+        "game_item_short_id": "Item_Belt_D_01_C",
+        "name": "Ceinture utilitaire",
+        "description": "Tenue de base. Ne peut pas être vendue."
+    },
+    "ITEM:31010001": {
+        "item_id": 31010001,
+        "game_item_short_id": "Item_Body_BR02_01_C",
+        "name": "Chemise d'école avec cravate"
+    },
+    "ITEM:31010002": {
+        "item_id": 31010002,
+        "game_item_short_id": "Item_Body_BR03_01_C",
+        "name": "Chemise orange"
+    },
+    "ITEM:31010003": {
+        "item_id": 31010003,
+        "game_item_short_id": "Item_Body_BR06_01_C",
+        "name": "Chemise d'école (ouverte)"
+    },
+    "ITEM:31010004": {
+        "item_id": 31010004,
+        "game_item_short_id": "Item_Body_BR07_01_C",
+        "name": "Chemise d'école"
+    },
+    "ITEM:11010027": {
+        "item_id": 11010027,
+        "game_item_short_id": "Item_Body_Camo_01_C",
+        "name": "chemise raglan"
+    },
+    "ITEM:11010006": {
+        "item_id": 11010006,
+        "game_item_short_id": "Item_Body_C_01_C",
+        "name": "Débardeur sale (blanc)"
+    },
+    "ITEM:11010014": {
+        "item_id": 11010014,
+        "game_item_short_id": "Item_Body_C_02_C",
+        "name": "Débardeur (gris foncé)"
+    },
+    "ITEM:11010008": {
+        "item_id": 11010008,
+        "game_item_short_id": "Item_Body_C_03_C",
+        "name": "Débardeur sale (gris)"
+    },
+    "ITEM:11010001": {
+        "item_id": 11010001,
+        "game_item_short_id": "Item_Body_C_04_C",
+        "name": "Débardeur ensanglanté (blanc)"
+    },
+    "ITEM:11010018": {
+        "item_id": 11010018,
+        "game_item_short_id": "Item_Body_C_05_C",
+        "name": "Débardeur Princess Power"
+    },
+    "ITEM:11010019": {
+        "item_id": 11010019,
+        "game_item_short_id": "Item_Body_C_06_C",
+        "name": "Débardeur rayé"
+    },
+    "ITEM:31019901": {
+        "item_id": 31019901,
+        "game_item_short_id": "Item_Body_DEV_01_C",
+        "name": "Chemise de développeur ",
+        "description": "Chemise de développeur "
+    },
+    "ITEM:31010009": {
+        "item_id": 31010009,
+        "game_item_short_id": "Item_Body_DMM_01_C",
+        "name": "T-Shirt DMM"
+    },
+    "ITEM:11010002": {
+        "item_id": 11010002,
+        "game_item_short_id": "Item_Body_D_01_C",
+        "name": "Chemise (blanche)"
+    },
+    "ITEM:11010003": {
+        "item_id": 11010003,
+        "game_item_short_id": "Item_Body_D_02_C",
+        "name": "Chemise (noir)"
+    },
+    "ITEM:11010004": {
+        "item_id": 11010004,
+        "game_item_short_id": "Item_Body_D_03_C",
+        "name": "Chemise ensanglantée"
+    },
+    "ITEM:11010005": {
+        "item_id": 11010005,
+        "game_item_short_id": "Item_Body_D_04_C",
+        "name": "Chemise à fleurs"
+    },
+    "ITEM:31010013": {
+        "item_id": 31010013,
+        "game_item_short_id": "Item_Body_EA_01_C",
+        "name": "PIONEER SHIRT"
+    },
+    "ITEM:21010001": {
+        "item_id": 21010001,
+        "game_item_short_id": "Item_Body_F_01_C",
+        "name": "T-shirt (blanc)",
+        "description": "Tenue de base. Ne peut pas être vendue."
+    },
+    "ITEM:11010009": {
+        "item_id": 11010009,
+        "game_item_short_id": "Item_Body_F_02_C",
+        "name": "T-shirt (rouge)"
+    },
+    "ITEM:11010010": {
+        "item_id": 11010010,
+        "game_item_short_id": "Item_Body_F_03_C",
+        "name": "T-shirt (rayé)"
+    },
+    "ITEM:21010002": {
+        "item_id": 21010002,
+        "game_item_short_id": "Item_Body_F_04_C",
+        "name": "T-shirt (GRIS)",
+        "description": "Tenue de base. Ne peut pas être vendue."
+    },
+    "ITEM:11010020": {
+        "item_id": 11010020,
+        "game_item_short_id": "Item_Body_F_05_C",
+        "name": "T-shirt (rayé rose)"
+    },
+    "ITEM:11010021": {
+        "item_id": 11010021,
+        "game_item_short_id": "Item_Body_F_06_C",
+        "name": "T-shirt à pois"
+    },
+    "ITEM:11010011": {
+        "item_id": 11010011,
+        "game_item_short_id": "Item_Body_G_01_C",
+        "name": "T-shirt à manches longues (noir)"
+    },
+    "ITEM:11010012": {
+        "item_id": 11010012,
+        "game_item_short_id": "Item_Body_G_02_C",
+        "name": "T-shirt à manches longues (bleu clair)"
+    },
+    "ITEM:11010013": {
+        "item_id": 11010013,
+        "game_item_short_id": "Item_Body_G_03_C",
+        "name": "T-shirt à manches longues (rayé)"
+    },
+    "ITEM:11010028": {
+        "item_id": 11010028,
+        "game_item_short_id": "Item_Body_G_04_C",
+        "name": "T-shirt sale à manches longues"
+    },
+    "ITEM:11010029": {
+        "item_id": 11010029,
+        "game_item_short_id": "Item_Body_G_05_C",
+        "name": "T-shirt à manches longues (rouge)"
+    },
+    "ITEM:11010007": {
+        "item_id": 11010007,
+        "game_item_short_id": "Item_Body_I_01_C",
+        "name": "Chemise à col roulé"
+    },
+    "ITEM:11010022": {
+        "item_id": 11010022,
+        "game_item_short_id": "Item_Body_I_02_C",
+        "name": "Col roulé sans manches (noir)"
+    },
+    "ITEM:11010023": {
+        "item_id": 11010023,
+        "game_item_short_id": "Item_Body_I_03_C",
+        "name": "Col roulé sans manches (gris)"
+    },
+    "ITEM:11010024": {
+        "item_id": 11010024,
+        "game_item_short_id": "Item_Body_I_04_C",
+        "name": "Col roulé sans manches (rouge)"
+    },
+    "ITEM:11010025": {
+        "item_id": 11010025,
+        "game_item_short_id": "Item_Body_I_05_C",
+        "name": "Haut à col roulé sans manches (gris)"
+    },
+    "ITEM:31010011": {
+        "item_id": 31010011,
+        "game_item_short_id": "Item_Body_kakao_01_C",
+        "name": "T-shirt kakao"
+    },
+    "ITEM:11010026": {
+        "item_id": 11010026,
+        "game_item_short_id": "Item_Body_L_01_C",
+        "name": "Chemise en cuir à manches longues"
+    },
+    "ITEM:31010010": {
+        "item_id": 31010010,
+        "game_item_short_id": "Item_Body_Mailru_01_C",
+        "name": "T-shirt à rayures Telnyashka"
+    },
+    "ITEM:31010007": {
+        "item_id": 31010007,
+        "game_item_short_id": "Item_Body_Panda_01_C",
+        "name": "T-Shirt PandaTV"
+    },
+    "ITEM:31010008": {
+        "item_id": 31010008,
+        "game_item_short_id": "Item_Body_Panda_02_C",
+        "name": "T-Shirt Laogong"
+    },
+    "ITEM:31010005": {
+        "item_id": 31010005,
+        "game_item_short_id": "Item_Body_PU_01_C",
+        "name": "Chemise grise"
+    },
+    "ITEM:11010015": {
+        "item_id": 11010015,
+        "game_item_short_id": "Item_Body_PU_02_C",
+        "name": "chemise à carreaux (rouge)"
+    },
+    "ITEM:11010016": {
+        "item_id": 11010016,
+        "game_item_short_id": "Item_Body_PU_03_C",
+        "name": "chemise à carreaux (blanc)"
+    },
+    "ITEM:11010017": {
+        "item_id": 11010017,
+        "game_item_short_id": "Item_Body_PU_04_C",
+        "name": "chemise grise assortie "
+    },
+    "ITEM:11010030": {
+        "item_id": 11010030,
+        "game_item_short_id": "Item_Body_PU_05_C",
+        "name": "Chemise à fleurs (blanche)"
+    },
+    "ITEM:11010031": {
+        "item_id": 11010031,
+        "game_item_short_id": "Item_Body_PU_06_C",
+        "name": "Chemise à fleurs (noire)"
+    },
+    "ITEM:11010032": {
+        "item_id": 11010032,
+        "game_item_short_id": "Item_Body_PU_07_C",
+        "name": "Chemise à carreaux (choral)"
+    },
+    "ITEM:11010033": {
+        "item_id": 11010033,
+        "game_item_short_id": "Item_Body_PU_08_C",
+        "name": "Chemise à rayures (grise)"
+    },
+    "ITEM:31010006": {
+        "item_id": 31010006,
+        "game_item_short_id": "Item_Body_TW_01_C",
+        "name": "Chemise Twitch Prime"
+    },
+    "ITEM:31010012": {
+        "item_id": 31010012,
+        "game_item_short_id": "Item_Body_XB_01_C",
+        "name": "T-shirt à motif vert"
+    },
+    "ITEM:11080001": {
+        "item_id": 11080001,
+        "game_item_short_id": "Item_Eyes_A_01_C",
+        "name": "Lunettes (punk) "
+    },
+    "ITEM:11080002": {
+        "item_id": 11080002,
+        "game_item_short_id": "Item_Eyes_D_01_C",
+        "name": "Lunettes de soleil"
+    },
+    "ITEM:11080005": {
+        "item_id": 11080005,
+        "game_item_short_id": "Item_Eyes_D_02_C",
+        "name": "Lunettes sans monture"
+    },
+    "ITEM:11080006": {
+        "item_id": 11080006,
+        "game_item_short_id": "Item_Eyes_D_03_C",
+        "name": "Lunettes de protection"
+    },
+    "ITEM:11080003": {
+        "item_id": 11080003,
+        "game_item_short_id": "Item_Eyes_H_01_C",
+        "name": "Lunettes d'aviateur"
+    },
+    "ITEM:11080004": {
+        "item_id": 11080004,
+        "game_item_short_id": "Item_Eyes_I_01_C",
+        "name": "Lunettes de soleil d'aviateur"
+    },
+    "ITEM:11080007": {
+        "item_id": 11080007,
+        "game_item_short_id": "Item_Eyes_L_01_C",
+        "name": "Lunettes à monture d'écailles (noires)"
+    },
+    "ITEM:11080008": {
+        "item_id": 11080008,
+        "game_item_short_id": "Item_Eyes_L_02_C",
+        "name": "Lunettes à monture en corne (marron)"
+    },
+    "ITEM:11030004": {
+        "item_id": 11030004,
+        "game_item_short_id": "Item_Feet_A_01_C",
+        "name": "Bottes (punk)"
+    },
+    "ITEM:11030012": {
+        "item_id": 11030012,
+        "game_item_short_id": "Item_Feet_A_02_C",
+        "name": "Bottes hautes en cuir (marron)"
+    },
+    "ITEM:31030001": {
+        "item_id": 31030001,
+        "game_item_short_id": "Item_Feet_BR01_01_C",
+        "name": "Tennis ensanglantées"
+    },
+    "ITEM:31030002": {
+        "item_id": 31030002,
+        "game_item_short_id": "Item_Feet_BR02_01_C",
+        "name": "Tennis (BLANC)"
+    },
+    "ITEM:11030008": {
+        "item_id": 11030008,
+        "game_item_short_id": "Item_Feet_BR02_02_C",
+        "name": "Baskets (noires)"
+    },
+    "ITEM:31030003": {
+        "item_id": 31030003,
+        "game_item_short_id": "Item_Feet_BR06_01_C",
+        "name": "Chaussures d’école"
+    },
+    "ITEM:31030004": {
+        "item_id": 31030004,
+        "game_item_short_id": "Item_Feet_BR07_01_C",
+        "name": "Tennis velcro"
+    },
+    "ITEM:11030001": {
+        "item_id": 11030001,
+        "game_item_short_id": "Item_Feet_D_01_C",
+        "name": "Bottes de travail"
+    },
+    "ITEM:11030007": {
+        "item_id": 11030007,
+        "game_item_short_id": "Item_Feet_D_02_C",
+        "name": "Chaussures grises"
+    },
+    "ITEM:21030002": {
+        "item_id": 21030002,
+        "game_item_short_id": "Item_Feet_E_01_C",
+        "name": "Baskets",
+        "description": "Tenue de base. Ne peut pas être vendue."
+    },
+    "ITEM:11030005": {
+        "item_id": 11030005,
+        "game_item_short_id": "Item_Feet_E_02_C",
+        "name": "Baskets bleues"
+    },
+    "ITEM:11030006": {
+        "item_id": 11030006,
+        "game_item_short_id": "Item_Feet_E_03_C",
+        "name": "Baskets marrons"
+    },
+    "ITEM:11030002": {
+        "item_id": 11030002,
+        "game_item_short_id": "Item_Feet_H_01_C",
+        "name": "Chaussures d’école (noir)"
+    },
+    "ITEM:11030009": {
+        "item_id": 11030009,
+        "game_item_short_id": "Item_Feet_H_02_C",
+        "name": "Chaussures d’école (marron)"
+    },
+    "ITEM:11030003": {
+        "item_id": 11030003,
+        "game_item_short_id": "Item_Feet_I_01_C",
+        "name": "Chaussures faciles à mettre"
+    },
+    "ITEM:11030010": {
+        "item_id": 11030010,
+        "game_item_short_id": "Item_Feet_L_01_C",
+        "name": "Bottes en cuir (marron)"
+    },
+    "ITEM:11030011": {
+        "item_id": 11030011,
+        "game_item_short_id": "Item_Feet_L_02_C",
+        "name": "Bottes en cuir (noir)"
+    },
+    "ITEM:31030005": {
+        "item_id": 31030005,
+        "game_item_short_id": "Item_Feet_PU_01_C",
+        "name": "Baskets rouges"
+    },
+    "ITEM:31030006": {
+        "item_id": 31030006,
+        "game_item_short_id": "Item_Feet_TW_01_C",
+        "name": "Bottes Twitch Prime"
+    },
+    "ITEM:31030007": {
+        "item_id": 31030007,
+        "game_item_short_id": "Item_Feet_XB_01_C",
+        "name": "Baskets à motif vert"
+    },
+    "ITEM:11040001": {
+        "item_id": 11040001,
+        "game_item_short_id": "Item_Hands_D_01_C",
+        "name": "Mitaines (cuir)"
+    },
+    "ITEM:11040002": {
+        "item_id": 11040002,
+        "game_item_short_id": "Item_Hands_D_02_C",
+        "name": "Mitaines (brun clair)"
+    },
+    "ITEM:11040003": {
+        "item_id": 11040003,
+        "game_item_short_id": "Item_Hands_D_03_C",
+        "name": "Mitaines (camouflage)"
+    },
+    "ITEM:11040004": {
+        "item_id": 11040004,
+        "game_item_short_id": "Item_Hands_L_01_C",
+        "name": "Gants point américain punk (rouges)"
+    },
+    "ITEM:11040005": {
+        "item_id": 11040005,
+        "game_item_short_id": "Item_Hands_L_02_C",
+        "name": "Gants point américain punk (noirs)"
+    },
+    "ITEM:31040001": {
+        "item_id": 31040001,
+        "game_item_short_id": "Item_Hands_XB_01_C",
+        "name": "Mitaines à motif vert"
+    },
+    "ITEM:31060001": {
+        "item_id": 31060001,
+        "game_item_short_id": "Item_Head_BR03_01_C",
+        "name": "Casquette camouflage"
+    },
+    "ITEM:11060001": {
+        "item_id": 11060001,
+        "game_item_short_id": "Item_Head_C_01_C",
+        "name": "Casquette de baseball"
+    },
+    "ITEM:11060004": {
+        "item_id": 11060004,
+        "game_item_short_id": "Item_Head_C_02_C",
+        "name": "Casquette de baseball vintage (blanche)"
+    },
+    "ITEM:11060005": {
+        "item_id": 11060005,
+        "game_item_short_id": "Item_Head_C_03_C",
+        "name": "Casquette de baseball Vintage (noire)"
+    },
+    "ITEM:11060002": {
+        "item_id": 11060002,
+        "game_item_short_id": "Item_Head_D_01_C",
+        "name": "Bonnet "
+    },
+    "ITEM:11060006": {
+        "item_id": 11060006,
+        "game_item_short_id": "Item_Head_D_02_C",
+        "name": "Bonnet (marron)"
+    },
+    "ITEM:11060007": {
+        "item_id": 11060007,
+        "game_item_short_id": "Item_Head_D_03_C",
+        "name": "Bonnet (gris)"
+    },
+    "ITEM:11060003": {
+        "item_id": 11060003,
+        "game_item_short_id": "Item_Head_H_01_C",
+        "name": "Casquette de patrouille (gris)"
+    },
+    "ITEM:11060008": {
+        "item_id": 11060008,
+        "game_item_short_id": "Item_Head_H_02_C",
+        "name": "Casquette de patrouille (marron)"
+    },
+    "ITEM:31060002": {
+        "item_id": 31060002,
+        "game_item_short_id": "Item_Head_XB_01_C",
+        "name": "Casquette à motif vert"
+    },
+    "ITEM:11050014": {
+        "item_id": 11050014,
+        "game_item_short_id": "Item_Jacket_A_01_C",
+        "name": "Blouson Punk (noir)"
+    },
+    "ITEM:31050001": {
+        "item_id": 31050001,
+        "game_item_short_id": "Item_Jacket_BR01_01_C",
+        "name": "Haut de survêtement"
+    },
+    "ITEM:31050002": {
+        "item_id": 31050002,
+        "game_item_short_id": "Item_Jacket_BR02_01_C",
+        "name": "Veste d'école"
+    },
+    "ITEM:11050015": {
+        "item_id": 11050015,
+        "game_item_short_id": "Item_Jacket_BR02_03_C",
+        "name": "Veste à carreaux"
+    },
+    "ITEM:31050004": {
+        "item_id": 31050004,
+        "game_item_short_id": "Item_Jacket_BR04_01_C",
+        "name": "Veste de smoking féminin (violet)"
+    },
+    "ITEM:31050005": {
+        "item_id": 31050005,
+        "game_item_short_id": "Item_Jacket_BR05_01_C",
+        "name": "Haut de survêtement (jaune)"
+    },
+    "ITEM:31050006": {
+        "item_id": 31050006,
+        "game_item_short_id": "Item_Jacket_BR06_01_C",
+        "name": "Blouson de mandarin (bleu)"
+    },
+    "ITEM:31050007": {
+        "item_id": 31050007,
+        "game_item_short_id": "Item_Jacket_BR07_01_C",
+        "name": "Blouson de mandarin (noir)"
+    },
+    "ITEM:11050001": {
+        "item_id": 11050001,
+        "game_item_short_id": "Item_Jacket_C_01_C",
+        "name": "Blouson rembourré (urbain)"
+    },
+    "ITEM:11050002": {
+        "item_id": 11050002,
+        "game_item_short_id": "Item_Jacket_C_02_C",
+        "name": "Blouson matelassé (violet)"
+    },
+    "ITEM:11050003": {
+        "item_id": 11050003,
+        "game_item_short_id": "Item_Jacket_C_03_C",
+        "name": "Blouson matelassé (beige)"
+    },
+    "ITEM:11050004": {
+        "item_id": 11050004,
+        "game_item_short_id": "Item_Jacket_C_04_C",
+        "name": "Blouson matelassé (camouflage)"
+    },
+    "ITEM:11050005": {
+        "item_id": 11050005,
+        "game_item_short_id": "Item_Jacket_C_05_C",
+        "name": "Blouson matelassé (kaki)"
+    },
+    "ITEM:11050006": {
+        "item_id": 11050006,
+        "game_item_short_id": "Item_Jacket_C_06_C",
+        "name": "Blouson matelassé (GRIS)"
+    },
+    "ITEM:11050007": {
+        "item_id": 11050007,
+        "game_item_short_id": "Item_Jacket_D_01_C",
+        "name": "Manteau"
+    },
+    "ITEM:11050008": {
+        "item_id": 11050008,
+        "game_item_short_id": "Item_Jacket_D_02_C",
+        "name": "Manteau (gris)"
+    },
+    "ITEM:11050009": {
+        "item_id": 11050009,
+        "game_item_short_id": "Item_Jacket_D_03_C",
+        "name": "Manteau (fauve)"
+    },
+    "ITEM:11050010": {
+        "item_id": 11050010,
+        "game_item_short_id": "Item_Jacket_D_04_C",
+        "name": "Manteau (rouge)"
+    },
+    "ITEM:11050011": {
+        "item_id": 11050011,
+        "game_item_short_id": "Item_Jacket_H_01_C",
+        "name": "Blouson de motard sans manches (noir)"
+    },
+    "ITEM:11050016": {
+        "item_id": 11050016,
+        "game_item_short_id": "Item_Jacket_H_02_C",
+        "name": "Blouson de motard sans manches (marron)"
+    },
+    "ITEM:11050012": {
+        "item_id": 11050012,
+        "game_item_short_id": "Item_Jacket_I_01_C",
+        "name": "Trench-coat personnalisé"
+    },
+    "ITEM:11050017": {
+        "item_id": 11050017,
+        "game_item_short_id": "Item_Jacket_L_01_C",
+        "name": "Sweat à capuche en cuir (noir)"
+    },
+    "ITEM:11050018": {
+        "item_id": 11050018,
+        "game_item_short_id": "Item_Jacket_L_02_C",
+        "name": "Sweat à capuche en cuir (blanc)"
+    },
+    "ITEM:11050013": {
+        "item_id": 11050013,
+        "game_item_short_id": "Item_Jacket_PJ_01_C",
+        "name": "Blouson de partenaire"
+    },
+    "ITEM:31050008": {
+        "item_id": 31050008,
+        "game_item_short_id": "Item_Jacket_PU_01_C",
+        "name": "Trench-coat de PLAYERUNKNOWN"
+    },
+    "ITEM:31050009": {
+        "item_id": 31050009,
+        "game_item_short_id": "Item_Jacket_XB_01_C",
+        "name": "Veste de survêtement à rayures vertes"
+    },
+    "ITEM:31020001": {
+        "item_id": 31020001,
+        "game_item_short_id": "Item_Legs_BR01_01_C",
+        "name": "Pantalon de survêtement"
+    },
+    "ITEM:11020013": {
+        "item_id": 11020013,
+        "game_item_short_id": "Item_Legs_BR01_02_C",
+        "name": "Pantalon d'entraînement (bleu clair)"
+    },
+    "ITEM:31020002": {
+        "item_id": 31020002,
+        "game_item_short_id": "Item_Legs_BR02_01_C",
+        "name": "Pantalon d'école"
+    },
+    "ITEM:31020003": {
+        "item_id": 31020003,
+        "game_item_short_id": "Item_Legs_BR02_02_C",
+        "name": "Jupe d'école"
+    },
+    "ITEM:11020014": {
+        "item_id": 11020014,
+        "game_item_short_id": "Item_Legs_BR02_03_C",
+        "name": "Pantalon large (rouge)"
+    },
+    "ITEM:31020004": {
+        "item_id": 31020004,
+        "game_item_short_id": "Item_Legs_BR03_01_C",
+        "name": "Mini-short de camouflage"
+    },
+    "ITEM:11020009": {
+        "item_id": 11020009,
+        "game_item_short_id": "Item_Legs_BR03_02_C",
+        "name": "Mini-short (bleu)"
+    },
+    "ITEM:31020005": {
+        "item_id": 31020005,
+        "game_item_short_id": "Item_Legs_BR04_01_C",
+        "name": "Pantalon de sport (violet)"
+    },
+    "ITEM:31020006": {
+        "item_id": 31020006,
+        "game_item_short_id": "Item_Legs_BR04_02_C",
+        "name": "Mini-jupe (violet)"
+    },
+    "ITEM:31020007": {
+        "item_id": 31020007,
+        "game_item_short_id": "Item_Legs_BR05_01_C",
+        "name": "Pantalon de survêtement (jaune)"
+    },
+    "ITEM:31020008": {
+        "item_id": 31020008,
+        "game_item_short_id": "Item_Legs_BR06_01_C",
+        "name": "Pantalon de sport (bleu)"
+    },
+    "ITEM:31020009": {
+        "item_id": 31020009,
+        "game_item_short_id": "Item_Legs_BR06_02_C",
+        "name": "Mini-jupe plissée (bleu)"
+    },
+    "ITEM:31020010": {
+        "item_id": 31020010,
+        "game_item_short_id": "Item_Legs_BR07_01_C",
+        "name": "Pantalon de sport (noir)"
+    },
+    "ITEM:31020011": {
+        "item_id": 31020011,
+        "game_item_short_id": "Item_Legs_BR07_02_C",
+        "name": "Mini-jupe plissée (noir)"
+    },
+    "ITEM:11020007": {
+        "item_id": 11020007,
+        "game_item_short_id": "Item_Legs_C_01_C",
+        "name": "Pantalon de combat (blanc)"
+    },
+    "ITEM:21020001": {
+        "item_id": 21020001,
+        "game_item_short_id": "Item_Legs_C_02_C",
+        "name": "Pantalon de combat (kaki)",
+        "description": "Tenue de base. Ne peut pas être vendue."
+    },
+    "ITEM:21020002": {
+        "item_id": 21020002,
+        "game_item_short_id": "Item_Legs_C_03_C",
+        "name": "Pantalon de combat (marron)",
+        "description": "Tenue de base. Ne peut pas être vendue."
+    },
+    "ITEM:11020008": {
+        "item_id": 11020008,
+        "game_item_short_id": "Item_Legs_C_04_C",
+        "name": "Pantalon de combat (bleu)"
+    },
+    "ITEM:11020001": {
+        "item_id": 11020001,
+        "game_item_short_id": "Item_Legs_C_05_C",
+        "name": "Pantalon de combat (camouflage)"
+    },
+    "ITEM:11020002": {
+        "item_id": 11020002,
+        "game_item_short_id": "Item_Legs_C_06_C",
+        "name": "Pantalon de combat (camouflage gris)"
+    },
+    "ITEM:11020003": {
+        "item_id": 11020003,
+        "game_item_short_id": "Item_Legs_C_07_C",
+        "name": "Pantalon de combat ensanglanté"
+    },
+    "ITEM:11020004": {
+        "item_id": 11020004,
+        "game_item_short_id": "Item_Legs_D_01_C",
+        "name": "Pantalon de combat (noir)"
+    },
+    "ITEM:11020005": {
+        "item_id": 11020005,
+        "game_item_short_id": "Item_Legs_H_01_C",
+        "name": "Pantalon de motard (noir) "
+    },
+    "ITEM:11020015": {
+        "item_id": 11020015,
+        "game_item_short_id": "Item_Legs_H_02_C",
+        "name": "Pantalon de motard (gris)"
+    },
+    "ITEM:11020006": {
+        "item_id": 11020006,
+        "game_item_short_id": "Item_Legs_I_01_C",
+        "name": "Jean skinny (bleu)"
+    },
+    "ITEM:11020016": {
+        "item_id": 11020016,
+        "game_item_short_id": "Item_Legs_I_02_C",
+        "name": "Pantalon baggy (noir)"
+    },
+    "ITEM:11020010": {
+        "item_id": 11020010,
+        "game_item_short_id": "Item_Legs_K_01_C",
+        "name": "Pantalon cargo (kaki)"
+    },
+    "ITEM:11020012": {
+        "item_id": 11020012,
+        "game_item_short_id": "Item_Legs_K_02_C",
+        "name": "Pantalon cargo (beige)"
+    },
+    "ITEM:11020011": {
+        "item_id": 11020011,
+        "game_item_short_id": "Item_Legs_K_03_C",
+        "name": "Pantalon cargo (bleu)"
+    },
+    "ITEM:11020017": {
+        "item_id": 11020017,
+        "game_item_short_id": "Item_Legs_L_01_C",
+        "name": "Pantalon baggy (marron)"
+    },
+    "ITEM:11020018": {
+        "item_id": 11020018,
+        "game_item_short_id": "Item_Legs_L_02_C",
+        "name": "Pantalon baggy (noir)"
+    },
+    "ITEM:31020012": {
+        "item_id": 31020012,
+        "game_item_short_id": "Item_Legs_PU_01_C",
+        "name": "Jean (brun clair)"
+    },
+    "ITEM:11020019": {
+        "item_id": 11020019,
+        "game_item_short_id": "Item_Legs_PU_02_C",
+        "name": "Jean skinny (rose)"
+    },
+    "ITEM:11020020": {
+        "item_id": 11020020,
+        "game_item_short_id": "Item_Legs_PU_03_C",
+        "name": "Jean skinny (kaki)"
+    },
+    "ITEM:31020013": {
+        "item_id": 31020013,
+        "game_item_short_id": "Item_Legs_TW_01_C",
+        "name": "Pantalon de combat Twitch Prime"
+    },
+    "ITEM:31020014": {
+        "item_id": 31020014,
+        "game_item_short_id": "Item_Legs_XB_01_C",
+        "name": "Pantalon à motif vert"
+    },
+    "ITEM:31020015": {
+        "item_id": 31020015,
+        "game_item_short_id": "Item_Legs_XB_02_C",
+        "name": "Pantalon de survêtement à rayures vertes"
+    },
+    "ITEM:11070001": {
+        "item_id": 11070001,
+        "game_item_short_id": "Item_Mask_B_01_C",
+        "name": "Masque à gaz (moitié) "
+    },
+    "ITEM:11070002": {
+        "item_id": 11070002,
+        "game_item_short_id": "Item_Mask_C_01_C",
+        "name": "Masque à gaz"
+    },
+    "ITEM:11070003": {
+        "item_id": 11070003,
+        "game_item_short_id": "Item_Mask_D_01_C",
+        "name": "Masque balistique"
+    },
+    "ITEM:31070001": {
+        "item_id": 31070001,
+        "game_item_short_id": "Item_Mask_PU_01_C",
+        "name": "Bandana de PLAYERUNKNOWN"
+    },
+    "ITEM:11070004": {
+        "item_id": 11070004,
+        "game_item_short_id": "Item_Mask_PU_02_C",
+        "name": "Masque en tissu (léopard)"
+    },
+    "ITEM:11070005": {
+        "item_id": 11070005,
+        "game_item_short_id": "Item_Mask_PU_03_C",
+        "name": "Masque en tissu (à carreaux)"
+    },
+    "ITEM:31070002": {
+        "item_id": 31070002,
+        "game_item_short_id": "Item_Mask_TW_01_C",
+        "name": "Cagoule Twitch Prime"
+    },
+    "ITEM:31070003": {
+        "item_id": 31070003,
+        "game_item_short_id": "Item_Mask_XB_01_C",
+        "name": "Cagoule à motif vert"
+    },
+    "ITEM:14000003": {
+        "item_id": 14000003,
+        "game_item_short_id": "Item_Box_1712_01_C",
+        "name": "BIKER CRATE"
+    },
+    "ITEM:13000001": {
+        "item_id": 13000001,
+        "game_item_short_id": "Item_Box_CBT_01_C",
+        "name": "CAISSE DU PIONNIER",
+        "description": "Vous pouvez obtenir des tenues de base pour l'aventure."
+    },
+    "ITEM:14000001": {
+        "item_id": 14000001,
+        "game_item_short_id": "Item_Box_EA_01_C",
+        "name": "CAISSE DU NOMADE"
+    },
+    "ITEM:14000002": {
+        "item_id": 14000002,
+        "game_item_short_id": "Item_Box_EA_02_C",
+        "name": "CAISSE DE SURVIE"
+    },
+    "ITEM:14000004": {
+        "item_id": 14000004,
+        "game_item_short_id": "Item_Box_L_1712_C",
+        "name": "DESPERADO CRATE"
+    },
+    "ITEM:34000001": {
+        "item_id": 34000001,
+        "game_item_short_id": "Item_Box_L_GC_C",
+        "name": "CAISSE D'INVITATION GAMESCOM"
+    },
+    "ITEM:10000000": {
+        "item_id": 1.0E7,
+        "game_item_short_id": "Item_Box_Root_C",
+        "name": "CAISSE ALÉATOIRE"
+    },
+    "ITEM:10000001": {
+        "item_id": 10000001,
+        "game_item_short_id": "Item_Box_Root_XB_C",
+        "name": "CAISSE ALÉATOIRE"
+    },
+    "ITEM:15100001": {
+        "item_id": 15100001,
+        "game_item_short_id": "Item_Key_1712_C",
+        "name": "DESPERADO KEY"
+    },
+    "ITEM:35100001": {
+        "item_id": 35100001,
+        "game_item_short_id": "Item_Key_GC_C",
+        "name": "THE KEY"
+    },
+    "ITEM:33000004": {
+        "item_id": 33000004,
+        "game_item_short_id": "Item_Set_BR01_C",
+        "name": "SURVÊTEMENT"
+    },
+    "ITEM:33000005": {
+        "item_id": 33000005,
+        "game_item_short_id": "Item_Set_BR02_F_C",
+        "name": "UNIFORME SCOLAIRE IVOIRE (FEMME)"
+    },
+    "ITEM:33000006": {
+        "item_id": 33000006,
+        "game_item_short_id": "Item_Set_BR02_M_C",
+        "name": "UNIFORME SCOLAIRE IVOIRE (HOMME)"
+    },
+    "ITEM:33000007": {
+        "item_id": 33000007,
+        "game_item_short_id": "Item_Set_BR03_C",
+        "name": "SET DE L’INSTRUCTEUR"
+    },
+    "ITEM:33000008": {
+        "item_id": 33000008,
+        "game_item_short_id": "Item_Set_BR04_F_C",
+        "name": "SMOKING (FEMME)"
+    },
+    "ITEM:33000009": {
+        "item_id": 33000009,
+        "game_item_short_id": "Item_Set_BR04_M_C",
+        "name": "SMOKING (HOMME)"
+    },
+    "ITEM:33000010": {
+        "item_id": 33000010,
+        "game_item_short_id": "Item_Set_BR05_C",
+        "name": "SURVÊTEMENT (JAUNE)"
+    },
+    "ITEM:33000011": {
+        "item_id": 33000011,
+        "game_item_short_id": "Item_Set_BR06_F_C",
+        "name": "UNIFORME SCOLAIRE BLEU (FEMME)"
+    },
+    "ITEM:33000012": {
+        "item_id": 33000012,
+        "game_item_short_id": "Item_Set_BR06_M_C",
+        "name": "UNIFORME SCOLAIRE BLEU (HOMME)"
+    },
+    "ITEM:33000013": {
+        "item_id": 33000013,
+        "game_item_short_id": "Item_Set_BR07_F_C",
+        "name": "UNIFORME SCOLAIRE NOIR (FEMME)"
+    },
+    "ITEM:33000014": {
+        "item_id": 33000014,
+        "game_item_short_id": "Item_Set_BR07_M_C",
+        "name": "UNIFORME SCOLAIRE NOIR (HOMME)"
+    },
+    "ITEM:33000003": {
+        "item_id": 33000003,
+        "game_item_short_id": "Item_Set_DHS17_C",
+        "name": "GARDE-ROBE POUR LAN PARTY",
+        "description": "Vous pouvez obtenir des tenues de base pour l'aventure."
+    },
+    "ITEM:34000002": {
+        "item_id": 34000002,
+        "game_item_short_id": "Item_Set_Event_GC_C",
+        "name": "PACK D'INVITATION GAMESCOM"
+    },
+    "ITEM:23000002": {
+        "item_id": 23000002,
+        "game_item_short_id": "Item_Set_GC_Init_C",
+        "name": "PACK D'INVITATION GAMESCOM"
+    },
+    "ITEM:23000001": {
+        "item_id": 23000001,
+        "game_item_short_id": "Item_Set_InitialCostume_C",
+        "name": "Caisse de costume initiale",
+        "description": "Caisse de costume initial. Tout le monde peut la prendre lors de la première connexion."
+    },
+    "ITEM:33000001": {
+        "item_id": 33000001,
+        "game_item_short_id": "Item_Set_Preorder_C",
+        "name": "PACK PLAYERUNKNOWN",
+        "description": "Pack de tenues de PLAYERUNKNOWN. "
+    },
+    "ITEM:33000002": {
+        "item_id": 33000002,
+        "game_item_short_id": "Item_Set_TW_C",
+        "name": "PACK TWITCH PRIME",
+        "description": "Superbe pack de vêtements pour les membres de TWITCH PRIME."
+    },
+    "ITEM:33000015": {
+        "item_id": 33000015,
+        "game_item_short_id": "Item_Set_XB01_C",
+        "name": "Pack de guerrier PUBG"
+    },
+    "ITEM:33000016": {
+        "item_id": 33000016,
+        "game_item_short_id": "Item_Set_XB02_C",
+        "name": "Pack d'accessoires PUBG"
+    },
+    "ITEM:33000017": {
+        "item_id": 33000017,
+        "game_item_short_id": "Item_Set_XB03_C",
+        "name": "Pack survêtement PUBG"
+    },
+    "ITEM:1708001": {
+        "item_id": 1708001,
+        "game_item_short_id": "Item_UE_Body_C_01_C",
+        "name": "Débardeur sale (blanc)"
+    },
+    "ITEM:1708002": {
+        "item_id": 1708002,
+        "game_item_short_id": "Item_UE_Body_C_02_C",
+        "name": "Débardeur (gris foncé)"
+    },
+    "ITEM:1708003": {
+        "item_id": 1708003,
+        "game_item_short_id": "Item_UE_Body_F_01_C",
+        "name": "T-shirt (blanc)",
+        "description": "Tenue de base. Ne peut pas être vendue."
+    },
+    "ITEM:1708004": {
+        "item_id": 1708004,
+        "game_item_short_id": "Item_UE_Body_F_02_C",
+        "name": "T-shirt (rouge)"
+    },
+    "ITEM:1708005": {
+        "item_id": 1708005,
+        "game_item_short_id": "Item_UE_Body_F_03_C",
+        "name": "T-shirt (rayé)"
+    },
+    "ITEM:1708006": {
+        "item_id": 1708006,
+        "game_item_short_id": "Item_UE_Body_F_04_C",
+        "name": "T-shirt (GRIS)",
+        "description": "Tenue de base. Ne peut pas être vendue."
+    },
+    "ITEM:1708007": {
+        "item_id": 1708007,
+        "game_item_short_id": "Item_UE_Body_G_01_C",
+        "name": "T-shirt à manches longues (noir)"
+    },
+    "ITEM:1708008": {
+        "item_id": 1708008,
+        "game_item_short_id": "Item_UE_Body_G_02_C",
+        "name": "T-shirt à manches longues (bleu clair)"
+    },
+    "ITEM:1708009": {
+        "item_id": 1708009,
+        "game_item_short_id": "Item_UE_Body_G_03_C",
+        "name": "T-shirt à manches longues (rayé)"
+    },
+    "ITEM:1708010": {
+        "item_id": 1708010,
+        "game_item_short_id": "Item_UE_Legs_C_01_C",
+        "name": "Pantalon de combat (blanc)"
+    },
+    "ITEM:1708011": {
+        "item_id": 1708011,
+        "game_item_short_id": "Item_UE_Legs_C_02_C",
+        "name": "Pantalon de combat (kaki)",
+        "description": "Tenue de base. Ne peut pas être vendue."
+    },
+    "ITEM:1708012": {
+        "item_id": 1708012,
+        "game_item_short_id": "Item_UE_Legs_C_03_C",
+        "name": "Pantalon de combat (marron)",
+        "description": "Tenue de base. Ne peut pas être vendue."
+    },
+    "ITEM:1708013": {
+        "item_id": 1708013,
+        "game_item_short_id": "Item_UE_Legs_C_04_C",
+        "name": "Pantalon de combat (bleu)"
+    },
+    "ITEM:1708014": {
+        "item_id": 1708014,
+        "game_item_short_id": "Item_UE_Legs_C_05_C",
+        "name": "Pantalon de combat (camouflage)"
+    },
+    "ITEM:1708015": {
+        "item_id": 1708015,
+        "game_item_short_id": "Item_UE_Legs_D_01_C",
+        "name": "Pantalon de combat (noir)"
+    }
+}

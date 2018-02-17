@@ -1,0 +1,1068 @@
+﻿{
+    "ITEM:21090001": {
+        "item_id": 21090001,
+        "game_item_short_id": "Item_Belt_D_01_C",
+        "name": "유틸리티 벨트",
+        "description": "기본 의상입니다. 판매할 수 없습니다."
+    },
+    "ITEM:31010001": {
+        "item_id": 31010001,
+        "game_item_short_id": "Item_Body_BR02_01_C",
+        "name": "넥타이 교복 셔츠"
+    },
+    "ITEM:31010002": {
+        "item_id": 31010002,
+        "game_item_short_id": "Item_Body_BR03_01_C",
+        "name": "주황색 셔츠"
+    },
+    "ITEM:31010003": {
+        "item_id": 31010003,
+        "game_item_short_id": "Item_Body_BR06_01_C",
+        "name": "교복 셔츠 (열림)"
+    },
+    "ITEM:31010004": {
+        "item_id": 31010004,
+        "game_item_short_id": "Item_Body_BR07_01_C",
+        "name": "교복 셔츠"
+    },
+    "ITEM:11010027": {
+        "item_id": 11010027,
+        "game_item_short_id": "Item_Body_Camo_01_C",
+        "name": "라글란 셔츠"
+    },
+    "ITEM:11010006": {
+        "item_id": 11010006,
+        "game_item_short_id": "Item_Body_C_01_C",
+        "name": "더러운 탱크 탑 (하얀색)"
+    },
+    "ITEM:11010014": {
+        "item_id": 11010014,
+        "game_item_short_id": "Item_Body_C_02_C",
+        "name": "탱크탑 (짙은 회색)"
+    },
+    "ITEM:11010008": {
+        "item_id": 11010008,
+        "game_item_short_id": "Item_Body_C_03_C",
+        "name": "더러운 탱크탑 (회색)"
+    },
+    "ITEM:11010001": {
+        "item_id": 11010001,
+        "game_item_short_id": "Item_Body_C_04_C",
+        "name": "피 묻은 탱크 탑 (하얀색)"
+    },
+    "ITEM:11010018": {
+        "item_id": 11010018,
+        "game_item_short_id": "Item_Body_C_05_C",
+        "name": "프린세스 파워 탱크탑"
+    },
+    "ITEM:11010019": {
+        "item_id": 11010019,
+        "game_item_short_id": "Item_Body_C_06_C",
+        "name": "줄무늬 탱크탑"
+    },
+    "ITEM:31019901": {
+        "item_id": 31019901,
+        "game_item_short_id": "Item_Body_DEV_01_C",
+        "name": "개발자의 자존심. ",
+        "description": "개발자의 자존심. "
+    },
+    "ITEM:31010009": {
+        "item_id": 31010009,
+        "game_item_short_id": "Item_Body_DMM_01_C",
+        "name": "DMM 티셔츠"
+    },
+    "ITEM:11010002": {
+        "item_id": 11010002,
+        "game_item_short_id": "Item_Body_D_01_C",
+        "name": "셔츠 (하얀색)"
+    },
+    "ITEM:11010003": {
+        "item_id": 11010003,
+        "game_item_short_id": "Item_Body_D_02_C",
+        "name": "셔츠 (검은색)"
+    },
+    "ITEM:11010004": {
+        "item_id": 11010004,
+        "game_item_short_id": "Item_Body_D_03_C",
+        "name": "피 묻은 셔츠"
+    },
+    "ITEM:11010005": {
+        "item_id": 11010005,
+        "game_item_short_id": "Item_Body_D_04_C",
+        "name": "꽃무늬 셔츠"
+    },
+    "ITEM:31010013": {
+        "item_id": 31010013,
+        "game_item_short_id": "Item_Body_EA_01_C",
+        "name": "PIONEER SHIRT"
+    },
+    "ITEM:21010001": {
+        "item_id": 21010001,
+        "game_item_short_id": "Item_Body_F_01_C",
+        "name": "티셔츠 (하얀색)",
+        "description": "기본 의상입니다. 판매할 수 없습니다."
+    },
+    "ITEM:11010009": {
+        "item_id": 11010009,
+        "game_item_short_id": "Item_Body_F_02_C",
+        "name": "티셔츠 (빨간색)"
+    },
+    "ITEM:11010010": {
+        "item_id": 11010010,
+        "game_item_short_id": "Item_Body_F_03_C",
+        "name": "티셔츠 (줄무늬)"
+    },
+    "ITEM:21010002": {
+        "item_id": 21010002,
+        "game_item_short_id": "Item_Body_F_04_C",
+        "name": "티셔츠 (회색)",
+        "description": "기본 의상입니다. 판매할 수 없습니다."
+    },
+    "ITEM:11010020": {
+        "item_id": 11010020,
+        "game_item_short_id": "Item_Body_F_05_C",
+        "name": "티셔츠 (핑크 줄무늬)"
+    },
+    "ITEM:11010021": {
+        "item_id": 11010021,
+        "game_item_short_id": "Item_Body_F_06_C",
+        "name": "물방울무늬 티셔츠"
+    },
+    "ITEM:11010011": {
+        "item_id": 11010011,
+        "game_item_short_id": "Item_Body_G_01_C",
+        "name": "긴 소매 티셔츠 (검은색)"
+    },
+    "ITEM:11010012": {
+        "item_id": 11010012,
+        "game_item_short_id": "Item_Body_G_02_C",
+        "name": "긴 소매 티셔츠 (하늘색)"
+    },
+    "ITEM:11010013": {
+        "item_id": 11010013,
+        "game_item_short_id": "Item_Body_G_03_C",
+        "name": "긴 소매 티셔츠 (줄무늬)"
+    },
+    "ITEM:11010028": {
+        "item_id": 11010028,
+        "game_item_short_id": "Item_Body_G_04_C",
+        "name": "더러운 긴 소매 티셔츠"
+    },
+    "ITEM:11010029": {
+        "item_id": 11010029,
+        "game_item_short_id": "Item_Body_G_05_C",
+        "name": "긴 소매 티셔츠 (빨간색)"
+    },
+    "ITEM:11010007": {
+        "item_id": 11010007,
+        "game_item_short_id": "Item_Body_I_01_C",
+        "name": "폴로 넥 셔츠"
+    },
+    "ITEM:11010022": {
+        "item_id": 11010022,
+        "game_item_short_id": "Item_Body_I_02_C",
+        "name": "민소매 터틀넥 (검은색)"
+    },
+    "ITEM:11010023": {
+        "item_id": 11010023,
+        "game_item_short_id": "Item_Body_I_03_C",
+        "name": "민소매 터틀넥 (회색)"
+    },
+    "ITEM:11010024": {
+        "item_id": 11010024,
+        "game_item_short_id": "Item_Body_I_04_C",
+        "name": "민소매 터틀넥 (빨간색)"
+    },
+    "ITEM:11010025": {
+        "item_id": 11010025,
+        "game_item_short_id": "Item_Body_I_05_C",
+        "name": "민소매 터틀넥 (회색)"
+    },
+    "ITEM:31010011": {
+        "item_id": 31010011,
+        "game_item_short_id": "Item_Body_kakao_01_C",
+        "name": "카카오 티셔츠"
+    },
+    "ITEM:11010026": {
+        "item_id": 11010026,
+        "game_item_short_id": "Item_Body_L_01_C",
+        "name": "긴 소매 가죽 셔츠"
+    },
+    "ITEM:31010010": {
+        "item_id": 31010010,
+        "game_item_short_id": "Item_Body_Mailru_01_C",
+        "name": "텔냐쉬카"
+    },
+    "ITEM:31010007": {
+        "item_id": 31010007,
+        "game_item_short_id": "Item_Body_Panda_01_C",
+        "name": "PandaTV 티셔츠"
+    },
+    "ITEM:31010008": {
+        "item_id": 31010008,
+        "game_item_short_id": "Item_Body_Panda_02_C",
+        "name": "Laogong 티셔츠"
+    },
+    "ITEM:31010005": {
+        "item_id": 31010005,
+        "game_item_short_id": "Item_Body_PU_01_C",
+        "name": "회색 셔츠"
+    },
+    "ITEM:11010015": {
+        "item_id": 11010015,
+        "game_item_short_id": "Item_Body_PU_02_C",
+        "name": "체크 셔츠 (레드)"
+    },
+    "ITEM:11010016": {
+        "item_id": 11010016,
+        "game_item_short_id": "Item_Body_PU_03_C",
+        "name": "체크 셔츠 (하얀색)"
+    },
+    "ITEM:11010017": {
+        "item_id": 11010017,
+        "game_item_short_id": "Item_Body_PU_04_C",
+        "name": "회색 배색 셔츠 "
+    },
+    "ITEM:11010030": {
+        "item_id": 11010030,
+        "game_item_short_id": "Item_Body_PU_05_C",
+        "name": "꽃무늬 셔츠 (하얀색)"
+    },
+    "ITEM:11010031": {
+        "item_id": 11010031,
+        "game_item_short_id": "Item_Body_PU_06_C",
+        "name": "꽃무늬 셔츠 (검은색)"
+    },
+    "ITEM:11010032": {
+        "item_id": 11010032,
+        "game_item_short_id": "Item_Body_PU_07_C",
+        "name": "체크 셔츠 (산호색)"
+    },
+    "ITEM:11010033": {
+        "item_id": 11010033,
+        "game_item_short_id": "Item_Body_PU_08_C",
+        "name": "줄무늬 셔츠 (회색)"
+    },
+    "ITEM:31010006": {
+        "item_id": 31010006,
+        "game_item_short_id": "Item_Body_TW_01_C",
+        "name": "Twitch 프라임 셔츠"
+    },
+    "ITEM:31010012": {
+        "item_id": 31010012,
+        "game_item_short_id": "Item_Body_XB_01_C",
+        "name": "초록색 패턴 티셔츠"
+    },
+    "ITEM:11080001": {
+        "item_id": 11080001,
+        "game_item_short_id": "Item_Eyes_A_01_C",
+        "name": "안경 (펑크 스타일)"
+    },
+    "ITEM:11080002": {
+        "item_id": 11080002,
+        "game_item_short_id": "Item_Eyes_D_01_C",
+        "name": "선글라스"
+    },
+    "ITEM:11080005": {
+        "item_id": 11080005,
+        "game_item_short_id": "Item_Eyes_D_02_C",
+        "name": "무테 선글라스"
+    },
+    "ITEM:11080006": {
+        "item_id": 11080006,
+        "game_item_short_id": "Item_Eyes_D_03_C",
+        "name": "보호 안경"
+    },
+    "ITEM:11080003": {
+        "item_id": 11080003,
+        "game_item_short_id": "Item_Eyes_H_01_C",
+        "name": "비행사 고글"
+    },
+    "ITEM:11080004": {
+        "item_id": 11080004,
+        "game_item_short_id": "Item_Eyes_I_01_C",
+        "name": "비행사 선글라스"
+    },
+    "ITEM:11080007": {
+        "item_id": 11080007,
+        "game_item_short_id": "Item_Eyes_L_01_C",
+        "name": "뿔테 안경 (검은색)"
+    },
+    "ITEM:11080008": {
+        "item_id": 11080008,
+        "game_item_short_id": "Item_Eyes_L_02_C",
+        "name": "뿔테 안경 (갈색)"
+    },
+    "ITEM:11030004": {
+        "item_id": 11030004,
+        "game_item_short_id": "Item_Feet_A_01_C",
+        "name": "부츠 (펑크)"
+    },
+    "ITEM:11030012": {
+        "item_id": 11030012,
+        "game_item_short_id": "Item_Feet_A_02_C",
+        "name": "가죽 롱부츠 (갈색)"
+    },
+    "ITEM:31030001": {
+        "item_id": 31030001,
+        "game_item_short_id": "Item_Feet_BR01_01_C",
+        "name": "피 묻은 운동화"
+    },
+    "ITEM:31030002": {
+        "item_id": 31030002,
+        "game_item_short_id": "Item_Feet_BR02_01_C",
+        "name": "운동화 (하얀색)"
+    },
+    "ITEM:11030008": {
+        "item_id": 11030008,
+        "game_item_short_id": "Item_Feet_BR02_02_C",
+        "name": "스니커즈 (검은색)"
+    },
+    "ITEM:31030003": {
+        "item_id": 31030003,
+        "game_item_short_id": "Item_Feet_BR06_01_C",
+        "name": "학생화"
+    },
+    "ITEM:31030004": {
+        "item_id": 31030004,
+        "game_item_short_id": "Item_Feet_BR07_01_C",
+        "name": "찍찍이 운동화"
+    },
+    "ITEM:11030001": {
+        "item_id": 11030001,
+        "game_item_short_id": "Item_Feet_D_01_C",
+        "name": "작업용 부츠"
+    },
+    "ITEM:11030007": {
+        "item_id": 11030007,
+        "game_item_short_id": "Item_Feet_D_02_C",
+        "name": "회색 부츠"
+    },
+    "ITEM:21030002": {
+        "item_id": 21030002,
+        "game_item_short_id": "Item_Feet_E_01_C",
+        "name": "하이탑 운동화",
+        "description": "기본 의상입니다. 판매할 수 없습니다."
+    },
+    "ITEM:11030005": {
+        "item_id": 11030005,
+        "game_item_short_id": "Item_Feet_E_02_C",
+        "name": "파란색 하이탑 운동화"
+    },
+    "ITEM:11030006": {
+        "item_id": 11030006,
+        "game_item_short_id": "Item_Feet_E_03_C",
+        "name": "갈색 하이탑 운동화"
+    },
+    "ITEM:11030002": {
+        "item_id": 11030002,
+        "game_item_short_id": "Item_Feet_H_01_C",
+        "name": "교복 신발 (검은색)"
+    },
+    "ITEM:11030009": {
+        "item_id": 11030009,
+        "game_item_short_id": "Item_Feet_H_02_C",
+        "name": "교복 신발 (갈색)"
+    },
+    "ITEM:11030003": {
+        "item_id": 11030003,
+        "game_item_short_id": "Item_Feet_I_01_C",
+        "name": "슬립온 슈즈"
+    },
+    "ITEM:11030010": {
+        "item_id": 11030010,
+        "game_item_short_id": "Item_Feet_L_01_C",
+        "name": "가죽 부츠 (갈색)"
+    },
+    "ITEM:11030011": {
+        "item_id": 11030011,
+        "game_item_short_id": "Item_Feet_L_02_C",
+        "name": "가죽 부츠 (검은색)"
+    },
+    "ITEM:31030005": {
+        "item_id": 31030005,
+        "game_item_short_id": "Item_Feet_PU_01_C",
+        "name": "빨간색 하이탑 운동화"
+    },
+    "ITEM:31030006": {
+        "item_id": 31030006,
+        "game_item_short_id": "Item_Feet_TW_01_C",
+        "name": "Twitch Prime 부츠"
+    },
+    "ITEM:31030007": {
+        "item_id": 31030007,
+        "game_item_short_id": "Item_Feet_XB_01_C",
+        "name": "초록색 패턴 하이탑 운동화"
+    },
+    "ITEM:11040001": {
+        "item_id": 11040001,
+        "game_item_short_id": "Item_Hands_D_01_C",
+        "name": "반장갑 (가죽)"
+    },
+    "ITEM:11040002": {
+        "item_id": 11040002,
+        "game_item_short_id": "Item_Hands_D_02_C",
+        "name": "반장갑 (황갈색)"
+    },
+    "ITEM:11040003": {
+        "item_id": 11040003,
+        "game_item_short_id": "Item_Hands_D_03_C",
+        "name": "반장갑 (카모)"
+    },
+    "ITEM:11040004": {
+        "item_id": 11040004,
+        "game_item_short_id": "Item_Hands_L_01_C",
+        "name": "펑크 너클 장갑 (빨간색)"
+    },
+    "ITEM:11040005": {
+        "item_id": 11040005,
+        "game_item_short_id": "Item_Hands_L_02_C",
+        "name": "펑크 너클 장갑 (검은색)"
+    },
+    "ITEM:31040001": {
+        "item_id": 31040001,
+        "game_item_short_id": "Item_Hands_XB_01_C",
+        "name": "초록색 패턴 반장갑"
+    },
+    "ITEM:31060001": {
+        "item_id": 31060001,
+        "game_item_short_id": "Item_Head_BR03_01_C",
+        "name": "카모 캡"
+    },
+    "ITEM:11060001": {
+        "item_id": 11060001,
+        "game_item_short_id": "Item_Head_C_01_C",
+        "name": "야구 모자"
+    },
+    "ITEM:11060004": {
+        "item_id": 11060004,
+        "game_item_short_id": "Item_Head_C_02_C",
+        "name": "빈티지 야구 모자 (화이트)"
+    },
+    "ITEM:11060005": {
+        "item_id": 11060005,
+        "game_item_short_id": "Item_Head_C_03_C",
+        "name": "빈티지 야구 모자 (블랙)"
+    },
+    "ITEM:11060002": {
+        "item_id": 11060002,
+        "game_item_short_id": "Item_Head_D_01_C",
+        "name": "비니"
+    },
+    "ITEM:11060006": {
+        "item_id": 11060006,
+        "game_item_short_id": "Item_Head_D_02_C",
+        "name": "비니 (갈색)"
+    },
+    "ITEM:11060007": {
+        "item_id": 11060007,
+        "game_item_short_id": "Item_Head_D_03_C",
+        "name": "비니 (회색)"
+    },
+    "ITEM:11060003": {
+        "item_id": 11060003,
+        "game_item_short_id": "Item_Head_H_01_C",
+        "name": "패트롤 캡 (회색)"
+    },
+    "ITEM:11060008": {
+        "item_id": 11060008,
+        "game_item_short_id": "Item_Head_H_02_C",
+        "name": "패트롤 캡 (갈색)"
+    },
+    "ITEM:31060002": {
+        "item_id": 31060002,
+        "game_item_short_id": "Item_Head_XB_01_C",
+        "name": "초록색 패턴 캡"
+    },
+    "ITEM:11050014": {
+        "item_id": 11050014,
+        "game_item_short_id": "Item_Jacket_A_01_C",
+        "name": "펑크 자켓 (블랙)"
+    },
+    "ITEM:31050001": {
+        "item_id": 31050001,
+        "game_item_short_id": "Item_Jacket_BR01_01_C",
+        "name": "운동복 상의"
+    },
+    "ITEM:31050002": {
+        "item_id": 31050002,
+        "game_item_short_id": "Item_Jacket_BR02_01_C",
+        "name": "교복 자켓"
+    },
+    "ITEM:11050015": {
+        "item_id": 11050015,
+        "game_item_short_id": "Item_Jacket_BR02_03_C",
+        "name": "체크 자켓"
+    },
+    "ITEM:31050004": {
+        "item_id": 31050004,
+        "game_item_short_id": "Item_Jacket_BR04_01_C",
+        "name": "여성용 턱시도 자켓 (보라색)"
+    },
+    "ITEM:31050005": {
+        "item_id": 31050005,
+        "game_item_short_id": "Item_Jacket_BR05_01_C",
+        "name": "체육복 상의 (노랑)"
+    },
+    "ITEM:31050006": {
+        "item_id": 31050006,
+        "game_item_short_id": "Item_Jacket_BR06_01_C",
+        "name": "만다린 자켓 (파란색)"
+    },
+    "ITEM:31050007": {
+        "item_id": 31050007,
+        "game_item_short_id": "Item_Jacket_BR07_01_C",
+        "name": "만다린 자켓 (검은색)"
+    },
+    "ITEM:11050001": {
+        "item_id": 11050001,
+        "game_item_short_id": "Item_Jacket_C_01_C",
+        "name": "패딩 자켓 (어반)"
+    },
+    "ITEM:11050002": {
+        "item_id": 11050002,
+        "game_item_short_id": "Item_Jacket_C_02_C",
+        "name": "패딩 자켓 (보라색)"
+    },
+    "ITEM:11050003": {
+        "item_id": 11050003,
+        "game_item_short_id": "Item_Jacket_C_03_C",
+        "name": "패딩 자켓 (베이지색)"
+    },
+    "ITEM:11050004": {
+        "item_id": 11050004,
+        "game_item_short_id": "Item_Jacket_C_04_C",
+        "name": "패딩 자켓 (카모)"
+    },
+    "ITEM:11050005": {
+        "item_id": 11050005,
+        "game_item_short_id": "Item_Jacket_C_05_C",
+        "name": "패딩 자켓 (카키색)"
+    },
+    "ITEM:11050006": {
+        "item_id": 11050006,
+        "game_item_short_id": "Item_Jacket_C_06_C",
+        "name": "패딩 자켓 (회색)"
+    },
+    "ITEM:11050007": {
+        "item_id": 11050007,
+        "game_item_short_id": "Item_Jacket_D_01_C",
+        "name": "코트"
+    },
+    "ITEM:11050008": {
+        "item_id": 11050008,
+        "game_item_short_id": "Item_Jacket_D_02_C",
+        "name": "코트 (회색)"
+    },
+    "ITEM:11050009": {
+        "item_id": 11050009,
+        "game_item_short_id": "Item_Jacket_D_03_C",
+        "name": "코트 (옅은 갈색)"
+    },
+    "ITEM:11050010": {
+        "item_id": 11050010,
+        "game_item_short_id": "Item_Jacket_D_04_C",
+        "name": "코트 (빨간색)"
+    },
+    "ITEM:11050011": {
+        "item_id": 11050011,
+        "game_item_short_id": "Item_Jacket_H_01_C",
+        "name": "민소매 라이더 자켓 (검은색)"
+    },
+    "ITEM:11050016": {
+        "item_id": 11050016,
+        "game_item_short_id": "Item_Jacket_H_02_C",
+        "name": "민소매 라이더 자켓 (갈색)"
+    },
+    "ITEM:11050012": {
+        "item_id": 11050012,
+        "game_item_short_id": "Item_Jacket_I_01_C",
+        "name": "커스텀 트렌치 코트"
+    },
+    "ITEM:11050017": {
+        "item_id": 11050017,
+        "game_item_short_id": "Item_Jacket_L_01_C",
+        "name": "가죽 후드티 (검은색)"
+    },
+    "ITEM:11050018": {
+        "item_id": 11050018,
+        "game_item_short_id": "Item_Jacket_L_02_C",
+        "name": "가죽 후드티 (하얀색)"
+    },
+    "ITEM:11050013": {
+        "item_id": 11050013,
+        "game_item_short_id": "Item_Jacket_PJ_01_C",
+        "name": "파트너 자켓"
+    },
+    "ITEM:31050008": {
+        "item_id": 31050008,
+        "game_item_short_id": "Item_Jacket_PU_01_C",
+        "name": "PLAYERUNKNOWN의 트렌치 코트"
+    },
+    "ITEM:31050009": {
+        "item_id": 31050009,
+        "game_item_short_id": "Item_Jacket_XB_01_C",
+        "name": "초록색 줄무늬 체육복 자켓"
+    },
+    "ITEM:31020001": {
+        "item_id": 31020001,
+        "game_item_short_id": "Item_Legs_BR01_01_C",
+        "name": "운동복 바지"
+    },
+    "ITEM:11020013": {
+        "item_id": 11020013,
+        "game_item_short_id": "Item_Legs_BR01_02_C",
+        "name": "운동복 바지 (하늘색)"
+    },
+    "ITEM:31020002": {
+        "item_id": 31020002,
+        "game_item_short_id": "Item_Legs_BR02_01_C",
+        "name": "교복 바지"
+    },
+    "ITEM:31020003": {
+        "item_id": 31020003,
+        "game_item_short_id": "Item_Legs_BR02_02_C",
+        "name": "교복 치마"
+    },
+    "ITEM:11020014": {
+        "item_id": 11020014,
+        "game_item_short_id": "Item_Legs_BR02_03_C",
+        "name": "와이드 팬츠 (빨간색)"
+    },
+    "ITEM:31020004": {
+        "item_id": 31020004,
+        "game_item_short_id": "Item_Legs_BR03_01_C",
+        "name": "핫팬츠(카모)"
+    },
+    "ITEM:11020009": {
+        "item_id": 11020009,
+        "game_item_short_id": "Item_Legs_BR03_02_C",
+        "name": "핫팬츠 (파란색)"
+    },
+    "ITEM:31020005": {
+        "item_id": 31020005,
+        "game_item_short_id": "Item_Legs_BR04_01_C",
+        "name": "바지 (보라색)"
+    },
+    "ITEM:31020006": {
+        "item_id": 31020006,
+        "game_item_short_id": "Item_Legs_BR04_02_C",
+        "name": "미니 스커트 (보라색)"
+    },
+    "ITEM:31020007": {
+        "item_id": 31020007,
+        "game_item_short_id": "Item_Legs_BR05_01_C",
+        "name": "운동복 바지 (노란색)"
+    },
+    "ITEM:31020008": {
+        "item_id": 31020008,
+        "game_item_short_id": "Item_Legs_BR06_01_C",
+        "name": "바지 (파란색)"
+    },
+    "ITEM:31020009": {
+        "item_id": 31020009,
+        "game_item_short_id": "Item_Legs_BR06_02_C",
+        "name": "플리츠 미니 스커트 (파란색)"
+    },
+    "ITEM:31020010": {
+        "item_id": 31020010,
+        "game_item_short_id": "Item_Legs_BR07_01_C",
+        "name": "바지 (검은색)"
+    },
+    "ITEM:31020011": {
+        "item_id": 31020011,
+        "game_item_short_id": "Item_Legs_BR07_02_C",
+        "name": "플리츠 미니 스커트 (검은색)"
+    },
+    "ITEM:11020007": {
+        "item_id": 11020007,
+        "game_item_short_id": "Item_Legs_C_01_C",
+        "name": "전투용 바지 (하얀색)"
+    },
+    "ITEM:21020001": {
+        "item_id": 21020001,
+        "game_item_short_id": "Item_Legs_C_02_C",
+        "name": "전투용 바지 (카키색)",
+        "description": "기본 의상입니다. 판매할 수 없습니다."
+    },
+    "ITEM:21020002": {
+        "item_id": 21020002,
+        "game_item_short_id": "Item_Legs_C_03_C",
+        "name": "전투용 바지 (갈색)",
+        "description": "기본 의상입니다. 판매할 수 없습니다."
+    },
+    "ITEM:11020008": {
+        "item_id": 11020008,
+        "game_item_short_id": "Item_Legs_C_04_C",
+        "name": "전투용 바지 (파란색)"
+    },
+    "ITEM:11020001": {
+        "item_id": 11020001,
+        "game_item_short_id": "Item_Legs_C_05_C",
+        "name": "전투용 바지 (카모)"
+    },
+    "ITEM:11020002": {
+        "item_id": 11020002,
+        "game_item_short_id": "Item_Legs_C_06_C",
+        "name": "전투용 바지 (회색 카모)"
+    },
+    "ITEM:11020003": {
+        "item_id": 11020003,
+        "game_item_short_id": "Item_Legs_C_07_C",
+        "name": "피 묻은 전투용 바지"
+    },
+    "ITEM:11020004": {
+        "item_id": 11020004,
+        "game_item_short_id": "Item_Legs_D_01_C",
+        "name": "전투용 바지 (검은색)"
+    },
+    "ITEM:11020005": {
+        "item_id": 11020005,
+        "game_item_short_id": "Item_Legs_H_01_C",
+        "name": "바이크 팬츠 (검은색) "
+    },
+    "ITEM:11020015": {
+        "item_id": 11020015,
+        "game_item_short_id": "Item_Legs_H_02_C",
+        "name": "바이크 팬츠 (회색)"
+    },
+    "ITEM:11020006": {
+        "item_id": 11020006,
+        "game_item_short_id": "Item_Legs_I_01_C",
+        "name": "스키니 진 (파란색)"
+    },
+    "ITEM:11020016": {
+        "item_id": 11020016,
+        "game_item_short_id": "Item_Legs_I_02_C",
+        "name": "배기 팬츠 (검은색)"
+    },
+    "ITEM:11020010": {
+        "item_id": 11020010,
+        "game_item_short_id": "Item_Legs_K_01_C",
+        "name": "카고 바지 (카키)"
+    },
+    "ITEM:11020012": {
+        "item_id": 11020012,
+        "game_item_short_id": "Item_Legs_K_02_C",
+        "name": "카고 바지 (베이지)"
+    },
+    "ITEM:11020011": {
+        "item_id": 11020011,
+        "game_item_short_id": "Item_Legs_K_03_C",
+        "name": "카고 바지 (파란색)"
+    },
+    "ITEM:11020017": {
+        "item_id": 11020017,
+        "game_item_short_id": "Item_Legs_L_01_C",
+        "name": "배기 팬츠 (갈색)"
+    },
+    "ITEM:11020018": {
+        "item_id": 11020018,
+        "game_item_short_id": "Item_Legs_L_02_C",
+        "name": "배기 팬츠 (검은색)"
+    },
+    "ITEM:31020012": {
+        "item_id": 31020012,
+        "game_item_short_id": "Item_Legs_PU_01_C",
+        "name": "바지 (황갈색)"
+    },
+    "ITEM:11020019": {
+        "item_id": 11020019,
+        "game_item_short_id": "Item_Legs_PU_02_C",
+        "name": "스키니 진 (핑크색)"
+    },
+    "ITEM:11020020": {
+        "item_id": 11020020,
+        "game_item_short_id": "Item_Legs_PU_03_C",
+        "name": "스키니 진 (카키색)"
+    },
+    "ITEM:31020013": {
+        "item_id": 31020013,
+        "game_item_short_id": "Item_Legs_TW_01_C",
+        "name": "Twitch 프라임 전투용 바지"
+    },
+    "ITEM:31020014": {
+        "item_id": 31020014,
+        "game_item_short_id": "Item_Legs_XB_01_C",
+        "name": "초록색 패턴 바지"
+    },
+    "ITEM:31020015": {
+        "item_id": 31020015,
+        "game_item_short_id": "Item_Legs_XB_02_C",
+        "name": "초록색 줄무늬 체육복 바지"
+    },
+    "ITEM:11070001": {
+        "item_id": 11070001,
+        "game_item_short_id": "Item_Mask_B_01_C",
+        "name": "방독면 (소형) "
+    },
+    "ITEM:11070002": {
+        "item_id": 11070002,
+        "game_item_short_id": "Item_Mask_C_01_C",
+        "name": "방독면"
+    },
+    "ITEM:11070003": {
+        "item_id": 11070003,
+        "game_item_short_id": "Item_Mask_D_01_C",
+        "name": "발리스틱 마스크"
+    },
+    "ITEM:31070001": {
+        "item_id": 31070001,
+        "game_item_short_id": "Item_Mask_PU_01_C",
+        "name": "PLAYERUNKNOWN의 두건"
+    },
+    "ITEM:11070004": {
+        "item_id": 11070004,
+        "game_item_short_id": "Item_Mask_PU_02_C",
+        "name": "천 마스크 (호피)"
+    },
+    "ITEM:11070005": {
+        "item_id": 11070005,
+        "game_item_short_id": "Item_Mask_PU_03_C",
+        "name": "천 마스크 (체크)"
+    },
+    "ITEM:31070002": {
+        "item_id": 31070002,
+        "game_item_short_id": "Item_Mask_TW_01_C",
+        "name": "Twitch 프라임 발라클라바"
+    },
+    "ITEM:31070003": {
+        "item_id": 31070003,
+        "game_item_short_id": "Item_Mask_XB_01_C",
+        "name": "초록색 패턴 발라클라바"
+    },
+    "ITEM:14000003": {
+        "item_id": 14000003,
+        "game_item_short_id": "Item_Box_1712_01_C",
+        "name": "BIKER CRATE"
+    },
+    "ITEM:13000001": {
+        "item_id": 13000001,
+        "game_item_short_id": "Item_Box_CBT_01_C",
+        "name": "선구자의 상자",
+        "description": "서바이벌을 위한 기본 의상을 얻을 수 있습니다."
+    },
+    "ITEM:14000001": {
+        "item_id": 14000001,
+        "game_item_short_id": "Item_Box_EA_01_C",
+        "name": "방랑자의 상자"
+    },
+    "ITEM:14000002": {
+        "item_id": 14000002,
+        "game_item_short_id": "Item_Box_EA_02_C",
+        "name": "생존자의 상자"
+    },
+    "ITEM:14000004": {
+        "item_id": 14000004,
+        "game_item_short_id": "Item_Box_L_1712_C",
+        "name": "DESPERADO CRATE"
+    },
+    "ITEM:34000001": {
+        "item_id": 34000001,
+        "game_item_short_id": "Item_Box_L_GC_C",
+        "name": "GAMESCOM 초청 기념 상자"
+    },
+    "ITEM:10000000": {
+        "item_id": 1.0E7,
+        "game_item_short_id": "Item_Box_Root_C",
+        "name": "보상 받기"
+    },
+    "ITEM:10000001": {
+        "item_id": 10000001,
+        "game_item_short_id": "Item_Box_Root_XB_C",
+        "name": "보상 받기"
+    },
+    "ITEM:15100001": {
+        "item_id": 15100001,
+        "game_item_short_id": "Item_Key_1712_C",
+        "name": "DESPERADO KEY"
+    },
+    "ITEM:35100001": {
+        "item_id": 35100001,
+        "game_item_short_id": "Item_Key_GC_C",
+        "name": "THE KEY"
+    },
+    "ITEM:33000004": {
+        "item_id": 33000004,
+        "game_item_short_id": "Item_Set_BR01_C",
+        "name": "체육복 세트"
+    },
+    "ITEM:33000005": {
+        "item_id": 33000005,
+        "game_item_short_id": "Item_Set_BR02_F_C",
+        "name": "아이보리 여자교복 세트"
+    },
+    "ITEM:33000006": {
+        "item_id": 33000006,
+        "game_item_short_id": "Item_Set_BR02_M_C",
+        "name": "아이보리 남자교복 세트"
+    },
+    "ITEM:33000007": {
+        "item_id": 33000007,
+        "game_item_short_id": "Item_Set_BR03_C",
+        "name": "교관 세트"
+    },
+    "ITEM:33000008": {
+        "item_id": 33000008,
+        "game_item_short_id": "Item_Set_BR04_F_C",
+        "name": "정장 세트 (여성)"
+    },
+    "ITEM:33000009": {
+        "item_id": 33000009,
+        "game_item_short_id": "Item_Set_BR04_M_C",
+        "name": "정장 세트 (남성)"
+    },
+    "ITEM:33000010": {
+        "item_id": 33000010,
+        "game_item_short_id": "Item_Set_BR05_C",
+        "name": "체육복 세트 (노랑)"
+    },
+    "ITEM:33000011": {
+        "item_id": 33000011,
+        "game_item_short_id": "Item_Set_BR06_F_C",
+        "name": "파란색 여자교복 세트"
+    },
+    "ITEM:33000012": {
+        "item_id": 33000012,
+        "game_item_short_id": "Item_Set_BR06_M_C",
+        "name": "파란색 남자교복 세트"
+    },
+    "ITEM:33000013": {
+        "item_id": 33000013,
+        "game_item_short_id": "Item_Set_BR07_F_C",
+        "name": "검은색 여자교복 세트"
+    },
+    "ITEM:33000014": {
+        "item_id": 33000014,
+        "game_item_short_id": "Item_Set_BR07_M_C",
+        "name": "검은색 남자교복 세트"
+    },
+    "ITEM:33000003": {
+        "item_id": 33000003,
+        "game_item_short_id": "Item_Set_DHS17_C",
+        "name": "LAN 파티 의상",
+        "description": "서바이벌을 위한 기본 의상을 얻을 수 있습니다."
+    },
+    "ITEM:34000002": {
+        "item_id": 34000002,
+        "game_item_short_id": "Item_Set_Event_GC_C",
+        "name": "GAMESCOM 초청 기념 세트"
+    },
+    "ITEM:23000002": {
+        "item_id": 23000002,
+        "game_item_short_id": "Item_Set_GC_Init_C",
+        "name": "GAMESCOM 초청 기념 세트"
+    },
+    "ITEM:23000001": {
+        "item_id": 23000001,
+        "game_item_short_id": "Item_Set_InitialCostume_C",
+        "name": "초기 지급 아이템 상자",
+        "description": "초기 지급 아이템입니다. 처음 접속할 때 받을 수 있습니다."
+    },
+    "ITEM:33000001": {
+        "item_id": 33000001,
+        "game_item_short_id": "Item_Set_Preorder_C",
+        "name": "PLAYERUNKNOWN 세트",
+        "description": "PLAYERUNKNOWN 의상 세트 "
+    },
+    "ITEM:33000002": {
+        "item_id": 33000002,
+        "game_item_short_id": "Item_Set_TW_C",
+        "name": "트위치 프라임 세트",
+        "description": "트위치 프라임 회원을 위한 유니크 의상 세트"
+    },
+    "ITEM:33000015": {
+        "item_id": 33000015,
+        "game_item_short_id": "Item_Set_XB01_C",
+        "name": "PUBG 워리어 팩"
+    },
+    "ITEM:33000016": {
+        "item_id": 33000016,
+        "game_item_short_id": "Item_Set_XB02_C",
+        "name": "PUBG 액세서리 팩"
+    },
+    "ITEM:33000017": {
+        "item_id": 33000017,
+        "game_item_short_id": "Item_Set_XB03_C",
+        "name": "PUBG 체육복 팩"
+    },
+    "ITEM:1708001": {
+        "item_id": 1708001,
+        "game_item_short_id": "Item_UE_Body_C_01_C",
+        "name": "더러운 탱크 탑 (하얀색)"
+    },
+    "ITEM:1708002": {
+        "item_id": 1708002,
+        "game_item_short_id": "Item_UE_Body_C_02_C",
+        "name": "탱크탑 (짙은 회색)"
+    },
+    "ITEM:1708003": {
+        "item_id": 1708003,
+        "game_item_short_id": "Item_UE_Body_F_01_C",
+        "name": "티셔츠 (하얀색)",
+        "description": "기본 의상입니다. 판매할 수 없습니다."
+    },
+    "ITEM:1708004": {
+        "item_id": 1708004,
+        "game_item_short_id": "Item_UE_Body_F_02_C",
+        "name": "티셔츠 (빨간색)"
+    },
+    "ITEM:1708005": {
+        "item_id": 1708005,
+        "game_item_short_id": "Item_UE_Body_F_03_C",
+        "name": "티셔츠 (줄무늬)"
+    },
+    "ITEM:1708006": {
+        "item_id": 1708006,
+        "game_item_short_id": "Item_UE_Body_F_04_C",
+        "name": "티셔츠 (회색)",
+        "description": "기본 의상입니다. 판매할 수 없습니다."
+    },
+    "ITEM:1708007": {
+        "item_id": 1708007,
+        "game_item_short_id": "Item_UE_Body_G_01_C",
+        "name": "긴 소매 티셔츠 (검은색)"
+    },
+    "ITEM:1708008": {
+        "item_id": 1708008,
+        "game_item_short_id": "Item_UE_Body_G_02_C",
+        "name": "긴 소매 티셔츠 (하늘색)"
+    },
+    "ITEM:1708009": {
+        "item_id": 1708009,
+        "game_item_short_id": "Item_UE_Body_G_03_C",
+        "name": "긴 소매 티셔츠 (줄무늬)"
+    },
+    "ITEM:1708010": {
+        "item_id": 1708010,
+        "game_item_short_id": "Item_UE_Legs_C_01_C",
+        "name": "전투용 바지 (하얀색)"
+    },
+    "ITEM:1708011": {
+        "item_id": 1708011,
+        "game_item_short_id": "Item_UE_Legs_C_02_C",
+        "name": "전투용 바지 (카키색)",
+        "description": "기본 의상입니다. 판매할 수 없습니다."
+    },
+    "ITEM:1708012": {
+        "item_id": 1708012,
+        "game_item_short_id": "Item_UE_Legs_C_03_C",
+        "name": "전투용 바지 (갈색)",
+        "description": "기본 의상입니다. 판매할 수 없습니다."
+    },
+    "ITEM:1708013": {
+        "item_id": 1708013,
+        "game_item_short_id": "Item_UE_Legs_C_04_C",
+        "name": "전투용 바지 (파란색)"
+    },
+    "ITEM:1708014": {
+        "item_id": 1708014,
+        "game_item_short_id": "Item_UE_Legs_C_05_C",
+        "name": "전투용 바지 (카모)"
+    },
+    "ITEM:1708015": {
+        "item_id": 1708015,
+        "game_item_short_id": "Item_UE_Legs_D_01_C",
+        "name": "전투용 바지 (검은색)"
+    }
+}
