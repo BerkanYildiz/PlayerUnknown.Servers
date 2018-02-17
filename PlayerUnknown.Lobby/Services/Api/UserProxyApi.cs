@@ -1,5 +1,10 @@
 ﻿namespace PlayerUnknown.Lobby.Services.Api
 {
+    using Newtonsoft.Json;
+
+    using PlayerUnknown.Files;
+    using PlayerUnknown.Lobby.Models.Sessions;
+    using PlayerUnknown.Logic.Components;
     using PlayerUnknown.Network;
 
     using WebSocketSharp;
@@ -10,7 +15,8 @@
         {
             // Ping.
         }
-        public static void GetInventory(MessageEventArgs Args, Message Message)
+
+        public static void GetInventory(MessageEventArgs Args, Message Message, PubgSession Session)
         {
             // GetInventory.
         }

@@ -1,22 +1,24 @@
 ﻿namespace PlayerUnknown.Logic.Components.Inventories
 {
+    using Newtonsoft.Json;
+
     public sealed class Item : InventoryObject
     {
-        public string ItemDescId;
-        public string PartDescId;
-        public string Name;
-        public string Desc;
-        public string PresetId;
-        public string Quality;
+        [JsonProperty("ItemDescId")]            public string ItemDescId;
+        [JsonProperty("PartDescId")]            public string PartDescId;
+        [JsonProperty("Name")]                  public string Name;
+        [JsonProperty("Desc")]                  public string Desc;
+        [JsonProperty("PresetId")]              public string PresetId;
+        [JsonProperty("Quality")]               public string Quality;
 
-        public int Count;
-        public int BuyPrice;
-        public int SellPrice;
-        public int PriceInCents;
-        public int WeeklyPurchaseLimit;
+        [JsonProperty("Count")]                 public int Count;
+        [JsonProperty("BuyPrice")]              public int BuyPrice;
+        [JsonProperty("SellPrice")]             public int SellPrice;
+        [JsonProperty("PriceInCents")]          public int PriceInCents;
+        [JsonProperty("WeeklyPurchaseLimit")]   public int WeeklyPurchaseLimit;
 
-        public bool InEquip;
-        public bool Doubling;
+        [JsonProperty("InEquip")]               public bool InEquip;
+        [JsonProperty("Doubling")]              public bool Doubling;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Item"/> class.

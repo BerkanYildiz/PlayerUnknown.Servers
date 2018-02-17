@@ -4,11 +4,13 @@
 
     using Newtonsoft.Json;
 
+    using PlayerUnknown.Logic.Components.Inventories;
+
     public sealed class Inventory
     {
-        [JsonProperty("Items")]      public List<object> Items;
+        [JsonProperty("Items")]      public List<Item> Items;
         [JsonProperty("Equips")]     public List<object> Equips;
-        [JsonProperty("Currencies")] public List<object> Currencies;
+        [JsonProperty("Currencies")] public List<Currency> Currencies;
         [JsonProperty("History")]    public List<object> History;
 
         /// <summary>
@@ -16,9 +18,9 @@
         /// </summary>
         public Inventory()
         {
-            this.Items      = new List<object>();
+            this.Items      = new List<Item>();
             this.Equips     = new List<object>();
-            this.Currencies = new List<object>();
+            this.Currencies = new List<Currency>();
             this.History    = new List<object>();
         }
     }

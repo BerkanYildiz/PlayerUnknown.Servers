@@ -3,8 +3,11 @@
     using System;
     using System.Reflection;
 
+    using PlayerUnknown.Lobby.Collections;
     using PlayerUnknown.Lobby.Models.Sessions;
     using PlayerUnknown.Lobby.Services.Api;
+    using PlayerUnknown.Logic;
+    using PlayerUnknown.Logic.Components;
     using PlayerUnknown.Network;
 
     using WebSocketSharp;
@@ -48,6 +51,16 @@
                 else
                 {
                     Logging.Warning(this.GetType(), "Authenticated != true at OnOpen().");
+
+                    PubgSession.Player = await Players.Create(
+                        new Player
+                        {
+                            Username = Username,
+                            Password = Password
+                        }
+                    );
+
+                    ClientApi.ConnectionAccepted(PubgSession);
                 }
             }
             else
