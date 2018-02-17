@@ -7,6 +7,7 @@
     using PlayerUnknown.Lobby.Database;
     using PlayerUnknown.Lobby.Services;
     using PlayerUnknown.Logic;
+    using PlayerUnknown.Logic.Components;
 
     using WebSocketSharp.Server;
 

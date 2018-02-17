@@ -2,6 +2,8 @@
 {
     using Newtonsoft.Json;
 
+    using PlayerUnknown.Logic.Components;
+
     [JsonObject(MemberSerialization.OptIn)]
     public sealed class Player
     {

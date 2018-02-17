@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.Logic
+﻿namespace PlayerUnknown.Logic.Components
 {
     using Newtonsoft.Json;
 

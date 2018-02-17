@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.Logic
+﻿namespace PlayerUnknown.Logic.Components
 {
     public sealed class Record
     {

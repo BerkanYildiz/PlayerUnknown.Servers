@@ -1,0 +1,186 @@
+﻿{
+    "Items": [
+        {
+            "ItemDescId": "itemdesc.11010028",
+            "PartDescId": "partdesc.torso",
+            "Name": "Dirty Long-sleeved T-shirt",
+            "Desc": "",
+            "PresetId": "Item_Body_G_04",
+            "Quality": "common",
+            "Count": 1,
+            "BuyPrice": 0,
+            "SellPrice": 30,
+            "PriceInCents": 0,
+            "WeeklyPurchaseLimit": 0,
+            "InEquip": false,
+            "Doubling": false
+        },
+        {
+            "ItemDescId": "itemdesc.21010001",
+            "PartDescId": "partdesc.torso",
+            "Name": "T-shirt (White)",
+            "Desc": "Basic costume. Unable to sell.",
+            "PresetId": "Item_Body_F_01",
+            "Quality": "basic",
+            "Count": 1,
+            "BuyPrice": 0,
+            "SellPrice": 0,
+            "PriceInCents": 0,
+            "WeeklyPurchaseLimit": 0,
+            "InEquip": false,
+            "Doubling": false
+        },
+        {
+            "ItemDescId": "itemdesc.21010002",
+            "PartDescId": "partdesc.torso",
+            "Name": "T-shirt (GREY)",
+            "Desc": "Basic costume. Unable to sell.",
+            "PresetId": "Item_Body_F_04",
+            "Quality": "basic",
+            "Count": 1,
+            "BuyPrice": 0,
+            "SellPrice": 0,
+            "PriceInCents": 0,
+            "WeeklyPurchaseLimit": 0,
+            "InEquip": true,
+            "Doubling": false
+        },
+        {
+            "ItemDescId": "itemdesc.21020001",
+            "PartDescId": "partdesc.legs",
+            "Name": "Combat Pants (khaki)",
+            "Desc": "Basic costume. Unable to sell.",
+            "PresetId": "Item_Legs_C_02",
+            "Quality": "basic",
+            "Count": 1,
+            "BuyPrice": 0,
+            "SellPrice": 0,
+            "PriceInCents": 0,
+            "WeeklyPurchaseLimit": 0,
+            "InEquip": false,
+            "Doubling": false
+        },
+        {
+            "ItemDescId": "itemdesc.21020002",
+            "PartDescId": "partdesc.legs",
+            "Name": "Combat Pants (Brown)",
+            "Desc": "Basic costume. Unable to sell.",
+            "PresetId": "Item_Legs_C_03",
+            "Quality": "basic",
+            "Count": 1,
+            "BuyPrice": 0,
+            "SellPrice": 0,
+            "PriceInCents": 0,
+            "WeeklyPurchaseLimit": 0,
+            "InEquip": true,
+            "Doubling": false
+        },
+        {
+            "ItemDescId": "itemdesc.21030002",
+            "PartDescId": "partdesc.feet",
+            "Name": "Hi-top Trainers",
+            "Desc": "Basic costume. Unable to sell.",
+            "PresetId": "Item_Feet_E_01",
+            "Quality": "basic",
+            "Count": 1,
+            "BuyPrice": 0,
+            "SellPrice": 0,
+            "PriceInCents": 0,
+            "WeeklyPurchaseLimit": 0,
+            "InEquip": true,
+            "Doubling": false
+        },
+        {
+            "ItemDescId": "itemdesc.21090001",
+            "PartDescId": "partdesc.belt",
+            "Name": "Utility Belt",
+            "Desc": "Basic costume. Unable to sell.",
+            "PresetId": "Item_Belt_D_01",
+            "Quality": "basic",
+            "Count": 1,
+            "BuyPrice": 0,
+            "SellPrice": 0,
+            "PriceInCents": 0,
+            "WeeklyPurchaseLimit": 0,
+            "InEquip": true,
+            "Doubling": false
+        },
+        {
+            "ItemDescId": "itemdesc.31010013",
+            "PartDescId": "partdesc.torso",
+            "Name": "PIONEER SHIRT",
+            "Desc": "",
+            "PresetId": "Item_Body_EA_01",
+            "Quality": "event",
+            "Count": 1,
+            "BuyPrice": 0,
+            "SellPrice": 0,
+            "PriceInCents": 0,
+            "WeeklyPurchaseLimit": 0,
+            "InEquip": false,
+            "Doubling": false
+        }
+    ],
+    "Equips": [
+
+        [
+            {
+                "ItemDescId": "itemdesc.21010002",
+                "PartDescId": "partdesc.torso",
+                "PresetId": "Item_Body_F_04"
+            },
+            {
+                "ItemDescId": "itemdesc.21020002",
+                "PartDescId": "partdesc.legs",
+                "PresetId": "Item_Legs_C_03"
+            },
+            {
+                "ItemDescId": "itemdesc.21030002",
+                "PartDescId": "partdesc.feet",
+                "PresetId": "Item_Feet_E_01"
+            },
+            {
+                "ItemDescId": null,
+                "PartDescId": "partdesc.hands",
+                "PresetId": null
+            },
+            {
+                "ItemDescId": null,
+                "PartDescId": "partdesc.outer",
+                "PresetId": null
+            },
+            {
+                "ItemDescId": null,
+                "PartDescId": "partdesc.head",
+                "PresetId": null
+            },
+            {
+                "ItemDescId": null,
+                "PartDescId": "partdesc.mask",
+                "PresetId": null
+            },
+            {
+                "ItemDescId": null,
+                "PartDescId": "partdesc.eyes",
+                "PresetId": null
+            },
+            {
+                "ItemDescId": "itemdesc.21090001",
+                "PartDescId": "partdesc.belt",
+                "PresetId": "Item_Belt_D_01"
+            }
+        ]
+    ],
+    "Currencies": [
+        {
+            "CurrencyId": "currencydesc.bp",
+            "Amount": 999999
+        }
+    ],
+    "History": [
+        {
+            "ItemDescId": "itemdesc.10000000",
+            "Count": 1
+        }
+    ]
+}

@@ -1,6 +1,8 @@
-﻿namespace PlayerUnknown.Logic
+﻿namespace PlayerUnknown.Logic.Components
 {
     using Newtonsoft.Json;
+
+    using PlayerUnknown.Logic.Components.Subs;
 
     public sealed class Profile
     {
