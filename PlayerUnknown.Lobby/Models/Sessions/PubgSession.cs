@@ -1,10 +1,8 @@
 ﻿namespace PlayerUnknown.Lobby.Models.Sessions
 {
-    using System;
     using System.Threading.Tasks;
 
     using PlayerUnknown.Lobby.Collections;
-    using PlayerUnknown.Lobby.Database;
     using PlayerUnknown.Lobby.Services;
     using PlayerUnknown.Logic;
     using PlayerUnknown.Logic.Components;
@@ -75,6 +73,17 @@
             get
             {
                 return this.Player?.Profile;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is authenticated.
+        /// </summary>
+        public bool IsAuthenticated
+        {
+            get
+            {
+                return this.Player != null;
             }
         }
 

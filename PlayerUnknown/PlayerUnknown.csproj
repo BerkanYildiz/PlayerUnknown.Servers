@@ -90,7 +90,7 @@
     <None Include="Gamefiles\inventory.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\player.json">
+    <None Include="Gamefiles\starting_home.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Compile Include="Files\Home.cs" />
@@ -102,12 +102,15 @@
     <Compile Include="Logic\Components\Inventories\InventoryObject.cs" />
     <Compile Include="Logic\Components\Inventories\Currency.cs" />
     <Compile Include="Logic\Components\Inventories\Item.cs" />
+    <Compile Include="Logic\Matchmaking\GameServer.cs" />
+    <Compile Include="Logic\Matchmaking\GameServers.cs" />
     <Compile Include="Logic\Player.cs" />
     <Compile Include="Logic\Components\Record.cs" />
     <Compile Include="Logic\Components\Inventory.cs" />
     <Compile Include="Logic\Components\Profile.cs" />
     <Compile Include="Logic\Components\Subs\Skin.cs" />
     <Compile Include="Logic\Weapon.cs" />
+    <Compile Include="Logic\Weapons\TommyGun.cs" />
     <Compile Include="Logic\Weapons\Ak47.cs" />
     <Compile Include="Mouse.cs" />
     <Compile Include="Native\Point.cs" />

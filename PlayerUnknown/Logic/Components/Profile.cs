@@ -8,7 +8,8 @@
     {
         [JsonProperty("Nickname")]      public string Nickname;
         [JsonProperty("ProfileStatus")] public object ProfileStatus;
-        [JsonProperty("InviteAllow")]   public object InviteAllow;
+        [JsonProperty("InviteAllow")]   public string InviteAllow;
+
         [JsonProperty("Skin")]          public Skin Skin;
 
         /// <summary>

@@ -17,9 +17,14 @@
         }
 
         /// <summary>
-        /// Gets the json file content.
+        /// Gets the home json file content.
         /// </summary>
-        public static JObject Json;
+        public static JObject HomeJson;
+
+        /// <summary>
+        /// Gets the inventory json file content.
+        /// </summary>
+        public static JObject InventoryJson;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Home" /> class.
@@ -41,7 +46,7 @@
 
                     if (!string.IsNullOrEmpty(RawFile))
                     {
-                        Home.Json = JObject.Parse(RawFile);
+                        Home.HomeJson = JObject.Parse(RawFile);
                     }
                     else
                     {
@@ -59,7 +64,7 @@
 
                     if (!string.IsNullOrEmpty(RawFile))
                     {
-                        Home.Json = JObject.Parse(RawFile);
+                        Home.InventoryJson = JObject.Parse(RawFile);
                     }
                     else
                     {

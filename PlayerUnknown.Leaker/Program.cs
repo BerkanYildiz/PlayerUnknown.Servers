@@ -53,7 +53,7 @@
                     if (Service.Service.ServiceSetHandleStatus(ServProcess, HandleInfo.HProcess, true, true))
                     {
                         // HProcess = Service.Service.ServiceStartProcess(null, Directory.GetCurrentDirectory() + "\\" + Options.YourProcess + " " + HandleInfo.HProcess, null, true, ServProcess.GetHandle());
-                        // Service.Service.ServiceSetHandleStatus(ServProcess, HandleInfo.HProcess, false, false);
+                        Service.Service.ServiceSetHandleStatus(ServProcess, HandleInfo.HProcess, false, false);
                         // Kernel32.CloseHandle(HProcess);
                     }
 

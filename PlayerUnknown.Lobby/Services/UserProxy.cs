@@ -7,7 +7,6 @@
     using PlayerUnknown.Lobby.Models.Sessions;
     using PlayerUnknown.Lobby.Services.Api;
     using PlayerUnknown.Logic;
-    using PlayerUnknown.Logic.Components;
     using PlayerUnknown.Network;
 
     using WebSocketSharp;
@@ -20,7 +19,7 @@
         /// </summary>
         public UserProxy()
         {
-            Logging.Info(this.GetType(), "new UserProxy().");
+            // UserProxy.
         }
 
         /// <summary>
@@ -81,28 +80,47 @@
                 return;
             }
 
-            Message Message = new Message(Args.Data);
+            Message Message   = new Message(Args.Data);
 
-            if (Message.IsValid)
+            string ClassName  = (string) Message.Parameters[1];
+            string MethodName = (string) Message.Parameters[2];
+
+            foreach (object Parameter in Message.Parameters)
             {
-                Type Class = Type.GetType("PlayerUnknown.Lobby.Services.Api." + Message.Service);
+                System.Console.WriteLine(" - " + Parameter + " #" + Message.Parameters.IndexOf(Parameter) + ".");
+            }
+
+            if (string.IsNullOrEmpty(ClassName) == false && string.IsNullOrEmpty(MethodName) == false)
+            {
+                Type Class = Type.GetType("PlayerUnknown.Lobby.Services.Api." + ClassName);
 
                 if (Class != null)
                 {
-                    MethodInfo Method = Class.GetMethod(Message.Method, BindingFlags.Static | BindingFlags.Public);
+                    MethodInfo Method = Class.GetMethod(MethodName, BindingFlags.Static | BindingFlags.Public);
 
                     if (Method != null)
                     {
-                        Method.Invoke(null, new object[] { Args, Message });
+                        PubgSession Session = Collections.Sessions.Get(this.ID);
+
+                        if (Session != null)
+                        {
+                            Method.Invoke(null, new object[] { Message, Session }); 
+                        }
+                        else
+                        {
+                            Logging.Warning(this.GetType(), "PubgSession == null at OnMessage(Args).");
+                        }
+
+                        Message.Log();
                     }
                     else
                     {
-                        Logging.Warning(this.GetType(), "Method == null at OnMessage(Args).");
+                        Logging.Warning(this.GetType(), "Method(" + MethodName + ") == null at OnMessage(Args).");
                     }
                 }
                 else
                 {
-                    Logging.Warning(this.GetType(), "Class(" + Message.Service + ") == null at OnMessage(Args).");
+                    Logging.Warning(this.GetType(), "Class(" + ClassName + ") == null at OnMessage(Args).");
                 }
             }
             else
@@ -145,7 +163,7 @@
 
                 if (Completed == false)
                 {
-                    Logging.Warning(this.GetType(), "Completed != true at SendMessage(" + Message.Method + ").");
+                    Logging.Warning(this.GetType(), "Completed != true at SendMessage(" + Message.Identifier + ").");
                 }
             });
         }

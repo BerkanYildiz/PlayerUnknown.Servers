@@ -2,6 +2,7 @@
 {
     using System;
     using System.Reflection;
+    using System.Security.Authentication;
 
     using PlayerUnknown.Lobby.Proxy.Services;
     using PlayerUnknown.Network;
@@ -11,6 +12,14 @@
 
     public sealed class PubgSession
     {
+        [Flags]
+        private enum SslProtocolsHack
+        {
+            Tls     = 192,
+            Tls11   = 768,
+            Tls12   = 3072
+        }
+
         /// <summary>
         /// Gets the parent of this instance, storing datas about the <see cref="IWebSocketSession"/>.
         /// </summary>
@@ -84,10 +93,14 @@
         /// </summary>
         public void ConnectToServer(string Query)
         {
-            this.Server              = new WebSocket("ws://prod-live-entry.playbattlegrounds.com:81/userproxy?" + Query);
+            Logging.Info(this.GetType(), "ConnectToServer(" + Query + ");");
+
+            this.Server              = new WebSocket("wss://prod-live-entry.playbattlegrounds.com/userproxy?" + Query);
+            this.Server.Origin       = "https://prod-live-front.playbattlegrounds.com";
             this.Server.OnOpen      += OnOpen;
             this.Server.OnMessage   += OnMessage;
             this.Server.OnError     += OnError;
+            this.Server.SslConfiguration.EnabledSslProtocols = (SslProtocols) (SslProtocolsHack.Tls12 | SslProtocolsHack.Tls11 | SslProtocolsHack.Tls);
             this.Server.Connect();
         }
 
@@ -130,6 +143,8 @@
         /// <param name="Args">The <see cref="MessageEventArgs"/> instance containing the event data.</param>
         private void OnMessage(object Sender, MessageEventArgs Args)
         {
+            Logging.Info(this.GetType(), "OnMessage();");
+
             if (Args.IsPing)
             {
                 return;

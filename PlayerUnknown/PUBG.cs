@@ -6,6 +6,7 @@
     using PlayerUnknown.Enums;
     using PlayerUnknown.Events;
     using PlayerUnknown.Exceptions;
+    using PlayerUnknown.Files;
     using PlayerUnknown.Helpers;
 
     public static class PUBG

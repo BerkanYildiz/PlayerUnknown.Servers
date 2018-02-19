@@ -10,30 +10,22 @@
     {
         public static void ConnectionAccepted(PubgSession Session)
         {
-            var Message = new Message
-            {
-                Service = "ClientApi",
-                Method  = "ConnectionAccepted"
-            };
+            var Message = new Message(0, null, "ClientApi", "ConnectionAccepted");
 
             Message.Parameters.Add(Session.Account.AccountId);
             Message.Parameters.Add(JObject.Parse(JsonConvert.SerializeObject(Session.Player)));
 
             Session.Client.SendMessage(Message);
 
-            Invalidate(Session, "party");
+            /* Invalidate(Session, "party");
             Invalidate(Session, "match");
             Invalidate(Session, "game");
-            Invalidate(Session, "event");
+            Invalidate(Session, "event"); */
         }
 
         public static void Invalidate(PubgSession Session, string Class)
         {
-            var Message = new Message
-            {
-                Service = "ClientApi",
-                Method  = "Invalidate"
-            };
+            var Message = new Message(0, null, "ClientApi", "Invalidate");
 
             Message.Parameters.Add(Session.Account.AccountId);
             Message.Parameters.Add("client." + Class);

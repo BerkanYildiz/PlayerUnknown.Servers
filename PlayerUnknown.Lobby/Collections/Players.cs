@@ -6,7 +6,11 @@
     using System.Threading;
     using System.Threading.Tasks;
 
+    using Newtonsoft.Json;
+
+    using PlayerUnknown.Files;
     using PlayerUnknown.Logic;
+    using PlayerUnknown.Logic.Components;
 
     using GameDb    = PlayerUnknown.Lobby.Database.GameDb;
     using PlayerDb  = PlayerUnknown.Lobby.Database.Models.PlayerDb;
@@ -91,7 +95,11 @@
         {
             if (Entity == null)
             {
-                Entity = new Player();
+                Entity = JsonConvert.DeserializeObject<Player>(Home.HomeJson.ToString());
+            }
+            else
+            {
+                JsonConvert.PopulateObject(Home.HomeJson.ToString(), Entity);
             }
 
             await PlayerDb.Create(Entity);

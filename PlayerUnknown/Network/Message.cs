@@ -8,29 +8,10 @@
     using PlayerUnknown.Exceptions;
 
     [JsonObject(MemberSerialization.OptIn)]
-    public sealed class Message
+    public class Message
     {
         [JsonProperty] public long Identifier;
-
-        [JsonProperty] public string Unknown;
-        [JsonProperty] public string Service;
-        [JsonProperty] public string Method;
-
         [JsonProperty] public List<object> Parameters;
-
-        /// <summary>
-        /// Returns true if this <see cref="Message"/> is valid.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance is valid; otherwise, <c>false</c>.
-        /// </value>
-        public bool IsValid
-        {
-            get
-            {
-                return !string.IsNullOrEmpty(this.Service) && !string.IsNullOrEmpty(this.Method);
-            }
-        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Message"/> class.
@@ -43,37 +24,140 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Message"/> class.
         /// </summary>
-        /// <param name="Data">The data.</param>
-        public Message(string Data) : this()
+        /// <param name="Identifier">The identifier.</param>
+        /// <param name="Parameters">The parameters.</param>
+        public Message(long Identifier, params object[] Parameters)
         {
-            var Json = JArray.Parse(Data);
+            this.Identifier = Identifier;
+            this.Parameters = new List<object>(Parameters);
+        }
 
-            if (Json != null)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Message"/> class.
+        /// </summary>
+        /// <param name="Data">The data.</param>
+        public Message(string Data)
+        {
+            this.Parse(Data);
+        }
+
+        /// <summary>
+        /// Parses the specified data.
+        /// </summary>
+        /// <param name="Data">The data.</param>
+        public void Parse(string Data)
+        {
+            if (string.IsNullOrEmpty(Data) == false)
             {
-                if (Json.Count < 4)
-                {
-                    throw new PubgMessageException("Json.Count < 4 at Message(Data).");
-                }
+                var Json = JArray.Parse(Data);
 
-                this.Identifier = Json[0].ToObject<long>();
-                this.Unknown    = Json[1].ToObject<string>();
-                this.Service    = Json[2].ToObject<string>();
-                this.Method     = Json[3].ToObject<string>();
-
-                if (Json.Count > 4)
+                if (Json != null)
                 {
-                    for (int i = 4; i < Json.Count; i++)
+                    if (Json.Count < 4)
                     {
-                        this.Parameters.Add(Json[i]);
+                        throw new PubgMessageException("Json.Count < 4 at Parse(Data).");
+                    }
+
+                    this.Identifier = Json[0].ToObject<long>();
+
+                    if (this.Identifier >= 0)
+                    {
+                        Json.RemoveAt(0);
+
+                        if (Json.HasValues)
+                        {
+                            this.Parameters = new List<object>(Json.Count);
+
+                            foreach (var Property in Json)
+                            {
+                                switch (Property.Type)
+                                {
+                                    case JTokenType.String:
+                                    {
+                                        this.Parameters.Add((string) Property);
+                                        break;
+                                    }
+
+                                    case JTokenType.Boolean:
+                                    {
+                                        this.Parameters.Add((bool) Property);
+                                        break;
+                                    }
+
+                                    case JTokenType.Null:
+                                    {
+                                        this.Parameters.Add(null);
+                                        break;
+                                    }
+
+                                    default:
+                                    {
+                                        this.Parameters.Add((object) Property);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            throw new PubgMessageException("Json.HasValues != true at Parse(Data).");
+                        }
+                    }
+                    else
+                    {
+                        throw new PubgMessageException("this.Identifier < 0 at Parse(Data).");
                     }
                 }
-
-                this.Log();
+                else
+                {
+                    throw new PubgMessageException("Json == null at Parse(Data).");
+                }
             }
             else
             {
-                throw new PubgMessageException("Json == null at Message(Data).");
+                throw new PubgMessageException("string.IsNullOrEmpty(Data) != false at Parse(Data).");
             }
+        }
+
+        /// <summary>
+        /// Sets the result.
+        /// </summary>
+        /// <param name="Result">The result.</param>
+        /// <param name="Error">The error.</param>
+        public void SetResult(object Result = null, object Error = null)
+        {
+            JObject Json = new JObject();
+
+            if (Error != null)
+            {
+                Json.Add("Error", new JValue(Error));
+            }
+            else
+            {
+                Json.Add("Error", null);
+            }
+
+            if (Result != null)
+            {
+                if (Result is JArray)
+                {
+                    Json.Add("Result", (JArray) Result);
+                }
+                else if (Result is JObject)
+                {
+                    Json.Add("Result", (JObject)Result);
+                }
+                else
+                {
+                    Json.Add("Result", new JValue(Result));
+                }
+            }
+            else
+            {
+                Json.Add("Result", null);
+            }
+            
+            this.Parameters.Add(Json);
         }
 
         /// <summary>
@@ -81,7 +165,7 @@
         /// </summary>
         public string ToJson()
         {
-            JArray Json = new JArray(this.Identifier, this.Unknown, this.Service, this.Method);
+            JArray Json = new JArray(this.Identifier);
 
             foreach (object Parameter in this.Parameters)
             {
@@ -96,7 +180,15 @@
         /// </summary>
         public void Log()
         {
-            Logging.Info(this.GetType(), "ID : " + this.Identifier + ", " + this.Service + "->" + this.Method + ".");
+            Logging.Info(this.GetType(), this.ToString());
+        }
+
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        public override string ToString()
+        {
+            return this.Identifier + " - " + this.Parameters[1] + "->" + this.Parameters[2] + ".";
         }
     }
 }

@@ -22,8 +22,10 @@
         /// <summary>
         /// Called when the WebSocket connection used in a session has been established.
         /// </summary>
-        protected override async void OnOpen()
+        protected override void OnOpen()
         {
+            Logging.Info(this.GetType(), "OnOpen();");
+
             if (this.Sessions.TryGetSession(this.ID, out IWebSocketSession Session))
             {
                 var PubgSession = new PubgSession(Session, this);
@@ -50,6 +52,8 @@
         /// a <see cref="E:WebSocketSharp.WebSocket.OnMessage" /> event.</param>
         protected override void OnMessage(MessageEventArgs Args)
         {
+            Logging.Info(this.GetType(), "OnMessage();");
+
             if (Args.IsPing)
             {
                 return;

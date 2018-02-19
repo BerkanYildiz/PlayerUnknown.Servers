@@ -126,6 +126,7 @@
             if (Service.NtSetInformationObject == IntPtr.Zero)
             {
                 Service.NtSetInformationObject = Kernel32.GetProcAddress(Kernel32.GetModuleHandleA("ntdll.dll"), "NtSetInformationObject");
+
                 if (Service.NtSetInformationObject == IntPtr.Zero)
                 {
                     goto EXIT;
@@ -161,6 +162,7 @@
 
             Kernel32.WaitForSingleObject(HThread, 0xFFFFFFFF);
             Status = true;
+
             EXIT:
             if (HThread != IntPtr.Zero)
             {

@@ -16,7 +16,7 @@
         [JsonProperty("account")]   public Account Account;
 
         [JsonProperty("inviteAllow")]
-        public object InviteAllow
+        public string InviteAllow
         {
             get
             {
@@ -38,7 +38,7 @@
         {
             get
             {
-                return string.Empty;
+                return "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/ee/ee38d09b29f12fc63630d5df4d5eb1c313f075ff_full.jpg";
             }
         }
 

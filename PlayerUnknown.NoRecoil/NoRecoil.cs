@@ -15,7 +15,7 @@
         /// <summary>
         /// Gets or sets the <see cref="Player"/>, currently playing the game.
         /// </summary>
-        public static Profile Player;
+        public static Weapon Weapon;
 
         /// <summary>
         /// Gets or sets the <see cref="Random"/> used to make the <see cref="NoRecoil"/> a bit random.
@@ -42,13 +42,11 @@
             {
                 if (NoRecoil.IsEnabled && PUBG.IsOnScreen)
                 {
-                    var Weapon = Player.GetWeapon();
-
                     if (Weapon != null)
                     {
                         if (Weapon.IsRecoilEnabled)
                         {
-                            await DoRecoil(Weapon);
+                            await DoRecoil();
 
                             if (Weapon.FireRate > 0)
                             {
@@ -69,7 +67,7 @@
         /// </summary>
         /// <param name="RecoilRate">The recoil rate.</param>
         /// <param name="Smooth">If set to true, moves the mouse pixel per pixel.</param>
-        private static async Task DoRecoil(Weapon Weapon, bool Smooth = false)
+        private static async Task DoRecoil(bool Smooth = false)
         {
             var Randomness      = (1 * Weapon.RandomnessMultiplier);
 
