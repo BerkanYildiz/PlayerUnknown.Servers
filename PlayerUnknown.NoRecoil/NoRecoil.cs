@@ -8,9 +8,34 @@
     public static class NoRecoil
     {
         /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="NoRecoil"/> is initialized.
+        /// </summary>
+        public static bool Initialized
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether the <see cref="NoRecoil"/> is enabled.
         /// </summary>
-        public static bool IsEnabled;
+        public static bool IsEnabled
+        {
+            get
+            {
+                return NoRecoil.HasLeftClick && NoRecoil.HasRightClick;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance has left click.
+        /// </summary>
+        public static bool HasLeftClick;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance has right click.
+        /// </summary>
+        public static bool HasRightClick;
 
         /// <summary>
         /// Gets or sets the <see cref="Player"/>, currently playing the game.
@@ -27,16 +52,13 @@
         /// </summary>
         public static async Task Run()
         {
-            if (NoRecoil.IsEnabled)
+            if (NoRecoil.Initialized)
             {
                 return;
             }
-            else
-            {
-                NoRecoil.IsEnabled = true;
-            }
 
-            NoRecoil.Random = new Random();
+            NoRecoil.Initialized = true;
+            NoRecoil.Random      = new Random();
 
             while (true)
             {
@@ -57,7 +79,7 @@
                 }
                 else
                 {
-                    await Task.Delay(50);
+                    await Task.Delay(100);
                 }
             }
         }

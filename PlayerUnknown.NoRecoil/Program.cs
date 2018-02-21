@@ -51,7 +51,12 @@
         {
             if ((Args.Button & MouseButtons.Left) != 0)
             {
-                Volatile.Write(ref NoRecoil.IsEnabled, Args.IsMouseButtonDown);
+                Volatile.Write(ref NoRecoil.HasLeftClick, Args.IsMouseButtonDown);
+            }
+
+            if ((Args.Button & MouseButtons.Right) != 0)
+            {
+                Volatile.Write(ref NoRecoil.HasRightClick, Args.IsMouseButtonDown);
             }
         }
     }
