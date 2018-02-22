@@ -38,6 +38,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gameloop.Vdf, Version=0.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Gameloop.Vdf.0.4.4\lib\net45\Gameloop.Vdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Gameloop.Vdf.JsonConverter, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Gameloop.Vdf.JsonConverter.0.1.1\lib\net45\Gameloop.Vdf.JsonConverter.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -63,6 +69,7 @@
     <Compile Include="Exceptions\PubgMessageException.cs" />
     <Compile Include="Exceptions\PubgSessionException.cs" />
     <Compile Include="Exceptions\ProcessNotFoundException.cs" />
+    <None Include="app.config" />
     <None Include="Gamefiles\items.arabic.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -91,6 +98,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Compile Include="Files\Home.cs" />
+    <Compile Include="Helpers\Comparers\PathEndingComparer.cs" />
+    <Compile Include="Helpers\SteamHelper.cs" />
     <Compile Include="Helpers\Win32.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="Helpers\Padding.cs" />

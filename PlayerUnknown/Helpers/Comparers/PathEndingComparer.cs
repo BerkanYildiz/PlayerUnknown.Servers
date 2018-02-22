@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.Launcher
+﻿namespace PlayerUnknown.Helpers.Comparers
 {
     using System.Collections.Generic;
 
