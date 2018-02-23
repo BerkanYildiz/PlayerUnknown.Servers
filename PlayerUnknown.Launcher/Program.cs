@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics;
     using System.IO;
+    using System.Linq;
 
     using PlayerUnknown.Helpers;
 
@@ -36,6 +37,25 @@
                     var ProcId      = Processus.Id;
 
                     Processus.WaitForInputIdle();
+
+                    var Memory      = new Memory(Handle, Processus.MainModule.BaseAddress);
+
+                    Logging.Warning(typeof(Memory), "Process has been loaded as #" + Handle + ".");
+                    Logging.Warning(typeof(Memory), "Process base address detected at " + Memory.Base + ".");
+
+                    int Result     = Win32.SetWindowText(Processus.MainWindowHandle, "Rekt niggas");
+
+                    if (Result != 1)
+                    {
+                        Logging.Error(typeof(PUBG), "Oh, Damn! Couldn't change the title of PUBG process.");
+                    }
+
+                    bool BEnabled   = Processus.Modules.Cast<ProcessModule>().Any(Module => Module.ModuleName.StartsWith("BattlEye"));
+
+                    if (BEnabled)
+                    {
+                        Logging.Warning(typeof(PUBG), "BattlEye has been detected, don't move!");
+                    }
                 }
                 else
                 {

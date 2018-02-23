@@ -99,6 +99,7 @@
     </None>
     <Compile Include="Files\Home.cs" />
     <Compile Include="Helpers\Comparers\PathEndingComparer.cs" />
+    <Compile Include="Helpers\Memory.cs" />
     <Compile Include="Helpers\SteamHelper.cs" />
     <Compile Include="Helpers\Win32.cs" />
     <Compile Include="Logging.cs" />

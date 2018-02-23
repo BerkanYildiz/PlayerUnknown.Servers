@@ -12,7 +12,16 @@
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool GetWindowPlacement(IntPtr Handle, ref WindowPlacement Placement);
+        public static extern bool GetWindowPlacement(IntPtr Handle, ref WindowPlacement Placement);
+
+        [DllImport("kernel32.dll")]
+        public static extern bool ReadProcessMemory(IntPtr Handle, IntPtr Address, byte[] Buffer, int Size, int BytesRead);
+
+        [DllImport("kernel32.dll")]
+        public static extern bool WriteProcessMemory(IntPtr Handle, IntPtr Address, byte[] Buffer, int Size, int BytesWritten);
+
+        [DllImport("user32.dll")]
+        public static extern int SetWindowText(IntPtr Handle, string Title);
 
         /// <summary>
         /// Gets the window placement using the specified handle.
