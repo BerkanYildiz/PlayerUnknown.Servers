@@ -1,6 +1,7 @@
 ﻿namespace PlayerUnknown.Lobby.Services
 {
     using System;
+    using System.Linq;
     using System.Reflection;
 
     using PlayerUnknown.Lobby.Collections;
@@ -27,8 +28,6 @@
         /// </summary>
         protected override async void OnOpen()
         {
-            Logging.Warning(this.GetType(), "Query : " + this.Context.QueryString.ToString().Replace("&", "  -  "));
-
             string Provider = this.Context.QueryString.Get("provider");
             string Ticket   = this.Context.QueryString.Get("ticket");
             string Username = this.Context.QueryString.Get("id");
@@ -85,10 +84,12 @@
             string ClassName  = (string) Message.Parameters[1];
             string MethodName = (string) Message.Parameters[2];
 
-            foreach (object Parameter in Message.Parameters)
+            foreach (object Parameter in Message.Parameters.Skip(1))
             {
-                System.Console.WriteLine(" - " + Parameter + " #" + Message.Parameters.IndexOf(Parameter) + ".");
+                Console.WriteLine(" - " + Parameter + " #" + Message.Parameters.IndexOf(Parameter) + ".");
             }
+
+            Console.WriteLine("--------------------------");
 
             if (string.IsNullOrEmpty(ClassName) == false && string.IsNullOrEmpty(MethodName) == false)
             {
