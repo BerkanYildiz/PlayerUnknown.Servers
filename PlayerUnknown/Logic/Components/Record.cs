@@ -2,7 +2,7 @@
 {
     using Newtonsoft.Json.Linq;
 
-    using PlayerUnknown.Interfaces;
+    using PlayerUnknown.Logic.Interfaces;
 
     public sealed class Record : IRecord
     {
@@ -15,9 +15,18 @@
         }
 
         /// <summary>
+        /// Loads the specified json.
+        /// </summary>
+        /// <param name="Json">The json.</param>
+        public void Load(JObject Json)
+        {
+            
+        }
+
+        /// <summary>
         /// Saves this instance into a json object.
         /// </summary>
-        public JObject ToJson()
+        public JObject Save()
         {
             JObject Json = new JObject();
 

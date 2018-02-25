@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.Interfaces
+﻿namespace PlayerUnknown.Logic.Interfaces
 {
     using System.Collections.Generic;
 
@@ -11,7 +11,7 @@
         /// <summary>
         /// Gets the items.
         /// </summary>
-        List<Item> Items
+        List<IItem> Items
         {
             get;
         }
@@ -27,7 +27,7 @@
         /// <summary>
         /// Gets the currencies.
         /// </summary>
-        List<Currency> Currencies
+        List<ICurrency> Currencies
         {
             get;
         }
@@ -50,7 +50,7 @@
         /// Removes the item.
         /// </summary>
         /// <param name="Item">The item.</param>
-        void RemoveItem(Item Item);
+        void RemoveItem(Item Item, int Amount = 1);
 
         /// <summary>
         /// Equips the item.
@@ -71,8 +71,14 @@
         bool HasItem(Item Item);
 
         /// <summary>
+        /// Loads the specified json.
+        /// </summary>
+        /// <param name="Json">The json.</param>
+        void Load(JObject Json);
+
+        /// <summary>
         /// Saves this instance into a json object.
         /// </summary>
-        JObject ToJson();
+        JObject Save();
     }
 }

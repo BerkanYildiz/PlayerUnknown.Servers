@@ -3,8 +3,7 @@
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
-    using PlayerUnknown.Interfaces;
-    using PlayerUnknown.Logic.Components.Subs;
+    using PlayerUnknown.Logic.Interfaces;
 
     public sealed class Profile : IProfile
     {
@@ -53,16 +52,43 @@
         }
 
         /// <summary>
+        /// Loads the specified json.
+        /// </summary>
+        /// <param name="Json">The json.</param>
+        public void Load(JObject Json)
+        {
+            if (Json.ContainsKey("Nickname"))
+            {
+                this.Nickname = Json.GetValue("Nickname").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("ProfileStatus"))
+            {
+                this.ProfileStatus = Json.GetValue("ProfileStatus").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("InviteAllow"))
+            {
+                this.InviteAllow = Json.GetValue("InviteAllow").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("Skin"))
+            {
+                this.Skin.Load(Json.GetValue("Skin").ToObject<JObject>());
+            }
+        }
+
+        /// <summary>
         /// Saves this instance into a json object.
         /// </summary>
-        public JObject ToJson()
+        public JObject Save()
         {
             JObject Json = new JObject();
 
             Json.Add("Nickname", this.Nickname);
             Json.Add("ProfileStatus", this.ProfileStatus);
             Json.Add("InviteAllow", this.InviteAllow);
-            Json.Add("Skin", this.Skin.ToJson());
+            Json.Add("Skin", this.Skin.Save());
 
             return Json;
         }

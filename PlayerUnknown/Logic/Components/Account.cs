@@ -3,7 +3,7 @@
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
-    using PlayerUnknown.Interfaces;
+    using PlayerUnknown.Logic.Interfaces;
 
     public sealed class Account : IAccount
     {
@@ -89,9 +89,61 @@
         }
 
         /// <summary>
+        /// Loads the specified json.
+        /// </summary>
+        /// <param name="Json">The json.</param>
+        public void Load(JObject Json)
+        {
+            if (Json.ContainsKey("AccountId"))
+            {
+                this.AccountId = Json.GetValue("AccountId").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("AppId"))
+            {
+                this.AppId = Json.GetValue("AppId").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("IsPartner"))
+            {
+                this.IsPartner = Json.GetValue("IsPartner").ToObject<bool>();
+            }
+
+            if (Json.ContainsKey("OuterSource"))
+            {
+                this.OuterSource = Json.GetValue("OuterSource").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("PartnerId"))
+            {
+                this.PartnerId = Json.GetValue("PartnerId").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("PartnerLevel"))
+            {
+                this.PartnerLevel = Json.GetValue("PartnerLevel").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("PlayerNetId"))
+            {
+                this.PlayerNetId = Json.GetValue("PlayerNetId").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("UserSerial"))
+            {
+                this.UserSerial = Json.GetValue("UserSerial").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("Region"))
+            {
+                this.Region = Json.GetValue("Region").ToObject<string>();
+            }
+        }
+
+        /// <summary>
         /// Saves this instance into a json object.
         /// </summary>
-        public JObject ToJson()
+        public JObject Save()
         {
             JObject Json = new JObject();
 

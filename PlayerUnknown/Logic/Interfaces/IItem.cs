@@ -1,4 +1,4 @@
-﻿namespace PlayerUnknown.Interfaces
+﻿namespace PlayerUnknown.Logic.Interfaces
 {
     using Newtonsoft.Json.Linq;
 
@@ -109,8 +109,14 @@
         }
 
         /// <summary>
+        /// Loads the specified json.
+        /// </summary>
+        /// <param name="Json">The json.</param>
+        void Load(JObject Json);
+
+        /// <summary>
         /// Saves this instance into a json object.
         /// </summary>
-        JObject ToJson();
+        JObject Save();
     }
 }

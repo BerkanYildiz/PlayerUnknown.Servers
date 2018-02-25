@@ -3,9 +3,9 @@
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
-    using PlayerUnknown.Interfaces;
+    using PlayerUnknown.Logic.Interfaces;
 
-    public sealed class Item : IItem
+    public sealed class Item : IItem, IObject
     {
         /// <summary>
         /// Gets the item description identifier.
@@ -150,9 +150,8 @@
             }
         }
 
-        private int _ItemDescId;
-        private int _PartDescId;
-
+        private string _ItemDescId;
+        private string _PartDescId;
         private string _PresetId;
         private string _Name;
         private string _Desc;
@@ -174,11 +173,106 @@
         {
             // Item.
         }
+
+        /// <summary>
+        /// Increases the amount.
+        /// </summary>
+        public void IncreaseAmount(int Amount = 1)
+        {
+            this._Count += Amount;
+        }
+
+        /// <summary>
+        /// Increases the amount.
+        /// </summary>
+        public void DecreaseAmount(int Amount = 1)
+        {
+            if (this.Count - Amount < 0)
+            {
+                this._Count = 0;
+            }
+            else
+            {
+                this._Count -= Amount;
+            }
+        }
+
+        /// <summary>
+        /// Loads the specified json.
+        /// </summary>
+        /// <param name="Json">The json.</param>
+        public void Load(JObject Json)
+        {
+            if (Json.ContainsKey("ItemDescId"))
+            {
+                this._ItemDescId = Json.GetValue("ItemDescId").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("PartDescId"))
+            {
+                this._PartDescId = Json.GetValue("PartDescId").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("Name"))
+            {
+                this._Name = Json.GetValue("Name").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("Desc"))
+            {
+                this._Desc = Json.GetValue("Desc").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("PresetId"))
+            {
+                this._PresetId = Json.GetValue("PresetId").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("Quality"))
+            {
+                this._Quality = Json.GetValue("Quality").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("Count"))
+            {
+                this._Count = Json.GetValue("Count").ToObject<int>();
+            }
+
+            if (Json.ContainsKey("BuyPrice"))
+            {
+                this._BuyPrice = Json.GetValue("BuyPrice").ToObject<int>();
+            }
+
+            if (Json.ContainsKey("SellPrice"))
+            {
+                this._SellPrice = Json.GetValue("SellPrice").ToObject<int>();
+            }
+
+            if (Json.ContainsKey("PriceInCents"))
+            {
+                this._PriceInCents = Json.GetValue("PriceInCents").ToObject<int>();
+            }
+
+            if (Json.ContainsKey("WeeklyPurchaseLimit"))
+            {
+                this._WeeklyPurchaseLimit = Json.GetValue("WeeklyPurchaseLimit").ToObject<int>();
+            }
+
+            if (Json.ContainsKey("InEquip"))
+            {
+                this._InEquip = Json.GetValue("InEquip").ToObject<bool>();
+            }
+
+            if (Json.ContainsKey("Doubling"))
+            {
+                this._Doubling = Json.GetValue("Doubling").ToObject<bool>();
+            }
+        }
         
         /// <summary>
         /// Saves this instance into a json object.
         /// </summary>
-        public JObject ToJson()
+        public JObject Save()
         {
             JObject Json = new JObject();
 

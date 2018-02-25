@@ -1,98 +1,99 @@
-﻿namespace PlayerUnknown.Interfaces
+﻿namespace PlayerUnknown.Logic.Interfaces
 {
     using Newtonsoft.Json.Linq;
 
-    public interface IPlayer
+    public interface IAccount
     {
         /// <summary>
-        /// Gets or sets the profile.
+        /// Gets or sets the account identifier.
         /// </summary>
-        IProfile Profile
+        string AccountId
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Gets or sets the inventory.
+        /// Gets or sets the application identifier.
         /// </summary>
-        IInventory Inventory
+        string AppId
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Gets or sets the record.
+        /// Gets or sets a value indicating whether this player is a partner.
         /// </summary>
-        IRecord Record
+        bool IsPartner
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Gets or sets the account.
+        /// Gets or sets the outer source.
         /// </summary>
-        IAccount Account
-        {
-            get;
-            set;
-        }
-        
-        /// <summary>
-        /// Gets or sets the username.
-        /// </summary>
-        string Username
+        string OuterSource
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Gets or sets the password.
+        /// Gets or sets the partner identifier.
         /// </summary>
-        string Password
+        string PartnerId
         {
             get;
             set;
         }
 
         /// <summary>
-        /// Gets the invite allow.
+        /// Gets or sets the partner level.
         /// </summary>
-        string InviteAllow
+        string PartnerLevel
         {
             get;
+            set;
         }
 
         /// <summary>
-        /// Gets the playing game.
+        /// Gets or sets the player net identifier.
         /// </summary>
-        string PlayingGame
+        string PlayerNetId
         {
             get;
+            set;
         }
 
         /// <summary>
-        /// Gets the avatar URL.
+        /// Gets or sets the user serial.
         /// </summary>
-        string AvatarUrl
+        string UserSerial
         {
             get;
+            set;
         }
 
         /// <summary>
-        /// Gets the lobby application configuration.
+        /// Gets or sets the region.
         /// </summary>
-        object LobbyAppConfig
+        string Region
         {
             get;
+            set;
         }
+
+        /// <summary>
+        /// Loads the specified json.
+        /// </summary>
+        /// <param name="Json">The json.</param>
+        void Load(JObject Json);
 
         /// <summary>
         /// Saves this instance into a json object.
         /// </summary>
-        JObject ToJson();
+        JObject Save();
     }
 }

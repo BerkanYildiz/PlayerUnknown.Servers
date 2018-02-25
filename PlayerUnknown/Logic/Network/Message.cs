@@ -1,17 +1,31 @@
-﻿namespace PlayerUnknown.Network
+﻿namespace PlayerUnknown.Logic.Network
 {
     using System.Collections.Generic;
 
-    using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
     using PlayerUnknown.Exceptions;
+    using PlayerUnknown.Logic.Interfaces;
 
-    [JsonObject(MemberSerialization.OptIn)]
-    public class Message
+    public class Message : IMessage
     {
-        [JsonProperty] public long Identifier;
-        [JsonProperty] public List<object> Parameters;
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        public long Identifier
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the parameters.
+        /// </summary>
+        public List<object> Parameters
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Message"/> class.
@@ -42,9 +56,10 @@
         }
 
         /// <summary>
-        /// Parses the specified data.
+        /// Parses the specified json.
         /// </summary>
-        /// <param name="Data">The data.</param>
+        /// <param name="Data">The json.</param>
+        /// <exception cref="PubgMessageException"/>
         public void Parse(string Data)
         {
             if (string.IsNullOrEmpty(Data) == false)
@@ -161,9 +176,18 @@
         }
 
         /// <summary>
+        /// Loads the specified json.
+        /// </summary>
+        /// <param name="Json">The json.</param>
+        public void Load(JArray Json)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
         /// Turns this <see cref="Message"/> into a JSON string.
         /// </summary>
-        public string ToJson()
+        public JArray Save()
         {
             JArray Json = new JArray(this.Identifier);
 
@@ -172,23 +196,7 @@
                 Json.Add(Parameter);
             }
 
-            return Json.ToString(Formatting.None);
-        }
-
-        /// <summary>
-        /// Logs this instance.
-        /// </summary>
-        public void Log()
-        {
-            Logging.Info(this.GetType(), this.ToString());
-        }
-
-        /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
-        /// </summary>
-        public override string ToString()
-        {
-            return this.Identifier + " - " + this.Parameters[1] + "->" + this.Parameters[2] + ".";
+            return Json;
         }
     }
 }

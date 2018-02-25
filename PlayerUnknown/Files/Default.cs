@@ -13,6 +13,7 @@
         public JObject HomeJson
         {
             get;
+            private set;
         }
 
         /// <summary>
@@ -21,10 +22,8 @@
         public JObject InventoryJson
         {
             get;
+            private set;
         }
-
-        private JObject _HomeJson;
-        private JObject _InventoryJson;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Default"/> class.
@@ -53,7 +52,7 @@
 
                 if (!string.IsNullOrEmpty(RawFile))
                 {
-                    this._HomeJson = JObject.Parse(RawFile);
+                    this.HomeJson = JObject.Parse(RawFile);
                 }
                 else
                 {
@@ -77,7 +76,7 @@
 
                 if (!string.IsNullOrEmpty(RawFile))
                 {
-                    this._InventoryJson = JObject.Parse(RawFile);
+                    this.InventoryJson = JObject.Parse(RawFile);
                 }
                 else
                 {

@@ -1,8 +1,8 @@
-﻿namespace PlayerUnknown.Logic.Components.Subs
+﻿namespace PlayerUnknown.Logic.Components
 {
     using Newtonsoft.Json.Linq;
 
-    using PlayerUnknown.Interfaces;
+    using PlayerUnknown.Logic.Interfaces;
 
     public sealed class Skin : ISkin
     {
@@ -62,9 +62,36 @@
         }
 
         /// <summary>
+        /// Loads the specified json.
+        /// </summary>
+        /// <param name="Json">The json.</param>
+        public void Load(JObject Json)
+        {
+            if (Json.ContainsKey("Gender"))
+            {
+                this.Gender = Json.GetValue("Gender").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("Hair"))
+            {
+                this.Hair = Json.GetValue("Hair").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("Face"))
+            {
+                this.Face = Json.GetValue("Face").ToObject<string>();
+            }
+
+            if (Json.ContainsKey("Presets"))
+            {
+                this.Presets = Json.GetValue("Presets").ToObject<string>();
+            }
+        }
+
+        /// <summary>
         /// Saves this instance into a json object.
         /// </summary>
-        public JObject ToJson()
+        public JObject Save()
         {
             JObject Json = new JObject();
 
