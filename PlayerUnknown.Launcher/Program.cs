@@ -6,6 +6,7 @@
     using System.Linq;
 
     using PlayerUnknown.Helpers;
+    using PlayerUnknown.Launcher.Helpers;
 
     public class Program
     {

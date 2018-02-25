@@ -1,6 +1,10 @@
 ﻿namespace PlayerUnknown.Logic.Components
 {
-    public sealed class Record
+    using Newtonsoft.Json.Linq;
+
+    using PlayerUnknown.Interfaces;
+
+    public sealed class Record : IRecord
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Record"/> class.
@@ -8,6 +12,16 @@
         public Record()
         {
             // Record.
+        }
+
+        /// <summary>
+        /// Saves this instance into a json object.
+        /// </summary>
+        public JObject ToJson()
+        {
+            JObject Json = new JObject();
+
+            return Json;
         }
     }
 }

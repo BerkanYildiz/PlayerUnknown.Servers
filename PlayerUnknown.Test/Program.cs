@@ -9,13 +9,6 @@
         /// </summary>
         internal static void Main()
         {
-            PUBG.Attach();
-
-            if (PUBG.IsAttached)
-            {
-                // Test
-            }
-
             Console.ReadKey(false);
         }
     }

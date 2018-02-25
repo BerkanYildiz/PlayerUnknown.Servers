@@ -3,8 +3,6 @@
     using System;
     using System.Diagnostics;
 
-    using PlayerUnknown.Helpers;
-
     public static class Logging
     {
         /// <summary>
@@ -15,7 +13,7 @@
         [Conditional("DEBUG")]
         public static void Info(Type Type, string Message)
         {
-            Debug.WriteLine("[ INFO  ] " + Type.Name.Pad() + " : " + Message);
+            Debug.WriteLine("[ INFO  ] " + Type.Name + " : " + Message);
         }
 
         /// <summary>
@@ -25,7 +23,7 @@
         /// <param name="Message">The message.</param>
         public static void Warning(Type Type, string Message)
         {
-            Debug.WriteLine("[WARNING] " + Type.Name.Pad() + " : " + Message);
+            Debug.WriteLine("[WARNING] " + Type.Name + " : " + Message);
         }
 
         /// <summary>
@@ -35,7 +33,7 @@
         /// <param name="Message">The message.</param>
         public static void Error(Type Type, string Message)
         {
-            Debug.WriteLine("[ ERROR ] " + Type.Name.Pad() + " : " + Message);
+            Debug.WriteLine("[ ERROR ] " + Type.Name + " : " + Message);
         }
 
         /// <summary>
@@ -45,7 +43,7 @@
         /// <param name="Message">The message.</param>
         public static void Fatal(Type Type, string Message)
         {
-            Debug.WriteLine("[ FATAL ] " + Type.Name.Pad() + " : " + Message);
+            Debug.WriteLine("[ FATAL ] " + Type.Name + " : " + Message);
         }
     }
 }

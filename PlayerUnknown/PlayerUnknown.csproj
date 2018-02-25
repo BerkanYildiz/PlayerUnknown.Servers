@@ -38,57 +38,39 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gameloop.Vdf, Version=0.4.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Gameloop.Vdf.0.4.4\lib\net45\Gameloop.Vdf.dll</HintPath>
-    </Reference>
-    <Reference Include="Gameloop.Vdf.JsonConverter, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Gameloop.Vdf.JsonConverter.0.1.1\lib\net45\Gameloop.Vdf.JsonConverter.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Input.Manipulations" />
-    <Reference Include="System.Windows.Presentation" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
-    <Compile Include="Enums\WindowStates.cs" />
-    <Compile Include="Events\Event.cs" />
-    <Compile Include="Events\EventHandlers.cs" />
-    <Compile Include="Events\Handlers\PubgAttachedEvent.cs" />
-    <Compile Include="Events\Handlers\PubgDetachedEvent.cs" />
-    <Compile Include="Events\Handlers\Weapon\WeaponChangedEvent.cs" />
-    <Compile Include="Events\Handlers\Windows\WindowsMaximizedEvent.cs" />
-    <Compile Include="Events\Handlers\Windows\WindowsMinimizedEvent.cs" />
-    <Compile Include="Events\Handlers\Windows\WindowsNotOnScreenEvent.cs" />
-    <Compile Include="Events\Handlers\Windows\WindowsOnScreenEvent.cs" />
     <Compile Include="Exceptions\PubgMessageException.cs" />
     <Compile Include="Exceptions\PubgSessionException.cs" />
-    <Compile Include="Exceptions\ProcessNotFoundException.cs" />
     <None Include="app.config" />
-    <None Include="Gamefiles\items.arabic.json">
+    <None Include="Gamefiles\translations\common\it.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\items.russian.json">
+    <None Include="Gamefiles\translations\items\ar.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\items.spanish.json">
+    <None Include="Gamefiles\translations\items\ru.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\items.chinese.json">
+    <None Include="Gamefiles\translations\items\es.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\items.vietnamese.json">
+    <None Include="Gamefiles\translations\items\ko.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\items.turkish.json">
+    <None Include="Gamefiles\translations\items\vi.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\items.french.json">
+    <None Include="Gamefiles\translations\items\tr.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\translations\items\fr.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Gamefiles\inventory.json">
@@ -97,14 +79,20 @@
     <None Include="Gamefiles\starting_home.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Compile Include="Files\Home.cs" />
-    <Compile Include="Helpers\Comparers\PathEndingComparer.cs" />
-    <Compile Include="Helpers\Memory.cs" />
-    <Compile Include="Helpers\SteamHelper.cs" />
-    <Compile Include="Helpers\Win32.cs" />
+    <Compile Include="Files\Default.cs" />
+    <Compile Include="Files\Traductions\CommonTranslations.cs" />
+    <Compile Include="Files\Traductions\UiTranslations.cs" />
+    <Compile Include="Files\Traductions\ItemTranslations.cs" />
+    <Compile Include="Files\Traductions\Values\ItemTranslation.cs" />
+    <Compile Include="Files\Translations.cs" />
+    <Compile Include="Interfaces\IItem.cs" />
+    <Compile Include="Interfaces\IInventory.cs" />
+    <Compile Include="Interfaces\IAccount.cs" />
+    <Compile Include="Interfaces\IRecord.cs" />
+    <Compile Include="Interfaces\ISkin.cs" />
+    <Compile Include="Interfaces\IProfile.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Logging.cs" />
-    <Compile Include="Helpers\Padding.cs" />
-    <Compile Include="Enums\Rank.cs" />
     <Compile Include="Logic\Components\Account.cs" />
     <Compile Include="Logic\Components\Inventories\InventoryObject.cs" />
     <Compile Include="Logic\Components\Inventories\Currency.cs" />
@@ -116,50 +104,61 @@
     <Compile Include="Logic\Components\Inventory.cs" />
     <Compile Include="Logic\Components\Profile.cs" />
     <Compile Include="Logic\Components\Subs\Skin.cs" />
-    <Compile Include="Logic\Weapon.cs" />
-    <Compile Include="Logic\Weapons\TommyGun.cs" />
-    <Compile Include="Logic\Weapons\Ak47.cs" />
-    <Compile Include="Mouse.cs" />
-    <Compile Include="Native\Point.cs" />
-    <Compile Include="Native\Rectangle.cs" />
-    <Compile Include="Native\WindowPlacement.cs" />
     <Compile Include="Network\Message.cs" />
-    <Compile Include="PUBG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Gamefiles\translations\ui\it.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\translations\ui\ko.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\translations\ui\th.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\translations\ui\vi.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\translations\ui\de.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\translations\ui\fr.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\translations\ui\ru.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Events\Hooks\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Gamefiles\texts\arabic.json">
+    <None Include="Gamefiles\translations\common\ar.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\texts\french.json">
+    <None Include="Gamefiles\translations\common\fr.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\texts\russian.json">
+    <None Include="Gamefiles\translations\common\ru.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\texts\chinese.json">
+    <None Include="Gamefiles\translations\common\zh_CN.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\texts\spanish.json">
+    <None Include="Gamefiles\translations\common\es.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\texts\turkish.json">
+    <None Include="Gamefiles\translations\common\tr.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\texts\indonesian.json">
+    <None Include="Gamefiles\translations\ui\id.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\texts\english.json">
+    <None Include="Gamefiles\translations\ui\en.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\texts\portuguese.json">
+    <None Include="Gamefiles\translations\common\pt.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Gamefiles\texts\german.json">
+    <None Include="Gamefiles\translations\common\de.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
