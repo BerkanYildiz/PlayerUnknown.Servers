@@ -4,7 +4,7 @@
     using Newtonsoft.Json.Linq;
 
     using PlayerUnknown.Lobby.Models.Sessions;
-    using PlayerUnknown.Network;
+    using PlayerUnknown.Logic.Network;
 
     public static class UserProxyApi
     {

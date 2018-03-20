@@ -197,6 +197,10 @@
                     Logging.Warning(typeof(SteamHelper), "CommonPath is empty.");
                 }
             }
+            else
+            {
+                Logging.Warning(typeof(SteamHelper), "Game is not installed.");
+            }
 
             return string.Empty;
         }

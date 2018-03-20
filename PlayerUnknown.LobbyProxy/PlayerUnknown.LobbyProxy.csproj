@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AD453E14-3AD2-4E66-89E7-650A20B05E47}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>PlayerUnknown.Test</RootNamespace>
-    <AssemblyName>PlayerUnknown.Test</AssemblyName>
+    <ProjectGuid>{0C477EA4-7670-429B-AE55-AE6310F69FEC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PlayerUnknown.LobbyProxy</RootNamespace>
+    <AssemblyName>PlayerUnknown.LobbyProxy</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -22,7 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>1</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <FileAlignment>512</FileAlignment>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,33 +33,37 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <FileAlignment>1024</FileAlignment>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>PlayerUnknown.Test.Program</StartupObject>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="websocket-sharp, Version=1.0.2.59611, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebSocketSharp.1.0.3-rc11\lib\websocket-sharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Collections\Sessions.cs" />
+    <Compile Include="Models\Sessions\PubgSession.cs" />
+    <Compile Include="PubgLobbyProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServerProxy.cs" />
+    <Compile Include="Services\ClientProxy.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlayerUnknown.LobbyProxy\PlayerUnknown.LobbyProxy.csproj">
-      <Project>{0c477ea4-7670-429b-ae55-ae6310f69fec}</Project>
-      <Name>PlayerUnknown.LobbyProxy</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PlayerUnknown.Lobby\PlayerUnknown.Lobby.csproj">
-      <Project>{DBA6F948-2196-4C54-AEF6-DDFC42C44A73}</Project>
-      <Name>PlayerUnknown.Lobby</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PlayerUnknown\PlayerUnknown.csproj">
       <Project>{d5c4b791-e097-43c6-8921-048c3e1b7170}</Project>
       <Name>PlayerUnknown</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

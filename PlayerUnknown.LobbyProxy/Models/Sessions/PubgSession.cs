@@ -1,25 +1,35 @@
-﻿namespace PlayerUnknown.Lobby.Models.Sessions
+﻿namespace PlayerUnknown.LobbyProxy.Models.Sessions
 {
-    using System.Threading.Tasks;
-
-    using PlayerUnknown.Lobby.Collections;
-    using PlayerUnknown.Lobby.Services;
+    using PlayerUnknown.LobbyProxy.Services;
     using PlayerUnknown.Logic;
     using PlayerUnknown.Logic.Components;
 
     using WebSocketSharp.Server;
+    using WebSocketSharp;
 
     public sealed class PubgSession
     {
         /// <summary>
-        /// Gets the parent of this instance, storing datas about the <see cref="IWebSocketSession"/>.
+        /// Gets the client <see cref="ClientProxy"/> of this instance, storing datas about the <see cref="IWebSocketSession"/>.
         /// </summary>
         /// <value>
         /// The parent.
         /// </value>
-        public UserProxy Client
+        public ClientProxy Client
         {
             get;
+        }
+
+        /// <summary>
+        /// Gets the server <see cref="WebSocket"/> of this instance, storing datas about the <see cref="IWebSocketSession"/>.
+        /// </summary>
+        /// <value>
+        /// The parent.
+        /// </value>
+        public ServerProxy Server
+        {
+            get;
+            private set;
         }
 
         /// <summary>
@@ -92,16 +102,25 @@
         /// </summary>
         public PubgSession()
         {
-            // PubgSession.
+            this.Server = new ServerProxy();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PubgSession"/> class.
         /// </summary>
         /// <param name="UserProxy">The client.</param>
-        public PubgSession(UserProxy UserProxy)
+        public PubgSession(ClientProxy UserProxy) : this()
         {
             this.Client = UserProxy;
+        }
+
+        /// <summary>
+        /// Connects to the official server.
+        /// </summary>
+        public void ConnectToOfficialServer(string Query)
+        {
+            Logging.Warning(this.GetType(), $"Connect(\"{Query}\").");
+            this.Server.Connect(Query);
         }
     }
 }

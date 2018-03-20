@@ -101,8 +101,9 @@
     <Compile Include="Logic\Components\Account.cs" />
     <Compile Include="Logic\Components\Inventories\Currency.cs" />
     <Compile Include="Logic\Components\Inventories\Item.cs" />
+    <Compile Include="Logic\Matchmaking\Region.cs" />
     <Compile Include="Logic\Matchmaking\GameServer.cs" />
-    <Compile Include="Logic\Matchmaking\GameServers.cs" />
+    <Compile Include="Logic\Matchmaking\Regions.cs" />
     <Compile Include="Logic\Player.cs" />
     <Compile Include="Logic\Components\Record.cs" />
     <Compile Include="Logic\Components\Inventory.cs" />

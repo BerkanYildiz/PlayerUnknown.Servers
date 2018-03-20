@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
 
+    using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
     using PlayerUnknown.Exceptions;
@@ -160,7 +161,7 @@
                 }
                 else if (Result is JObject)
                 {
-                    Json.Add("Result", (JObject)Result);
+                    Json.Add("Result", (JObject) Result);
                 }
                 else
                 {
@@ -197,6 +198,14 @@
             }
 
             return Json;
+        }
+
+        /// <summary>
+        /// Logs this instance.
+        /// </summary>
+        public void Log()
+        {
+            Logging.Info(this.GetType(), this.Save().ToString(Formatting.Indented));
         }
     }
 }

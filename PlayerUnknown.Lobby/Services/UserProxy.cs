@@ -3,12 +3,14 @@
     using System;
     using System.Linq;
     using System.Reflection;
+    using System.Threading.Tasks;
 
-    using PlayerUnknown.Lobby.Collections;
+    using Newtonsoft.Json;
+
     using PlayerUnknown.Lobby.Models.Sessions;
     using PlayerUnknown.Lobby.Services.Api;
     using PlayerUnknown.Logic;
-    using PlayerUnknown.Network;
+    using PlayerUnknown.Logic.Network;
 
     using WebSocketSharp;
     using WebSocketSharp.Server;
@@ -16,11 +18,59 @@
     public sealed class UserProxy : WebSocketBehavior
     {
         /// <summary>
+        /// Gets the server.
+        /// </summary>
+        private PubgLobbyServer Server
+        {
+            get;
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="UserProxy"/> class.
         /// </summary>
-        public UserProxy()
+        /// <param name="Server">The server.</param>
+        public UserProxy(PubgLobbyServer Server)
         {
-            // UserProxy.
+            this.Server     = Server;
+
+            Logging.Info(this.GetType(), "UserProxy has been initalized.");
+        }
+
+        /// <summary>
+        /// Authenticates to the provider using the specified parameters.
+        /// </summary>
+        /// <param name="Provider">The provider.</param>
+        /// <param name="Ticket">The ticket.</param>
+        /// <param name="Username">The username.</param>
+        /// <param name="Password">The password.</param>
+        /// <param name="PlayerNetId">The player net identifier.</param>
+        /// <param name="CountryCode">The country code.</param>
+        /// <param name="Version">The version.</param>
+        public async Task<bool> Authenticate(PubgSession Session, string Provider, string Ticket, string Username, string Password, string PlayerNetId, string CountryCode, string Version)
+        {
+            if (Provider == "bro")
+            {
+                Session.Player = await this.Server.Players.Get(Username, Password);
+
+                if (Session.Player != null)
+                {
+                    return true;
+                }
+            }
+            else if (Provider == "steam")
+            {
+                // Not implemented yet.
+            }
+            else if (Provider == "outer")
+            {
+                // Not implemented yet.
+            }
+            else if (Provider == "xbox")
+            {
+                // How ?
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -38,9 +88,9 @@
 
             var PubgSession = new PubgSession(this);
 
-            if (Collections.Sessions.TryAdd(PubgSession))
+            if (this.Server.Sessions.TryAdd(PubgSession))
             {
-                var Authenticated = await PubgSession.Authenticate(Provider, Ticket, Username, Password, PlayerId, Country, Version);
+                var Authenticated = await this.Authenticate(PubgSession, Provider, Ticket, Username, Password, PlayerId, Country, Version);
 
                 if (Authenticated)
                 {
@@ -50,13 +100,13 @@
                 {
                     Logging.Warning(this.GetType(), "Authenticated != true at OnOpen().");
 
-                    PubgSession.Player = await Players.Create(
-                        new Player
-                        {
-                            Username = Username,
-                            Password = Password
-                        }
-                    );
+                    PubgSession.Player = new Player
+                    {
+                        Username = Username,
+                        Password = Password
+                    };
+
+                    await this.Server.Database.Create(PubgSession.Player);
 
                     ClientApi.ConnectionAccepted(PubgSession);
                 }
@@ -101,7 +151,7 @@
 
                     if (Method != null)
                     {
-                        PubgSession Session = Collections.Sessions.Get(this.ID);
+                        PubgSession Session = this.Server.Sessions.Get(this.ID);
 
                         if (Session != null)
                         {
@@ -111,8 +161,6 @@
                         {
                             Logging.Warning(this.GetType(), "PubgSession == null at OnMessage(Args).");
                         }
-
-                        Message.Log();
                     }
                     else
                     {
@@ -144,7 +192,7 @@
                 Logging.Warning(this.GetType(), "Args.WasClean != true at OnClose(Args).");
             }
 
-            bool Cleaned = Collections.Sessions.TryRemove(this.ID);
+            bool Cleaned = this.Server.Sessions.TryRemove(this.ID);
 
             if (Cleaned == false)
             {
@@ -158,7 +206,7 @@
         /// <param name="Message">The message.</param>
         public void SendMessage(Message Message)
         {
-            this.SendAsync(Message.ToJson(), Completed =>
+            this.SendAsync(Message.Save().ToString(Formatting.None), Completed =>
             {
                 Message.Log();
 

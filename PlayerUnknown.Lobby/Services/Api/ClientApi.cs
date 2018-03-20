@@ -4,7 +4,7 @@
     using Newtonsoft.Json.Linq;
 
     using PlayerUnknown.Lobby.Models.Sessions;
-    using PlayerUnknown.Network;
+    using PlayerUnknown.Logic.Network;
 
     public static class ClientApi
     {
@@ -17,10 +17,10 @@
 
             Session.Client.SendMessage(Message);
 
-            /* Invalidate(Session, "party");
+            Invalidate(Session, "party");
             Invalidate(Session, "match");
             Invalidate(Session, "game");
-            Invalidate(Session, "event"); */
+            Invalidate(Session, "event");
         }
 
         public static void Invalidate(PubgSession Session, string Class)

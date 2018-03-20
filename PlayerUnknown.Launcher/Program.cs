@@ -5,11 +5,25 @@
     using System.IO;
     using System.Linq;
 
-    using PlayerUnknown.Helpers;
     using PlayerUnknown.Launcher.Helpers;
 
     public class Program
     {
+        /// <summary>
+        /// Gets the parameters.
+        /// </summary>
+        public static string[] Parameters
+        {
+            get
+            {
+                return new[]
+                {
+                    "-KoreanRating",
+                    "-LobbyUrl=http://prod-live-front.playprivategrounds.com/index.html"
+                };
+            }
+        }
+
         /// <summary>
         /// Defines the entry point of the application.
         /// </summary>
@@ -27,7 +41,7 @@
 
                 if (ExecutableFile.Exists)
                 {
-                    var Executable = new ProcessStartInfo(ExecutablePath, "-LobbyUrl=http://prod-live-front.playprivategrounds.com/index.html")
+                    var Executable = new ProcessStartInfo(ExecutablePath, string.Join(" ", Parameters))
                     {
                         UseShellExecute = false
                     };
@@ -39,23 +53,27 @@
 
                     Processus.WaitForInputIdle();
 
+                    /*
+                    
                     var Memory      = new Memory(Handle, Processus.MainModule.BaseAddress);
 
-                    Logging.Warning(typeof(Memory), "Process has been loaded as #" + Handle + ".");
-                    Logging.Warning(typeof(Memory), "Process base address detected at " + Memory.Base + ".");
+                    Logging.Warning(typeof(Program), "Process has been loaded as #" + Handle + ".");
+                    Logging.Warning(typeof(Program), "Process base address detected at " + Memory.Base + ".");
 
-                    int Result     = Win32.SetWindowText(Processus.MainWindowHandle, "Rekt niggas");
+                    int Result      = Win32.SetWindowText(Processus.MainWindowHandle, "Rekt niggas");
 
                     if (Result != 1)
                     {
-                        Logging.Error(typeof(PUBG), "Oh, Damn! Couldn't change the title of PUBG process.");
+                        Logging.Error(typeof(Program), "Oh, Damn! Couldn't change the title of PUBG process.");
                     }
+
+                    */
 
                     bool BEnabled   = Processus.Modules.Cast<ProcessModule>().Any(Module => Module.ModuleName.StartsWith("BattlEye"));
 
                     if (BEnabled)
                     {
-                        Logging.Warning(typeof(PUBG), "BattlEye has been detected, don't move!");
+                        Logging.Warning(typeof(Program), "BattlEye has been detected, don't move!");
                     }
                 }
                 else

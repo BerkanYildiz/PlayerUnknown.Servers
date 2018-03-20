@@ -3,64 +3,85 @@
     using System;
     using System.Collections.Concurrent;
     using System.Linq;
-    using System.Threading;
     using System.Threading.Tasks;
 
     using Newtonsoft.Json;
 
-    using PlayerUnknown.Files;
     using PlayerUnknown.Logic;
-    using PlayerUnknown.Logic.Components;
 
-    using GameDb    = PlayerUnknown.Lobby.Database.GameDb;
     using PlayerDb  = PlayerUnknown.Lobby.Database.Models.PlayerDb;
 
-    public static class Players
+    public class Players
     {
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="Players"/> has been already initialized.
+        /// Gets or sets the entities.
         /// </summary>
-        public static bool Initialized
+        public ConcurrentDictionary<string, Player> Entities
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets or sets the server.
+        /// </summary>
+        private PubgLobbyServer Server
         {
             get;
             set;
         }
-
+        
         /// <summary>
-        /// Gets or sets the entities.
+        /// Gets the count of players currently in the memory.
         /// </summary>
-        private static ConcurrentDictionary<string, Player> Entities;
-
-        /// <summary>
-        /// Initializes the slot.
-        /// </summary>
-        public static void Initialize()
+        public int Count
         {
-            if (Players.Initialized)
+            get
             {
-                return;
-            }
+                if (this.IsDisposed)
+                {
+                    return 0;
+                }
 
-            Players.Entities    = new ConcurrentDictionary<string, Player>();
-            Players.Initialized = true;
+                return this.Entities.Count;
+            }
+        }
+        
+        /// <summary>
+        /// Gets a value indicating whether this instance is disposed.
+        /// </summary>
+        public bool IsDisposed
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Players"/> class.
+        /// </summary>
+        /// <param name="Server">The server.</param>
+        public Players(PubgLobbyServer Server)
+        {
+            this.Server     = Server;
+            this.Entities   = new ConcurrentDictionary<string, Player>();
         }
 
         /// <summary>
         /// Adds the specified entity.
         /// </summary>
         /// <param name="Entity">The entity.</param>
-        public static void Add(Player Entity)
+        public void Add(Player Entity)
         {
-            if (Players.Entities.ContainsKey(Entity.Account.AccountId))
+            if (this.Entities.ContainsKey(Entity.Account.AccountId))
             {
-                if (!Players.Entities.TryUpdate(Entity.Account.AccountId, Entity, Entity))
+                if (!this.Entities.TryUpdate(Entity.Account.AccountId, Entity, Entity))
                 {
                     Logging.Error(typeof(Players), "TryUpdate(EntityId, Entity, Entity) != true at Add(Entity).");
                 }
             }
             else
             {
-                if (!Players.Entities.TryAdd(Entity.Account.AccountId, Entity))
+                if (!this.Entities.TryAdd(Entity.Account.AccountId, Entity))
                 {
                     Logging.Error(typeof(Players), "TryAdd(EntityId, Entity) != true at Add(Entity).");
                 }
@@ -71,19 +92,19 @@
         /// Removes the specified entity.
         /// </summary>
         /// <param name="Entity">The entity.</param>
-        public static async Task Remove(Player Entity)
+        public async Task Remove(Player Entity)
         {
             Player TmpEntity;
 
             if (Entity != null)
             {
-                if (!Players.Entities.TryRemove(Entity.Account.AccountId, out TmpEntity))
+                if (!this.Entities.TryRemove(Entity.Account.AccountId, out TmpEntity))
                 {
                     Logging.Warning(typeof(Players), "Entities.TryRemove(Entity, TmpEntity) != true at Remove(Entity).");
                 }
             }
 
-            await Players.Save(Entity);
+            await this.Server.Database.Save(Entity);
         }
 
         /// <summary>
@@ -91,22 +112,22 @@
         /// </summary>
         /// <param name="Entity">The entity.</param>
         /// <param name="Store">Whether it has to be stored.</param>
-        public static async Task<Player> Create(Player Entity = null, bool Store = true)
+        public async Task<Player> Create(Player Entity = null, bool Store = true)
         {
             if (Entity == null)
             {
-                Entity = JsonConvert.DeserializeObject<Player>(Home.HomeJson.ToString());
+                Entity = JsonConvert.DeserializeObject<Player>(this.Server.Default.HomeJson.ToString());
             }
             else
             {
-                JsonConvert.PopulateObject(Home.HomeJson.ToString(), Entity);
+                JsonConvert.PopulateObject(this.Server.Default.HomeJson.ToString(), Entity);
             }
 
-            await PlayerDb.Create(Entity);
+            await this.Server.Database.Create(Entity);
 
             if (Store)
             {
-                Players.Add(Entity);
+                this.Add(Entity);
             }
 
             return Entity;
@@ -117,12 +138,12 @@
         /// </summary>
         /// <param name="AccountId">The account identifier.</param>
         /// <param name="Store">Whether it has to be stored.</param>
-        public static async Task<Player> Get(string AccountId, bool Store = true)
+        public async Task<Player> Get(string AccountId, bool Store = true)
         {
-            PlayerDb PlayerDb = await PlayerDb.Load(AccountId);
+            PlayerDb PlayerDb = await this.Server.Database.Load(AccountId);
             Player Player     = null;
 
-            if (Players.Entities.TryGetValue(AccountId, out Player))
+            if (this.Entities.TryGetValue(AccountId, out Player))
             {
                 return Player;
             }
@@ -130,11 +151,11 @@
             {
                 if (PlayerDb != null)
                 {
-                    if (PlayerDb.Deserialize(out Player))
+                    if (this.Server.Database.Deserialize(PlayerDb, out Player))
                     {
                         if (Store)
                         {
-                            Players.Add(Player);
+                            this.Add(Player);
                         }
 
                         return Player;
@@ -158,9 +179,9 @@
         /// </summary>
         /// <param name="AccountId">The account identifier.</param>
         /// <param name="Store">Whether it has to be stored.</param>
-        public static async Task<Player> Get(string Username, string Password, bool Store = true)
+        public async Task<Player> Get(string Username, string Password, bool Store = true)
         {
-            PlayerDb PlayerDb = await PlayerDb.Load(Username, Password);
+            PlayerDb PlayerDb = await this.Server.Database.Load(Username, Password);
             Player Player     = null;
 
             /* if (Players.Entities.TryGetValue(PlayerDb., out Player))
@@ -171,11 +192,11 @@
             {
                 if (PlayerDb != null)
                 {
-                    if (PlayerDb.Deserialize(out Player))
+                    if (this.Server.Database.Deserialize(PlayerDb, out Player))
                     {
                         if (Store)
                         {
-                            Players.Add(Player);
+                            this.Add(Player);
                         }
 
                         return Player;
@@ -198,9 +219,9 @@
         /// Saves the specified entity.
         /// </summary>
         /// <param name="Entity">The entity.</param>
-        public static async Task Save(Player Entity)
+        public async Task Save(Player Entity)
         {
-            var Result = await PlayerDb.Save(Entity);
+            var Result = await this.Server.Database.Save(Entity);
 
             if (Result == null)
             {
@@ -211,14 +232,14 @@
         /// <summary>
         /// Saves every entities in this slot.
         /// </summary>
-        public static async Task SaveAll()
+        public async Task SaveAll()
         {
-            var Players = Collections.Players.Entities.Values.ToArray();
-            var RequestsTasks = new Task[Players.Length];
+            var Players         = this.Entities.Values.ToArray();
+            var RequestsTasks   = new Task[Players.Length];
 
             for (var I = 0; I < Players.Length; I++)
             {
-                RequestsTasks[I] = Collections.Players.Save(Players[I]);
+                RequestsTasks[I] = this.Save(Players[I]);
             }
 
             await Task.WhenAll(RequestsTasks);
@@ -228,14 +249,34 @@
         /// Executes an action on every players in the collection.
         /// </summary>
         /// <param name="Action">The action to execute on the players.</param>
-        public static void ForEach(Action<Player> Action)
+        public void ForEach(Action<Player> Action)
         {
-            var Entities = Players.Entities.Values;
+            var Entities = this.Entities.Values;
             
             foreach (var Entity in Entities)
             {
                 Action.Invoke(Entity);
             }
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        public void Dispose()
+        {
+            if (this.IsDisposed)
+            {
+                return;
+            }
+
+            this.IsDisposed = true;
+
+            if (this.Entities != null)
+            {
+                this.Entities.Clear();
+            }
+
+            this.Entities = null;
         }
     }
 }

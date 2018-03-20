@@ -1,9 +1,9 @@
-﻿namespace PlayerUnknown.Lobby.Collections
+﻿namespace PlayerUnknown.LobbyProxy.Collections
 {
     using System;
     using System.Collections.Concurrent;
 
-    using PlayerUnknown.Lobby.Models.Sessions;
+    using PlayerUnknown.LobbyProxy.Models.Sessions;
 
     public class Sessions : IDisposable
     {

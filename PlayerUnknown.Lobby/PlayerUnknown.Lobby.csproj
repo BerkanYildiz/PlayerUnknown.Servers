@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DBA6F948-2196-4C54-AEF6-DDFC42C44A73}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>PlayerUnknown.Lobby</RootNamespace>
     <AssemblyName>PlayerUnknown.Lobby</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
@@ -34,7 +34,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>PlayerUnknown.Lobby.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
@@ -76,10 +77,9 @@
     <Compile Include="Collections\Players.cs" />
     <Compile Include="Collections\Sessions.cs" />
     <Compile Include="Database\GameDb.cs" />
-    <Compile Include="Database\Models\BattleDb.cs" />
     <Compile Include="Database\Models\PlayerDb.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PubgLobbyServer.cs" />
     <Compile Include="Services\Api\ClientApi.cs" />
     <Compile Include="Services\Api\UserProxyApi.cs" />
     <Compile Include="Services\UserProxy.cs" />
@@ -87,9 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="certificate.crt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerUnknown.Lobby", "Play
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerUnknown.Launcher", "PlayerUnknown.Launcher\PlayerUnknown.Launcher.csproj", "{36C464C8-F9D2-4A15-8264-A347B621A227}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerUnknown.LobbyProxy", "PlayerUnknown.LobbyProxy\PlayerUnknown.LobbyProxy.csproj", "{0C477EA4-7670-429B-AE55-AE6310F69FEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,18 @@ Global
 		{36C464C8-F9D2-4A15-8264-A347B621A227}.Release|x64.Build.0 = Release|Any CPU
 		{36C464C8-F9D2-4A15-8264-A347B621A227}.Release|x86.ActiveCfg = Release|Any CPU
 		{36C464C8-F9D2-4A15-8264-A347B621A227}.Release|x86.Build.0 = Release|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Debug|x64.Build.0 = Debug|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Debug|x86.Build.0 = Debug|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Release|x64.ActiveCfg = Release|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Release|x64.Build.0 = Release|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Release|x86.ActiveCfg = Release|Any CPU
+		{0C477EA4-7670-429B-AE55-AE6310F69FEC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
