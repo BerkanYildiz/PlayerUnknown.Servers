@@ -19,7 +19,8 @@
                 return new[]
                 {
                     "-KoreanRating",
-                    "-LobbyUrl=http://prod-live-front.playprivategrounds.com/index.html"
+                    // "-LobbyUrl=http://prod-live-front.playprivategrounds.com/index.html",
+                    "-LobbyUrl=https://prod-live-front.playbattlegrounds.com/index.html"
                 };
             }
         }
@@ -43,8 +44,30 @@
                 {
                     var Executable = new ProcessStartInfo(ExecutablePath, string.Join(" ", Parameters))
                     {
-                        UseShellExecute = false
+                        UseShellExecute = false,
                     };
+
+                    // Steam
+
+                    Executable.EnvironmentVariables.Add("STEAMID", "76561198826798479");
+                    Executable.EnvironmentVariables.Add("SteamPath", "C:\\Program Files (x86)\\Steam");
+                    Executable.EnvironmentVariables.Add("SteamUser", "sukhrab4");
+                    Executable.EnvironmentVariables.Add("SteamGameId", "578080");
+                    Executable.EnvironmentVariables.Add("SteamAppId", "578080");
+                    Executable.EnvironmentVariables.Add("SteamAppUser", "sukhrab4");
+                    Executable.EnvironmentVariables.Add("SteamControllerAppId", "578080");
+
+                    // Extra
+
+                    Executable.EnvironmentVariables.Add("ENABLE_VK_LAYER_VALVE_steam_overlay_1", "1");
+                    Executable.EnvironmentVariables.Add("SDL_GAMECONTROLLER_ALLOW_STEAM_VIRTUAL_GAMEPAD", "1");
+                    Executable.EnvironmentVariables.Add("EnableConfiguratorSupport", "0");
+
+                    // Streaming
+
+                    Executable.EnvironmentVariables.Add("SteamStreamingHardwareEncodingNVIDIA", "1");
+                    Executable.EnvironmentVariables.Add("SteamStreamingHardwareEncodingAMD", "1");
+                    Executable.EnvironmentVariables.Add("SteamStreamingHardwareEncodingIntel", "1");
 
                     var Processus   = Process.Start(Executable);
                     var Handle      = Processus.Handle;
@@ -52,22 +75,6 @@
                     var ProcId      = Processus.Id;
 
                     Processus.WaitForInputIdle();
-
-                    /*
-                    
-                    var Memory      = new Memory(Handle, Processus.MainModule.BaseAddress);
-
-                    Logging.Warning(typeof(Program), "Process has been loaded as #" + Handle + ".");
-                    Logging.Warning(typeof(Program), "Process base address detected at " + Memory.Base + ".");
-
-                    int Result      = Win32.SetWindowText(Processus.MainWindowHandle, "Rekt niggas");
-
-                    if (Result != 1)
-                    {
-                        Logging.Error(typeof(Program), "Oh, Damn! Couldn't change the title of PUBG process.");
-                    }
-
-                    */
 
                     bool BEnabled   = Processus.Modules.Cast<ProcessModule>().Any(Module => Module.ModuleName.StartsWith("BattlEye"));
 
