@@ -50,6 +50,8 @@
         {
             if (Provider == "bro")
             {
+                Console.WriteLine("[*] Login with Bro !");
+
                 Session.Player = await this.Server.Players.Get(Username, Password);
 
                 if (Session.Player != null)
@@ -139,8 +141,6 @@
                 Console.WriteLine(" - " + Parameter + " #" + Message.Parameters.IndexOf(Parameter) + ".");
             }
 
-            Console.WriteLine("--------------------------");
-
             if (string.IsNullOrEmpty(ClassName) == false && string.IsNullOrEmpty(MethodName) == false)
             {
                 Type Class = Type.GetType("PlayerUnknown.Lobby.Services.Api." + ClassName);
@@ -176,6 +176,8 @@
             {
                 Logging.Warning(this.GetType(), "Message.IsValid != true at OnMessage(Args).");
             }
+
+            Console.WriteLine("--------------------------");
         }
 
         /// <summary>
@@ -189,7 +191,7 @@
 
             if (Args.WasClean == false)
             {
-                Logging.Warning(this.GetType(), "Args.WasClean != true at OnClose(Args).");
+                // Logging.Warning(this.GetType(), "Args.WasClean != true at OnClose(Args).");
             }
 
             bool Cleaned = this.Server.Sessions.TryRemove(this.ID);
@@ -213,6 +215,21 @@
                 if (Completed == false)
                 {
                     Logging.Warning(this.GetType(), "Completed != true at SendMessage(" + Message.Identifier + ").");
+                }
+            });
+        }
+
+        /// <summary>
+        /// Sends the specified <see cref="Message"/>.
+        /// </summary>
+        /// <param name="Message">The message.</param>
+        public void SendMessage(string Message)
+        {
+            this.SendAsync(Message, Completed =>
+            {
+                if (Completed == false)
+                {
+                    Logging.Warning(this.GetType(), "Completed != true at SendMessage(string).");
                 }
             });
         }

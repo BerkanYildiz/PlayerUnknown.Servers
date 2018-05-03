@@ -128,7 +128,7 @@
         {
             if (!string.IsNullOrEmpty(Username))
             {
-                var Entities = await this.Players.FindAsync(Player => Player.Content["username"] == Username);
+                var Entities = await this.Players.FindAsync(Player => Player.Content["Username"] == Username);
 
                 if (Entities != null)
                 {

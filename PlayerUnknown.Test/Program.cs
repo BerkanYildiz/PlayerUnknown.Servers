@@ -17,7 +17,7 @@
         /// </summary>
         private static void Main()
         {
-            // Program.StartServer();
+            Program.StartServer();
             Console.ReadKey();
         }
 
