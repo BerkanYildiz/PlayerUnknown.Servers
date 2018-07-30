@@ -119,8 +119,8 @@
         /// </summary>
         public void ConnectToOfficialServer(string Query)
         {
-            Logging.Warning(this.GetType(), $"Connect(\"{Query}\").");
-            this.Server.Connect(Query);
+            Logging.Info(typeof(PubgSession), "Connecting to 'wss://prod-live-entry.playbattlegrounds.com" + Query + "' !");
+            this.Server.Connect("wss://prod-live-entry.playbattlegrounds.com" + Query);
         }
     }
 }

@@ -1,12 +1,20 @@
 ﻿namespace PlayerUnknown.LobbyProxy
 {
     using System;
+    using System.IO;
+    using System.Linq;
+    using System.Security;
+    using System.Security.Authentication;
+    using System.Security.Cryptography;
+    using System.Security.Cryptography.X509Certificates;
+    using System.Text;
     using System.Threading.Tasks;
 
     using PlayerUnknown.Files;
     using PlayerUnknown.LobbyProxy.Collections;
     using PlayerUnknown.LobbyProxy.Services;
 
+    using WebSocketSharp;
     using WebSocketSharp.Server;
 
     public class PubgLobbyProxy : IDisposable
@@ -99,17 +107,39 @@
                 throw new Exception("Configuration for PubgLobbyProxy can't be null.");
             }
 
-            this.Configuration  = Config;
+            this.Configuration      = Config;
 
-            this.Default        = new Default();
-            this.Translations   = new Translations();
-            this.Sessions       = new Sessions();
-            this.Network        = new WebSocketServer(81);
+            this.Default            = new Default();
+            this.Translations       = new Translations();
+            this.Sessions           = new Sessions();
+            this.Network            = new WebSocketServer(81, false);
+
+            this.Network.Log.Level  = LogLevel.Trace;
+            this.Network.Log.Output = (Data, Message) =>
+            {
+                Logging.Info(typeof(WebSocket), Data.Message);
+            };
 
             this.Network.AddWebSocketService("/userproxy", () =>
             {
                 return new ClientProxy(this);
             });
+
+            // Tls..
+
+            this.Network.SslConfiguration.EnabledSslProtocols = SslProtocols.Tls | SslProtocols.Tls11 | SslProtocols.Tls12;
+
+            // Callbacks..
+
+            this.Network.SslConfiguration.ClientCertificateValidationCallback = (Sender, Certificate, Chain, Errors) =>
+            {
+                return true;
+            };
+
+            var Cert = new X509Certificate2(File.ReadAllBytes("Certs\\ssl.pfx"), "rekt");
+
+            this.Network.SslConfiguration.ServerCertificate = Cert;
+            this.Network.SslConfiguration.ClientCertificateRequired = false;
 
             Logging.Info(this.GetType(), "Lobby has been initialized.");
         }
@@ -138,6 +168,8 @@
             {
                 await Task.Delay(1000);
             }
+
+            Logging.Warning(typeof(PubgLobbyProxy), "Stopped waiting !");
         }
 
         /// <summary>

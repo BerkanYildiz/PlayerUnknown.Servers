@@ -82,6 +82,7 @@
     <Compile Include="PubgLobbyServer.cs" />
     <Compile Include="Services\Api\ClientApi.cs" />
     <Compile Include="Services\Api\UserProxyApi.cs" />
+    <Compile Include="Services\DefaultProxy.cs" />
     <Compile Include="Services\UserProxy.cs" />
     <Compile Include="Models\Sessions\PubgSession.cs" />
   </ItemGroup>

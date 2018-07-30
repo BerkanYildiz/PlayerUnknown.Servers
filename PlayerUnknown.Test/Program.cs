@@ -1,7 +1,6 @@
 ﻿namespace PlayerUnknown.Test
 {
     using System;
-    using System.Text;
 
     using Newtonsoft.Json.Linq;
 
@@ -17,7 +16,7 @@
         /// </summary>
         private static void Main()
         {
-            Program.StartServer();
+            Program.StartServer(new Config(ServerPort: 11111));
             Console.ReadKey();
         }
 
@@ -38,9 +37,9 @@
         /// <summary>
         /// Starts the server.
         /// </summary>
-        private static async void StartServer()
+        private static async void StartServer(Config Config)
         {
-            using (PubgLobbyServer PubgLobbyServer = new PubgLobbyServer())
+            using (PubgLobbyServer PubgLobbyServer = new PubgLobbyServer(Config))
             {
                 PubgLobbyServer.Start();
 

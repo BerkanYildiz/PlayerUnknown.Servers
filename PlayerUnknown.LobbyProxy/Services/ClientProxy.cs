@@ -35,15 +35,16 @@
         {
             Logging.Info(this.GetType(), " - " + string.Join("    ", this.Context.QueryString.ToString().Split('&')));
 
-            string Provider = this.Context.QueryString.Get("provider");
-            string Ticket   = this.Context.QueryString.Get("ticket");
-            string Username = this.Context.QueryString.Get("id");
-            string Password = this.Context.QueryString.Get("password");
-            string PlayerId = this.Context.QueryString.Get("playerNetId");
-            string Country  = this.Context.QueryString.Get("cc");
-            string Version  = this.Context.QueryString.Get("clientGameVersion");
+            string Provider     = this.Context.QueryString.Get("provider");
+            string Ticket       = this.Context.QueryString.Get("ticket");
+            string Username     = this.Context.QueryString.Get("id");
+            string Password     = this.Context.QueryString.Get("password");
+            string PlayerId     = this.Context.QueryString.Get("playerNetId");
+            string Country      = this.Context.QueryString.Get("cc");
+            string Version      = this.Context.QueryString.Get("clientGameVersion");
+            string FullVersion  = this.Context.QueryString.Get("fullClientGameVersion");
 
-            var PubgSession = new PubgSession(this);
+            var PubgSession     = new PubgSession(this);
 
             if (this.Proxy.Sessions.TryAdd(PubgSession))
             {
@@ -76,6 +77,7 @@
             Message Message = new Message(Args.Data);
 
             Logging.Info(this.GetType(), "Received a message from the client.");
+            Logging.Info(this.GetType(), Args.Data);
         }
 
         /// <summary>
@@ -86,11 +88,6 @@
         protected override void OnClose(CloseEventArgs Args)
         {
             base.OnClose(Args);
-
-            if (Args.WasClean == false)
-            {
-                Logging.Warning(this.GetType(), "Args.WasClean != true at OnClose(Args).");
-            }
 
             bool Cleaned = this.Proxy.Sessions.TryRemove(this.ID);
 

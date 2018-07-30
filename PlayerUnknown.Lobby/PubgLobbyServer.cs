@@ -9,6 +9,7 @@
     using PlayerUnknown.Lobby.Database;
     using PlayerUnknown.Lobby.Services;
 
+    using WebSocketSharp;
     using WebSocketSharp.Server;
 
     public class PubgLobbyServer : IDisposable
@@ -119,18 +120,29 @@
                 throw new Exception("Configuration for PubgLobbyServer can't be null.");
             }
 
-            this.Configuration  = Config;
+            this.Configuration      = Config;
 
-            this.Default        = new Default();
-            this.Translations   = new Translations();
-            this.Database       = new GameDb();
-            this.Sessions       = new Sessions();
-            this.Players        = new Players(this);
-            this.Network        = new WebSocketServer(81);
+            this.Default            = new Default();
+            this.Translations       = new Translations();
+            this.Database           = new GameDb();
+            this.Sessions           = new Sessions();
+            this.Players            = new Players(this);
+            this.Network            = new WebSocketServer(Config.ServerPort);
+
+            this.Network.Log.Level  = LogLevel.Trace;
+            this.Network.Log.Output = (Data, Message) =>
+            {
+                Logging.Info(typeof(WebSocket), Data.Message);
+            };
 
             this.Network.AddWebSocketService("/userproxy", () =>
             {
                 return new UserProxy(this);
+            });
+
+            this.Network.AddWebSocketService("/", () =>
+            {
+                return new DefaultProxy(this);
             });
 
             Logging.Info(this.GetType(), "Lobby has been initialized.");
@@ -160,6 +172,8 @@
             {
                 await Task.Delay(1000);
             }
+
+            Logging.Warning(typeof(PubgLobbyServer), "Stopped waiting !");
         }
 
         /// <summary>

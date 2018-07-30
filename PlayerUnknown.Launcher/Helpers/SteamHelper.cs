@@ -15,9 +15,9 @@
     public static class SteamHelper
     {
         /// <summary>
-        /// Detects the game path.
+        /// Detects the steam path.
         /// </summary>
-        public static string GetLibraryPath()
+        public static string GetSteamPath()
         {
             string FilesPath = Environment.GetEnvironmentVariable(Environment.Is64BitOperatingSystem ? "ProgramFiles(x86)" : "ProgramFiles");
 
@@ -31,34 +31,7 @@
 
                     if (string.IsNullOrEmpty(SteamPath) == false)
                     {
-                        var SteamFiles = Directory.GetDirectories(SteamPath);
-
-                        if (SteamFiles.Contains("steamapps", new PathEndingComparer()))
-                        {
-                            var AppsPath = Path.Combine(SteamPath, "steamapps");
-
-                            if (string.IsNullOrEmpty(AppsPath) == false)
-                            {
-                                var AppsFiles = Directory.GetFiles(AppsPath);
-
-                                if (AppsFiles.Contains("libraryfolders.vdf", new PathEndingComparer()))
-                                {
-                                    return Path.Combine(AppsPath, "libraryfolders.vdf");
-                                }
-                                else
-                                {
-                                    Logging.Warning(typeof(SteamHelper), "LibraryFolders.vdf don't exist.");
-                                }
-                            }
-                            else
-                            {
-                                Logging.Warning(typeof(SteamHelper), "SteamsApps is empty.");
-                            }
-                        }
-                        else
-                        {
-                            Logging.Warning(typeof(SteamHelper), "SteamApps could not be detected.");
-                        }
+                        return SteamPath;
                     }
                     else
                     {
@@ -79,10 +52,86 @@
         }
 
         /// <summary>
+        /// Detects the steam apps path.
+        /// </summary>
+        public static string GetSteamAppsPath()
+        {
+            var SteamPath = SteamHelper.GetSteamPath();
+
+            if (string.IsNullOrEmpty(SteamPath) == false)
+            {
+                var SteamFiles = Directory.GetDirectories(SteamPath);
+
+                if (SteamFiles.Contains("steamapps", new PathEndingComparer()))
+                {
+                    return Path.Combine(SteamPath, "steamapps");
+                }
+                else
+                {
+                    Logging.Warning(typeof(SteamHelper), "SteamApps could not be detected.");
+                }
+            }
+            else
+            {
+                Logging.Warning(typeof(SteamHelper), "SteamPath is empty.");
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Detects the steam games library path.
+        /// </summary>
+        public static string GetLibraryPath()
+        {
+            var AppsPath = SteamHelper.GetSteamAppsPath();
+
+            if (string.IsNullOrEmpty(AppsPath) == false)
+            {
+                var AppsFiles = Directory.GetFiles(AppsPath);
+
+                if (AppsFiles.Contains("libraryfolders.vdf", new PathEndingComparer()))
+                {
+                    return Path.Combine(AppsPath, "libraryfolders.vdf");
+                }
+                else
+                {
+                    Logging.Warning(typeof(SteamHelper), "LibraryFolders.vdf don't exist.");
+                }
+            }
+            else
+            {
+                Logging.Warning(typeof(SteamHelper), "SteamApps is empty.");
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Detects the steam config path.
+        /// </summary>
+        public static string GetConfigPath()
+        {
+            var SteamPath = SteamHelper.GetSteamPath();
+
+            if (string.IsNullOrEmpty(SteamPath) == false)
+            {
+                return Path.Combine(SteamPath, "config");
+            }
+            else
+            {
+                Logging.Warning(typeof(SteamHelper), "SteamPath is empty.");
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
         /// Gets the games folder path.
         /// </summary>
-        public static string GetGamesFolderPath()
+        public static IEnumerable<string> GetGamesFolderPaths()
         {
+            string SteamPath   = SteamHelper.GetSteamAppsPath();
             string LibraryPath = SteamHelper.GetLibraryPath();
             string LibraryFile = File.ReadAllText(LibraryPath);
 
@@ -103,7 +152,7 @@
 
                             if (string.IsNullOrEmpty(CommonPath) == false)
                             {
-                                return CommonPath;
+                                yield return CommonPath;
                             }
                             else
                             {
@@ -130,7 +179,7 @@
                 Logging.Error(typeof(SteamHelper), "Empty ?");
             }
 
-            return string.Empty;
+            yield return Path.Combine(SteamPath, "common");
         }
 
         /// <summary>
@@ -138,25 +187,28 @@
         /// </summary>
         public static IEnumerable<string> GetInstalledGames()
         {
-            string CommonPath = SteamHelper.GetGamesFolderPath();
+            var GameFolders = SteamHelper.GetGamesFolderPaths().ToList();
 
-            if (string.IsNullOrEmpty(CommonPath) == false)
+            if (GameFolders.Any())
             {
-                var Games = Directory.GetDirectories(CommonPath);
-
-                foreach (var Game in Games)
+                foreach (var GameFolder in GameFolders)
                 {
-                    int LastSlash = Game.LastIndexOf('\\') + 1;
+                    var Games = Directory.GetDirectories(GameFolder);
 
-                    if (LastSlash != 0)
+                    foreach (var Game in Games)
                     {
-                        yield return Game.Substring(LastSlash, Game.Length - LastSlash);
+                        int LastSlash = Game.LastIndexOf('\\') + 1;
+
+                        if (LastSlash != 0)
+                        {
+                            yield return Game.Substring(LastSlash, Game.Length - LastSlash);
+                        }
                     }
                 }
             }
             else
             {
-                Logging.Warning(typeof(SteamHelper), "CommonPath is empty.");
+                Logging.Warning(typeof(SteamHelper), "GameFolders is empty.");
             }
         }
 
@@ -182,24 +234,23 @@
         {
             if (SteamHelper.IsGameInstalled(GameName))
             {
-                string CommonPath = SteamHelper.GetGamesFolderPath();
+                var GameFolders = SteamHelper.GetGamesFolderPaths().ToList();
 
-                if (string.IsNullOrEmpty(CommonPath) == false)
+                if (GameFolders.Any())
                 {
-                    var Games = Directory.GetDirectories(CommonPath);
+                    foreach (var GameFolder in GameFolders)
+                    {
+                        var Games = Directory.GetDirectories(GameFolder);
 
-                    if (Games.Contains(GameName, new PathEndingComparer()))
-                    {
-                        return Path.Combine(CommonPath, GameName);
-                    }
-                    else
-                    {
-                        Logging.Warning(typeof(SteamHelper), "Games folder does not contain the specified game.");
+                        if (Games.Contains(GameName, new PathEndingComparer()))
+                        {
+                            return Path.Combine(GameFolder, GameName);
+                        }
                     }
                 }
                 else
                 {
-                    Logging.Warning(typeof(SteamHelper), "CommonPath is empty.");
+                    Logging.Warning(typeof(SteamHelper), "GameFolders is empty.");
                 }
             }
             else

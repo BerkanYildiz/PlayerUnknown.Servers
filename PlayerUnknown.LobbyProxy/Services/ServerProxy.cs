@@ -1,19 +1,24 @@
 ﻿namespace PlayerUnknown.LobbyProxy.Services
 {
     using System;
-
-    using Newtonsoft.Json;
+    using System.IO;
+    using System.Net.WebSockets;
+    using System.Security.Cryptography.X509Certificates;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     using PlayerUnknown.Logic.Network;
-
     using WebSocketSharp;
+
+    // using WebSocketSharp;
 
     public class ServerProxy
     {
         /// <summary>
         /// Gets or sets the server.
         /// </summary>
-        private WebSocket Server
+        private ClientWebSocket Server
         {
             get;
             set;
@@ -32,15 +37,52 @@
         /// Connects to the official server using the specified query.
         /// </summary>
         /// <param name="Query">The query.</param>
-        public void Connect(string Query)
+        public async void Connect(string Query)
         {
-            this.Server = new WebSocket(Query);
+            this.Server = new ClientWebSocket();
 
-            this.Server.OnOpen      += this.OnOpen;
-            this.Server.OnMessage   += this.OnMessage;
-            this.Server.OnClose     += this.OnClose;
+            if (this.Server.Options.ClientCertificates == null)
+            {
+                this.Server.Options.ClientCertificates = new X509CertificateCollection();
+            }
 
-            this.Server.ConnectAsync();
+            this.Server.Options.ClientCertificates.Add(new X509Certificate(File.ReadAllBytes("Certs\\ssl.pfx"), "rekt"));
+            this.Server.Options.SetRequestHeader("Sec-WebSocket-Extensions", "x-webkit-deflate-frame");
+            this.Server.Options.SetRequestHeader("Origin", "https://prod-live-front.playbattlegrounds.com");
+            this.Server.Options.SetBuffer(2048, 2048);
+            
+            using (var Cancellation = new CancellationTokenSource())
+            {
+                await this.Server.ConnectAsync(new Uri(Query), Cancellation.Token);
+
+                if (this.Server.State.HasFlag(System.Net.WebSockets.WebSocketState.Open))
+                {
+                    Logging.Warning(typeof(ServerProxy), "We are connected !");
+                }
+                else
+                {
+                    Logging.Error(typeof(ServerProxy), "We are not connected !");
+                }
+            }
+
+            await Task.Delay(500);
+
+            var Buffer = new ArraySegment<byte>(new byte[2048]);
+
+            await this.Server.SendAsync(
+                new ArraySegment<byte>(
+                    new byte[]
+                    {
+                        0x01, 0x02
+                    }),
+                WebSocketMessageType.Text,
+                true,
+                CancellationToken.None);
+            await this.Server.ReceiveAsync(Buffer, CancellationToken.None);
+
+            Logging.Warning(typeof(ServerProxy), Encoding.UTF8.GetString(Buffer.Array));
+
+            Console.ReadKey(false);
         }
 
         /// <summary>
@@ -80,7 +122,7 @@
                 throw new Exception("Message == null at SendMessage(Message).");
             }
 
-            this.Server.SendAsync(Message.Save().ToString(Formatting.None), Completed =>
+            /* this.Server.SendAsync(Message.Save().ToString(Formatting.None), Completed =>
             {
                 if (Completed)
                 {
@@ -90,7 +132,7 @@
                 {
                     Logging.Warning(this.GetType(), "Completed != true at Server.SendMessage(" + Message.Identifier + ").");
                 }
-            });
+            }); */
         }
     }
 }
