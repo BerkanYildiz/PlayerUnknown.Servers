@@ -218,11 +218,6 @@
         /// <param name="GameName">Name of the game.</param>
         public static bool IsGameInstalled(string GameName)
         {
-            foreach (var Game in SteamHelper.GetInstalledGames())
-            {
-                Logging.Info(typeof(SteamHelper), " - " + Game);
-            }
-
             return SteamHelper.GetInstalledGames().Contains(GameName);
         }
 

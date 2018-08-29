@@ -87,16 +87,16 @@
                 Logging.Info(typeof(Program), "Game is installed.");
                 Logging.Info(typeof(Program), "Path : " + SteamHelper.GetGamePath("PUBG"));
 
-                var ExecutablePath = Path.Combine(SteamHelper.GetGamePath("PUBG"), @"TslGame\Binaries\Win64\TslGame.exe");
+                var ExecutablePath = Path.Combine(SteamHelper.GetGamePath("PUBG"), @"TslGame\Binaries\Win64\TslGame_EAC.exe");
                 var ExecutableFile = new FileInfo(ExecutablePath);
 
                 Logging.Info(typeof(Program), "Executable at " + ExecutablePath + ".");
 
                 if (ExecutableFile.Exists)
                 {
-                    var Executable = new ProcessStartInfo(ExecutablePath, string.Join(" ", Parameters))
+                    var Executable = new ProcessStartInfo(ExecutablePath, arguments: null)
                     {
-                        UseShellExecute = false,
+                        UseShellExecute = false
                     };
 
                     // Steam
@@ -109,7 +109,7 @@
                     Executable.EnvironmentVariables.Add("SteamAppId",           (string) CurrentUser["SteamAppId"]);
                     Executable.EnvironmentVariables.Add("SteamControllerAppId", (string) CurrentUser["SteamAppId"]);
 
-                    // Extra
+                    // Extras
 
                     Executable.EnvironmentVariables.Add("ENABLE_VK_LAYER_VALVE_steam_overlay_1", "1");
                     Executable.EnvironmentVariables.Add("SDL_GAMECONTROLLER_ALLOW_STEAM_VIRTUAL_GAMEPAD", "1");
@@ -122,6 +122,9 @@
                     Executable.EnvironmentVariables.Add("SteamStreamingHardwareEncodingIntel", "1");
 
                     var Processus   = Process.Start(Executable);
+
+                    // Started !
+
                     var Handle      = Processus.Handle;
                     var SafeHandle  = Processus.SafeHandle;
                     var ProcId      = Processus.Id;
