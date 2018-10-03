@@ -1,13 +1,13 @@
 ﻿namespace PlayerUnknown.Lobby
 {
     using System;
-    using System.Net;
     using System.Threading.Tasks;
 
     using PlayerUnknown.Files;
     using PlayerUnknown.Lobby.Collections;
     using PlayerUnknown.Lobby.Database;
     using PlayerUnknown.Lobby.Services;
+    using PlayerUnknown.Logic;
 
     using WebSocketSharp;
     using WebSocketSharp.Server;
@@ -132,7 +132,7 @@
             this.Network.Log.Level  = LogLevel.Trace;
             this.Network.Log.Output = (Data, Message) =>
             {
-                Logging.Info(typeof(WebSocket), Data.Message);
+                Log.Info(typeof(WebSocket), Data.Message);
             };
 
             this.Network.AddWebSocketService("/userproxy", () =>
@@ -145,7 +145,7 @@
                 return new DefaultProxy(this);
             });
 
-            Logging.Info(this.GetType(), "Lobby has been initialized.");
+            Log.Info(this.GetType(), "Lobby has been initialized.");
         }
 
         /// <summary>
@@ -160,7 +160,7 @@
 
             this.Network.Start();
 
-            Logging.Info(this.GetType(), "Lobby has been started.");
+            Log.Info(this.GetType(), "Lobby has been started.");
         }
 
         /// <summary>
@@ -173,7 +173,7 @@
                 await Task.Delay(1000);
             }
 
-            Logging.Warning(typeof(PubgLobbyServer), "Stopped waiting !");
+            Log.Warning(typeof(PubgLobbyServer), "Stopped waiting !");
         }
 
         /// <summary>
@@ -188,7 +188,7 @@
 
             this.Network.Stop();
 
-            Logging.Info(this.GetType(), "Lobby has been stopped.");
+            Log.Info(this.GetType(), "Lobby has been stopped.");
         }
 
         /// <summary>
@@ -223,7 +223,7 @@
 
             this.IsDisposed     = true;
 
-            Logging.Info(this.GetType(), "Lobby has been disposed.");
+            Log.Info(this.GetType(), "Lobby has been disposed.");
         }
     }
 }

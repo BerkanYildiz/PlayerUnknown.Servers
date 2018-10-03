@@ -33,7 +33,7 @@
         {
             this.Server     = Server;
 
-            Logging.Info(this.GetType(), "UserProxy has been initalized.");
+            Lobby.Log.Info(this.GetType(), "UserProxy has been initalized.");
         }
 
         /// <summary>
@@ -100,7 +100,7 @@
                 }
                 else
                 {
-                    Logging.Warning(this.GetType(), "Authenticated != true at OnOpen().");
+                    Lobby.Log.Warning(this.GetType(), "Authenticated != true at OnOpen().");
 
                     PubgSession.Player = new Player
                     {
@@ -115,7 +115,7 @@
             }
             else
             {
-                Logging.Warning(this.GetType(), "At OnOpen(), TryAdd(PubgSession) == false, aborting.");
+                Lobby.Log.Warning(this.GetType(), "At OnOpen(), TryAdd(PubgSession) == false, aborting.");
             }
         }
 
@@ -159,22 +159,22 @@
                         }
                         else
                         {
-                            Logging.Warning(this.GetType(), "PubgSession == null at OnMessage(Args).");
+                            Lobby.Log.Warning(this.GetType(), "PubgSession == null at OnMessage(Args).");
                         }
                     }
                     else
                     {
-                        Logging.Warning(this.GetType(), "Method(" + MethodName + ") == null at OnMessage(Args).");
+                        Lobby.Log.Warning(this.GetType(), "Method(" + MethodName + ") == null at OnMessage(Args).");
                     }
                 }
                 else
                 {
-                    Logging.Warning(this.GetType(), "Class(" + ClassName + ") == null at OnMessage(Args).");
+                    Lobby.Log.Warning(this.GetType(), "Class(" + ClassName + ") == null at OnMessage(Args).");
                 }
             }
             else
             {
-                Logging.Warning(this.GetType(), "Message.IsValid != true at OnMessage(Args).");
+                Lobby.Log.Warning(this.GetType(), "Message.IsValid != true at OnMessage(Args).");
             }
 
             Console.WriteLine("--------------------------");
@@ -191,14 +191,14 @@
 
             if (Args.WasClean == false)
             {
-                // Logging.Warning(this.GetType(), "Args.WasClean != true at OnClose(Args).");
+                // Log.Warning(this.GetType(), "Args.WasClean != true at OnClose(Args).");
             }
 
             bool Cleaned = this.Server.Sessions.TryRemove(this.ID);
 
             if (Cleaned == false)
             {
-                Logging.Fatal(this.GetType(), "Something is wrong with the server, please put the maintenance mode and check the logs.");
+                Lobby.Log.Fatal(this.GetType(), "Something is wrong with the server, please put the maintenance mode and check the logs.");
             }
         }
 
@@ -208,13 +208,13 @@
         /// <param name="Message">The message.</param>
         public void SendMessage(Message Message)
         {
-            this.SendAsync(Message.Save().ToString(Formatting.None), Completed =>
+            this.SendAsync(Message.ToNetwork().ToString(Formatting.None), Completed =>
             {
                 Message.Log();
 
                 if (Completed == false)
                 {
-                    Logging.Warning(this.GetType(), "Completed != true at SendMessage(" + Message.Identifier + ").");
+                    Lobby.Log.Warning(this.GetType(), "Completed != true at SendMessage(" + Message.Identifier + ").");
                 }
             });
         }
@@ -229,7 +229,7 @@
             {
                 if (Completed == false)
                 {
-                    Logging.Warning(this.GetType(), "Completed != true at SendMessage(string).");
+                    Lobby.Log.Warning(this.GetType(), "Completed != true at SendMessage(string).");
                 }
             });
         }

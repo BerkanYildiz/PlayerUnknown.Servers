@@ -7,6 +7,7 @@
 
     using Gameloop.Vdf;
     using Gameloop.Vdf.JsonConverter;
+    using Gameloop.Vdf.Linq;
 
     using Newtonsoft.Json.Linq;
 
@@ -35,17 +36,17 @@
                     }
                     else
                     {
-                        Logging.Warning(typeof(SteamHelper), "SteamPath is empty.");
+                        Log.Warning(typeof(SteamHelper), "SteamPath is empty.");
                     }
                 }
                 else
                 {
-                    Logging.Warning(typeof(SteamHelper), "Steam is not installed on this computer.");
+                    Log.Warning(typeof(SteamHelper), "Steam is not installed on this computer.");
                 }
             }
             else
             {
-                Logging.Warning(typeof(SteamHelper), "You don't know how to use a computer, do you?");
+                Log.Warning(typeof(SteamHelper), "You don't know how to use a computer, do you?");
             }
 
             return string.Empty;
@@ -68,12 +69,12 @@
                 }
                 else
                 {
-                    Logging.Warning(typeof(SteamHelper), "SteamApps could not be detected.");
+                    Log.Warning(typeof(SteamHelper), "SteamApps could not be detected.");
                 }
             }
             else
             {
-                Logging.Warning(typeof(SteamHelper), "SteamPath is empty.");
+                Log.Warning(typeof(SteamHelper), "SteamPath is empty.");
             }
 
             return string.Empty;
@@ -96,12 +97,12 @@
                 }
                 else
                 {
-                    Logging.Warning(typeof(SteamHelper), "LibraryFolders.vdf don't exist.");
+                    Log.Warning(typeof(SteamHelper), "LibraryFolders.vdf don't exist.");
                 }
             }
             else
             {
-                Logging.Warning(typeof(SteamHelper), "SteamApps is empty.");
+                Log.Warning(typeof(SteamHelper), "SteamApps is empty.");
             }
 
             return string.Empty;
@@ -120,7 +121,7 @@
             }
             else
             {
-                Logging.Warning(typeof(SteamHelper), "SteamPath is empty.");
+                Log.Warning(typeof(SteamHelper), "SteamPath is empty.");
             }
 
             return string.Empty;
@@ -156,27 +157,27 @@
                             }
                             else
                             {
-                                Logging.Warning(typeof(SteamHelper), "CommonPath is empty.");
+                                Log.Warning(typeof(SteamHelper), "CommonPath is empty.");
                             }
                         }
                         else
                         {
-                            Logging.Warning(typeof(SteamHelper), "GamesPath is empty.");
+                            Log.Warning(typeof(SteamHelper), "GamesPath is empty.");
                         }
                     }
                     else
                     {
-                        Logging.Warning(typeof(SteamHelper), "GamesPath property is empty.");
+                        Log.Warning(typeof(SteamHelper), "GamesPath property is empty.");
                     }
                 }
                 else
                 {
-                    Logging.Warning(typeof(SteamHelper), "LibraryFolders property is empty.");
+                    Log.Warning(typeof(SteamHelper), "LibraryFolders property is empty.");
                 }
             }
             else
             {
-                Logging.Error(typeof(SteamHelper), "Empty ?");
+                Log.Error(typeof(SteamHelper), "Empty ?");
             }
 
             yield return Path.Combine(SteamPath, "common");
@@ -208,7 +209,7 @@
             }
             else
             {
-                Logging.Warning(typeof(SteamHelper), "GameFolders is empty.");
+                Log.Warning(typeof(SteamHelper), "GameFolders is empty.");
             }
         }
 
@@ -245,12 +246,12 @@
                 }
                 else
                 {
-                    Logging.Warning(typeof(SteamHelper), "GameFolders is empty.");
+                    Log.Warning(typeof(SteamHelper), "GameFolders is empty.");
                 }
             }
             else
             {
-                Logging.Warning(typeof(SteamHelper), "Game is not installed.");
+                Log.Warning(typeof(SteamHelper), "Game is not installed.");
             }
 
             return string.Empty;

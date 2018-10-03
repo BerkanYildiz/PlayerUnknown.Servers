@@ -1,8 +1,6 @@
-﻿namespace PlayerUnknown.Logic.Interfaces
+﻿namespace PlayerUnknown.Logic.Interfaces.Players
 {
-    using Newtonsoft.Json.Linq;
-
-    public interface IAccount
+    public interface IAccount : IObject
     {
         /// <summary>
         /// Gets or sets the account identifier.
@@ -84,16 +82,5 @@
             get;
             set;
         }
-
-        /// <summary>
-        /// Loads the specified json.
-        /// </summary>
-        /// <param name="Json">The json.</param>
-        void Load(JObject Json);
-
-        /// <summary>
-        /// Saves this instance into a json object.
-        /// </summary>
-        JObject Save();
     }
 }

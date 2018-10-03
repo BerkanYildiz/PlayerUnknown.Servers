@@ -26,7 +26,7 @@
         {
             this.Server     = Server;
 
-            Logging.Info(this.GetType(), "DefaultProxy has been initalized.");
+            Lobby.Log.Info(this.GetType(), "DefaultProxy has been initalized.");
         }
         
         /// <summary>
@@ -34,11 +34,11 @@
         /// </summary>
         protected override void OnOpen()
         {
-            Logging.Warning(typeof(DefaultProxy), "Query : ");
+            Lobby.Log.Warning(typeof(DefaultProxy), "Query : ");
 
             foreach (var Key in this.Context.QueryString.AllKeys)
             {
-                Logging.Warning(typeof(DefaultProxy), " - " + Key + " -> " + this.Context.QueryString.Get(Key));
+                Lobby.Log.Warning(typeof(DefaultProxy), " - " + Key + " -> " + this.Context.QueryString.Get(Key));
             }
         }
 
@@ -55,7 +55,7 @@
             }
 
             var Json = JObject.Parse(Args.Data);
-            Logging.Warning(typeof(DefaultProxy), "Json : " + Json.ToString(Formatting.Indented));
+            Lobby.Log.Warning(typeof(DefaultProxy), "Json : " + Json.ToString(Formatting.Indented));
 
             Console.WriteLine("--------------------------");
         }
@@ -69,16 +69,16 @@
         {
             base.OnClose(Args);
 
-            if (Args.WasClean == false)
+            if (Args.WasClean == true)
             {
-                // Logging.Warning(this.GetType(), "Args.WasClean != true at OnClose(Args).");
+                Lobby.Log.Warning(this.GetType(), "Args.WasClean == true at OnClose(Args).");
             }
 
             bool Cleaned = this.Server.Sessions.TryRemove(this.ID);
 
             if (Cleaned == false)
             {
-                Logging.Fatal(this.GetType(), "Something is wrong with the server, please put the maintenance mode and check the logs.");
+                Lobby.Log.Fatal(this.GetType(), "Something is wrong with the server, please put the maintenance mode and check the logs.");
             }
         }
     }

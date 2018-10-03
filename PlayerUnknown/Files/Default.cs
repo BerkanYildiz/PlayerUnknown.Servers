@@ -37,7 +37,7 @@
             }
             else
             {
-                Logging.Error(typeof(Default), "Directory.Exists(Path) != true at Initialize().");
+                Log.Error(typeof(Default), "Directory.Exists(Path) != true at Initialize().");
             }
         }
 
@@ -56,12 +56,12 @@
                 }
                 else
                 {
-                    Logging.Error(typeof(Default), "string.IsNullOrEmpty(RawFile) == true at Initialize().");
+                    Log.Error(typeof(Default), "string.IsNullOrEmpty(RawFile) == true at Initialize().");
                 }
             }
             else
             {
-                Logging.Error(typeof(Default), "File.Exists(Path) != true at Initialize().");
+                Log.Error(typeof(Default), "File.Exists(Path) != true at Initialize().");
             }
         }
 
@@ -80,12 +80,12 @@
                 }
                 else
                 {
-                    Logging.Error(typeof(Default), "string.IsNullOrEmpty(RawFile) == true at Initialize().");
+                    Log.Error(typeof(Default), "string.IsNullOrEmpty(RawFile) == true at Initialize().");
                 }
             }
             else
             {
-                Logging.Error(typeof(Default), "File.Exists(Path) != true at Initialize().");
+                Log.Error(typeof(Default), "File.Exists(Path) != true at Initialize().");
             }
         }
     }

@@ -1,8 +1,5 @@
 ﻿namespace PlayerUnknown.Lobby.Models.Sessions
 {
-    using System.Threading.Tasks;
-
-    using PlayerUnknown.Lobby.Collections;
     using PlayerUnknown.Lobby.Services;
     using PlayerUnknown.Logic;
     using PlayerUnknown.Logic.Components;

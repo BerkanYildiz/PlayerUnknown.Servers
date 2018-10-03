@@ -1,5 +1,6 @@
 ﻿namespace PlayerUnknown.Logic.Network
 {
+    using System;
     using System.Collections.Generic;
 
     using Newtonsoft.Json;
@@ -7,6 +8,7 @@
 
     using PlayerUnknown.Exceptions;
     using PlayerUnknown.Logic.Interfaces;
+    using PlayerUnknown.Logic.Interfaces.Network;
 
     public class Message : IMessage
     {
@@ -180,15 +182,23 @@
         /// Loads the specified json.
         /// </summary>
         /// <param name="Json">The json.</param>
-        public void Load(JArray Json)
+        public void Load(JObject Json)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Saves this instance into a json object.
+        /// </summary>
+        public JObject Save()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
         /// Turns this <see cref="Message"/> into a JSON string.
         /// </summary>
-        public JArray Save()
+        public JArray ToNetwork()
         {
             JArray Json = new JArray(this.Identifier);
 
@@ -205,7 +215,7 @@
         /// </summary>
         public void Log()
         {
-            Logging.Info(this.GetType(), this.Save().ToString(Formatting.Indented));
+            PlayerUnknown.Log.Info(this.GetType(), this.Save().ToString(Formatting.Indented));
         }
     }
 }

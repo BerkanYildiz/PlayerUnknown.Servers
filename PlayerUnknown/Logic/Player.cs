@@ -1,11 +1,11 @@
 ﻿namespace PlayerUnknown.Logic
 {
-    using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
     using PlayerUnknown.Logic.Components;
     using PlayerUnknown.Logic.Configurations;
     using PlayerUnknown.Logic.Interfaces;
+    using PlayerUnknown.Logic.Interfaces.Players;
 
     public sealed class Player : IPlayer
     {

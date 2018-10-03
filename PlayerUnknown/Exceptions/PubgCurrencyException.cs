@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class PubgMessageException : Exception
+    public class PubgCurrencyException : Exception
     {
         /// <summary>
         /// Obtient un message qui décrit l'exception actuelle.
@@ -13,18 +13,18 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PubgMessageException"/> class.
+        /// Initializes a new instance of the <see cref="PubgCurrencyException"/> class.
         /// </summary>
-        public PubgMessageException() : base()
+        public PubgCurrencyException() : base()
         {
-            Log.Error(this.GetType(), "The messaging system threw an exception.");
+            Log.Error(this.GetType(), "The currency system threw an exception.");
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PubgMessageException"/> class.
+        /// Initializes a new instance of the <see cref="PubgCurrencyException"/> class.
         /// </summary>
         /// <param name="Message">The message.</param>
-        public PubgMessageException(string Message) : base(Message)
+        public PubgCurrencyException(string Message) : base(Message)
         {
             this.Message = Message;
 

@@ -5,9 +5,8 @@
     using Newtonsoft.Json.Linq;
 
     using PlayerUnknown.Lobby;
-    using PlayerUnknown.LobbyProxy;
     using PlayerUnknown.Logic;
-    using PlayerUnknown.Logic.Interfaces;
+    using PlayerUnknown.Logic.Interfaces.Players;
 
     internal class Program
     {
@@ -16,7 +15,7 @@
         /// </summary>
         private static void Main()
         {
-            Program.StartServer(new Config(ServerPort: 11111));
+            Program.StartServer(new Config(ServerPort: 81));
             Console.ReadKey();
         }
 
@@ -46,22 +45,6 @@
                 if (PubgLobbyServer.IsListening)
                 {
                     await PubgLobbyServer.Wait();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Starts the server.
-        /// </summary>
-        private static async void StartProxy()
-        {
-            using (PubgLobbyProxy PubgLobbyProxy = new PubgLobbyProxy())
-            {
-                PubgLobbyProxy.Start();
-
-                if (PubgLobbyProxy.IsListening)
-                {
-                    await PubgLobbyProxy.Wait();
                 }
             }
         }

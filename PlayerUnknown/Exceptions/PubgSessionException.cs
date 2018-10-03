@@ -17,7 +17,7 @@
         /// </summary>
         public PubgSessionException() : base()
         {
-            Logging.Error(this.GetType(), "The PubgSession threw an exception.");
+            Log.Error(this.GetType(), "The session system threw an exception.");
         }
 
         /// <summary>
@@ -30,7 +30,7 @@
 
             if (string.IsNullOrEmpty(Message) == false)
             {
-                Logging.Error(this.GetType(), Message);
+                Log.Error(this.GetType(), Message);
             }
         }
     }

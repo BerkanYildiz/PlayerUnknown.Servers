@@ -52,7 +52,7 @@
         {
             if (this.Entities.ContainsKey(Entity.ID))
             {
-                Logging.Error(typeof(Sessions), "ContainsKey(Entity.ID) != false at Add(Entity).");
+                Log.Error(typeof(Sessions), "ContainsKey(Entity.ID) != false at Add(Entity).");
             }
             else
             {
@@ -62,7 +62,7 @@
                 }
                 else
                 {
-                    Logging.Error(typeof(Sessions), "TryAdd(Entity.ID, Entity) != true at Add(Entity).");
+                    Log.Error(typeof(Sessions), "TryAdd(Entity.ID, Entity) != true at Add(Entity).");
                 }
             }
 
@@ -83,12 +83,12 @@
                 }
                 else
                 {
-                    Logging.Error(typeof(Sessions), "TmpEntity.ID != Entity.ID at Remove(Entity).");
+                    Log.Error(typeof(Sessions), "TmpEntity.ID != Entity.ID at Remove(Entity).");
                 }
             }
             else
             {
-                Logging.Error(typeof(Sessions), "TryRemove(Entity.ID, out TmpEntity) != true at Remove(Entity).");
+                Log.Error(typeof(Sessions), "TryRemove(Entity.ID, out TmpEntity) != true at Remove(Entity).");
             }
 
             return false;
@@ -108,12 +108,12 @@
                 }
                 else
                 {
-                    Logging.Error(typeof(Sessions), "TmpEntity.ID != ID at Remove(ID).");
+                    Log.Error(typeof(Sessions), "TmpEntity.ID != ID at Remove(ID).");
                 }
             }
             else
             {
-                Logging.Error(typeof(Sessions), "TryRemove(ID, out TmpEntity) != true at Remove(ID).");
+                Log.Error(typeof(Sessions), "TryRemove(ID, out TmpEntity) != true at Remove(ID).");
             }
 
             return false;

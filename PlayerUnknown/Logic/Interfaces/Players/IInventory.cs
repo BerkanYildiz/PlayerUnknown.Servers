@@ -1,12 +1,10 @@
-﻿namespace PlayerUnknown.Logic.Interfaces
+﻿namespace PlayerUnknown.Logic.Interfaces.Players
 {
     using System.Collections.Generic;
 
-    using Newtonsoft.Json.Linq;
-
     using PlayerUnknown.Logic.Components.Inventories;
 
-    public interface IInventory
+    public interface IInventory : IObject
     {
         /// <summary>
         /// Gets the items.
@@ -69,16 +67,5 @@
         /// </summary>
         /// <param name="Item">The item.</param>
         bool HasItem(Item Item);
-
-        /// <summary>
-        /// Loads the specified json.
-        /// </summary>
-        /// <param name="Json">The json.</param>
-        void Load(JObject Json);
-
-        /// <summary>
-        /// Saves this instance into a json object.
-        /// </summary>
-        JObject Save();
     }
 }

@@ -76,14 +76,14 @@
             {
                 if (!this.Entities.TryUpdate(Entity.Account.AccountId, Entity, Entity))
                 {
-                    Logging.Error(typeof(Players), "TryUpdate(EntityId, Entity, Entity) != true at Add(Entity).");
+                    Log.Error(typeof(Players), "TryUpdate(EntityId, Entity, Entity) != true at Add(Entity).");
                 }
             }
             else
             {
                 if (!this.Entities.TryAdd(Entity.Account.AccountId, Entity))
                 {
-                    Logging.Error(typeof(Players), "TryAdd(EntityId, Entity) != true at Add(Entity).");
+                    Log.Error(typeof(Players), "TryAdd(EntityId, Entity) != true at Add(Entity).");
                 }
             }
         }
@@ -100,7 +100,7 @@
             {
                 if (!this.Entities.TryRemove(Entity.Account.AccountId, out TmpEntity))
                 {
-                    Logging.Warning(typeof(Players), "Entities.TryRemove(Entity, TmpEntity) != true at Remove(Entity).");
+                    Log.Warning(typeof(Players), "Entities.TryRemove(Entity, TmpEntity) != true at Remove(Entity).");
                 }
             }
 
@@ -162,12 +162,12 @@
                     }
                     else
                     {
-                        Logging.Error(typeof(Players), "PlayerDb.Deserialize(out Player) != true at Get(" + AccountId + ").");
+                        Log.Error(typeof(Players), "PlayerDb.Deserialize(out Player) != true at Get(" + AccountId + ").");
                     }
                 }
                 else
                 {
-                    Logging.Warning(typeof(Players), "PlayerDb == null at Get(HighId, LowId).");
+                    Log.Warning(typeof(Players), "PlayerDb == null at Get(HighId, LowId).");
                 }
             }
 
@@ -203,12 +203,12 @@
                     }
                     else
                     {
-                        Logging.Error(typeof(Players), "PlayerDb.Deserialize(out Player) != true at Get(" + Username + ", " + Password + ").");
+                        Log.Error(typeof(Players), "PlayerDb.Deserialize(out Player) != true at Get(" + Username + ", " + Password + ").");
                     }
                 }
                 else
                 {
-                    Logging.Warning(typeof(Players), "PlayerDb == null at Get(HighId, LowId).");
+                    Log.Warning(typeof(Players), "PlayerDb == null at Get(HighId, LowId).");
                 }
             }
 
@@ -225,7 +225,7 @@
 
             if (Result == null)
             {
-                Logging.Error(typeof(Players), "Result == null at Save(Entity).");
+                Log.Error(typeof(Players), "Result == null at Save(Entity).");
             }
         }
 

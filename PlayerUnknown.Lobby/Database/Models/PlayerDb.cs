@@ -5,7 +5,7 @@
 
     using Newtonsoft.Json;
 
-    using PlayerUnknown.Logic.Interfaces;
+    using PlayerUnknown.Logic.Interfaces.Players;
 
     public class PlayerDb
     {

@@ -7,6 +7,7 @@
 
     using PlayerUnknown.Logic.Components.Inventories;
     using PlayerUnknown.Logic.Interfaces;
+    using PlayerUnknown.Logic.Interfaces.Players;
 
     public sealed class Inventory : IInventory
     {
@@ -97,12 +98,12 @@
 
                 if (CurrentItem.Count == 0)
                 {
-                    Logging.Warning(this.GetType(), "CurrentItem.Count == 0 at RemoveItem(" + Item.PartDescId + ", " + Amount + "), should we remove the item ?");
+                    Log.Warning(this.GetType(), "CurrentItem.Count == 0 at RemoveItem(" + Item.PartDescId + ", " + Amount + "), should we remove the item ?");
                 }
             }
             else
             {
-                Logging.Warning(this.GetType(), "CurrentItem == null at RemoveItem(" + Item.PartDescId + ").");
+                Log.Warning(this.GetType(), "CurrentItem == null at RemoveItem(" + Item.PartDescId + ").");
             }
         }
 

@@ -38,7 +38,7 @@
             var MongoClient     = new MongoClient("mongodb://GL.Servers.PUBG:DlzpSSAVkFYym6q9A0sJ7YhBTNXxnVycN74Eozl3@ns1.gobelinland.fr:27017");
             var MongoDb         = MongoClient.GetDatabase("PUBG");
 
-            Logging.Info(this.GetType(), "GameDb is connected to " + MongoClient.Settings.Server.Host + ".");
+            Log.Info(this.GetType(), "GameDb is connected to " + MongoClient.Settings.Server.Host + ".");
 
             if (MongoDb.GetCollection<PlayerDb>("Players") == null)
             {
@@ -75,12 +75,12 @@
                 }
                 else
                 {
-                    Logging.Error(typeof(PlayerDb), "UpdatedEntity.Ids != this.Ids at Save().");
+                    Log.Error(typeof(PlayerDb), "UpdatedEntity.Ids != this.Ids at Save().");
                 }
             }
             else
             {
-                Logging.Error(typeof(PlayerDb), "UpdatedEntity == null at Save().");
+                Log.Error(typeof(PlayerDb), "UpdatedEntity == null at Save().");
             }
 
             return null;
@@ -105,17 +105,17 @@
                     }
                     else
                     {
-                        Logging.Error(typeof(PlayerDb), "Entity == null at Load().");
+                        Log.Error(typeof(PlayerDb), "Entity == null at Load().");
                     }
                 }
                 else
                 {
-                    Logging.Error(typeof(PlayerDb), "Entities == null at Load().");
+                    Log.Error(typeof(PlayerDb), "Entities == null at Load().");
                 }
             }
             else
             {
-                Logging.Error(typeof(PlayerDb), "this.LowId < 0 at Load().");
+                Log.Error(typeof(PlayerDb), "this.LowId < 0 at Load().");
             }
 
             return null;
@@ -140,17 +140,17 @@
                     }
                     else
                     {
-                        Logging.Error(typeof(PlayerDb), "Entity == null at Load().");
+                        Log.Error(typeof(PlayerDb), "Entity == null at Load().");
                     }
                 }
                 else
                 {
-                    Logging.Error(typeof(PlayerDb), "Entities == null at Load().");
+                    Log.Error(typeof(PlayerDb), "Entities == null at Load().");
                 }
             }
             else
             {
-                Logging.Error(typeof(PlayerDb), "this.LowId < 0 at Load().");
+                Log.Error(typeof(PlayerDb), "this.LowId < 0 at Load().");
             }
 
             return null;
@@ -175,22 +175,22 @@
                         }
                         else
                         {
-                            Logging.Error(typeof(PlayerDb), "Result.DeletedCount > 1 at Delete().");
+                            Log.Error(typeof(PlayerDb), "Result.DeletedCount > 1 at Delete().");
                         }
                     }
                     else
                     {
-                        Logging.Warning(typeof(PlayerDb), "Result.DeletedCount == 0 at Delete().");
+                        Log.Warning(typeof(PlayerDb), "Result.DeletedCount == 0 at Delete().");
                     }
                 }
                 else
                 {
-                    Logging.Error(typeof(PlayerDb), "Result.IsAcknowledged != true at Delete().");
+                    Log.Error(typeof(PlayerDb), "Result.IsAcknowledged != true at Delete().");
                 }
             }
             else
             {
-                Logging.Error(typeof(PlayerDb), "LowId <= 0 at Delete(HighId, LowId).");
+                Log.Error(typeof(PlayerDb), "LowId <= 0 at Delete(HighId, LowId).");
             }
 
             return false;

@@ -1,9 +1,9 @@
-﻿namespace PlayerUnknown
+﻿namespace PlayerUnknown.Lobby
 {
     using System;
     using System.Diagnostics;
 
-    public static class Logging
+    internal static class Log
     {
         /// <summary>
         /// Logs the specified informative message.
@@ -11,7 +11,7 @@
         /// <param name="Type">The type.</param>
         /// <param name="Message">The message.</param>
         [Conditional("DEBUG")]
-        public static void Info(Type Type, string Message)
+        internal static void Info(Type Type, string Message)
         {
             Debug.WriteLine("[ INFO  ] " + Type.Name + " : " + Message);
         }
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="Type">The type.</param>
         /// <param name="Message">The message.</param>
-        public static void Warning(Type Type, string Message)
+        internal static void Warning(Type Type, string Message)
         {
             Debug.WriteLine("[WARNING] " + Type.Name + " : " + Message);
         }
@@ -31,7 +31,7 @@
         /// </summary>
         /// <param name="Type">The type.</param>
         /// <param name="Message">The message.</param>
-        public static void Error(Type Type, string Message)
+        internal static void Error(Type Type, string Message)
         {
             Debug.WriteLine("[ ERROR ] " + Type.Name + " : " + Message);
         }
@@ -41,7 +41,7 @@
         /// </summary>
         /// <param name="Type">The type.</param>
         /// <param name="Message">The message.</param>
-        public static void Fatal(Type Type, string Message)
+        internal static void Fatal(Type Type, string Message)
         {
             Debug.WriteLine("[ FATAL ] " + Type.Name + " : " + Message);
         }

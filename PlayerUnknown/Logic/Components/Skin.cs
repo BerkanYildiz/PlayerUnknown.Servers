@@ -3,6 +3,7 @@
     using Newtonsoft.Json.Linq;
 
     using PlayerUnknown.Logic.Interfaces;
+    using PlayerUnknown.Logic.Interfaces.Players;
 
     public sealed class Skin : ISkin
     {

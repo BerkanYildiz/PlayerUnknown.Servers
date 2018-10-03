@@ -1,9 +1,9 @@
 ﻿namespace PlayerUnknown.Logic.Components.Inventories
 {
-    using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
     using PlayerUnknown.Logic.Interfaces;
+    using PlayerUnknown.Logic.Interfaces.Players;
 
     public sealed class Item : IItem, IObject
     {
@@ -16,6 +16,10 @@
             {
                 return "itemdesc." + this._ItemDescId;
             }
+            private set
+            {
+                this._ItemDescId = value;
+            }
         }
 
         /// <summary>
@@ -26,6 +30,10 @@
             get
             {
                 return "partdesc." + this._PartDescId;
+            }
+            private set
+            {
+                this._PartDescId = value;
             }
         }
 
@@ -38,6 +46,10 @@
             {
                 return this._Name;
             }
+            private set
+            {
+                this._Name = value;
+            }
         }
 
         /// <summary>
@@ -48,6 +60,10 @@
             get
             {
                 return this._Desc;
+            }
+            private set
+            {
+                this._Desc = value;
             }
         }
 
@@ -60,6 +76,10 @@
             {
                 return this._PresetId;
             }
+            private set
+            {
+                this._PresetId = value;
+            }
         }
 
         /// <summary>
@@ -70,6 +90,10 @@
             get
             {
                 return this._Quality;
+            }
+            private set
+            {
+                this._Quality = value;
             }
         }
 
@@ -82,6 +106,10 @@
             {
                 return this._Count;
             }
+            private set
+            {
+                this._Count = value;
+            }
         }
 
         /// <summary>
@@ -92,6 +120,10 @@
             get
             {
                 return this._BuyPrice;
+            }
+            private set
+            {
+                this._BuyPrice = value;
             }
         }
 
@@ -104,6 +136,10 @@
             {
                 return this._SellPrice;
             }
+            private set
+            {
+                this._SellPrice = value;
+            }
         }
 
         /// <summary>
@@ -114,6 +150,10 @@
             get
             {
                 return this._PriceInCents;
+            }
+            private set
+            {
+                this._PriceInCents = value;
             }
         }
 
@@ -126,6 +166,10 @@
             {
                 return this._WeeklyPurchaseLimit;
             }
+            private set
+            {
+                this._WeeklyPurchaseLimit = value;
+            }
         }
 
         /// <summary>
@@ -137,6 +181,10 @@
             {
                 return this._InEquip;
             }
+            private set
+            {
+                this._InEquip = value;
+            }
         }
 
         /// <summary>
@@ -147,6 +195,10 @@
             get
             {
                 return this._Doubling;
+            }
+            private set
+            {
+                this._Doubling = value;
             }
         }
 

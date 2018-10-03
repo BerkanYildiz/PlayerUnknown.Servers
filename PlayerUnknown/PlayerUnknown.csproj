@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Obfuscar.2.2.13\build\obfuscar.props" Condition="Exists('..\packages\Obfuscar.2.2.13\build\obfuscar.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,10 +9,12 @@
     <OutputType>Library</OutputType>
     <RootNamespace>PlayerUnknown</RootNamespace>
     <AssemblyName>PlayerUnknown</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -23,32 +26,34 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>1</WarningLevel>
     <FileAlignment>512</FileAlignment>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Builds\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;RELEASE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
-    <FileAlignment>1024</FileAlignment>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
+    <Compile Include="Logic\Config.cs" />
+    <Compile Include="Exceptions\PubgCurrencyException.cs" />
     <Compile Include="Exceptions\PubgMessageException.cs" />
     <Compile Include="Exceptions\PubgSessionException.cs" />
-    <None Include="app.config" />
     <None Include="Gamefiles\translations\common\it.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -87,17 +92,17 @@
     <Compile Include="Files\Translations.cs" />
     <Compile Include="Logic\Configurations\LobbyAppConfig.cs" />
     <Compile Include="Logic\Interfaces\IAppConfig.cs" />
-    <Compile Include="Logic\Interfaces\ICurrency.cs" />
-    <Compile Include="Logic\Interfaces\IItem.cs" />
-    <Compile Include="Logic\Interfaces\IInventory.cs" />
-    <Compile Include="Logic\Interfaces\IAccount.cs" />
-    <Compile Include="Logic\Interfaces\IMessage.cs" />
-    <Compile Include="Logic\Interfaces\IRecord.cs" />
+    <Compile Include="Logic\Interfaces\Players\ICurrency.cs" />
+    <Compile Include="Logic\Interfaces\Players\IItem.cs" />
+    <Compile Include="Logic\Interfaces\Players\IInventory.cs" />
+    <Compile Include="Logic\Interfaces\Players\IAccount.cs" />
+    <Compile Include="Logic\Interfaces\Network\IMessage.cs" />
+    <Compile Include="Logic\Interfaces\Players\IRecord.cs" />
     <Compile Include="Logic\Interfaces\IObject.cs" />
-    <Compile Include="Logic\Interfaces\ISkin.cs" />
-    <Compile Include="Logic\Interfaces\IProfile.cs" />
-    <Compile Include="Logic\Interfaces\IPlayer.cs" />
-    <Compile Include="Logging.cs" />
+    <Compile Include="Logic\Interfaces\Players\ISkin.cs" />
+    <Compile Include="Logic\Interfaces\Players\IProfile.cs" />
+    <Compile Include="Logic\Interfaces\Players\IPlayer.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Logic\Components\Account.cs" />
     <Compile Include="Logic\Components\Inventories\Currency.cs" />
     <Compile Include="Logic\Components\Inventories\Item.cs" />
@@ -132,9 +137,14 @@
     <None Include="Gamefiles\translations\ui\ru.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="obfuscar.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="FodyWeavers.xml" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Gamefiles\translations\common\ar.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -168,4 +178,39 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if "$(ConfigurationName)" == "Release" (
+  $(Obfuscar) "$(TargetDir)obfuscar.xml"
+)
+
+DEL /S "$(TargetDir)*.xml"
+DEL /S "$(TargetDir)*.pdb"
+DEL /S "$(TargetDir)*.ilk"
+DEL /S "$(TargetDir)*.lib"
+DEL /S "$(TargetDir)*.cer"
+DEL /S "$(TargetDir)*.exp"
+
+if "$(ConfigurationName)" == "Release" (
+  DEL /S "$(TargetDir)Obfuscated\Mapping.txt"
+
+  XCOPY /Y /C /E "$(TargetDir)Obfuscated\*" "$(TargetDir)"
+  RMDIR /S /Q "$(TargetDir)Obfuscated\"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>DEL /S "$(TargetDir)*.xml"
+DEL /S "$(TargetDir)*.pdb"
+DEL /S "$(TargetDir)*.ilk"
+DEL /S "$(TargetDir)*.lib"
+DEL /S "$(TargetDir)*.cer"
+DEL /S "$(TargetDir)*.exp"
+DEL /S "$(TargetDir)*.dll"
+DEL /S "$(TargetDir)*.sys"</PreBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Obfuscar.2.2.13\build\obfuscar.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Obfuscar.2.2.13\build\obfuscar.props'))" />
+  </Target>
 </Project>

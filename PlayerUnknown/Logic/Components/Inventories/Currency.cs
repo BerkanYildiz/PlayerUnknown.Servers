@@ -2,7 +2,9 @@
 {
     using Newtonsoft.Json.Linq;
 
+    using PlayerUnknown.Exceptions;
     using PlayerUnknown.Logic.Interfaces;
+    using PlayerUnknown.Logic.Interfaces.Players;
 
     public sealed class Currency : ICurrency, IObject
     {
@@ -22,6 +24,28 @@
         {
             get;
             private set;
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the amount is equal to zero.
+        /// </summary>
+        public bool IsZero
+        {
+            get
+            {
+                return this.Amount == 0;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the amount is inferior to zero.
+        /// </summary>
+        public bool IsNegative
+        {
+            get
+            {
+                return this.Amount < 0;
+            }
         }
 
         /// <summary>
@@ -56,18 +80,44 @@
         /// <param name="Amount">The amount.</param>
         public void RemoveAmount(int Amount)
         {
-            this.Amount -= Amount;
+            var NewAmount = this.Amount -= Amount;
+
+            if (NewAmount < 0)
+            {
+                throw new PubgCurrencyException("The amount to remove makes the currency count negative.");
+            }
+
+            this.Amount = NewAmount;
         }
 
         /// <summary>
-        /// Gets a value indicating whether the amount is equal to zero.
+        /// Tries to remove the specified amount of this currency.
         /// </summary>
-        public bool IsZero
+        /// <param name="Amount">The amount.</param>
+        public bool TryRemoveAmount(int Amount)
         {
-            get
+            var HasEnough = this.HasEnough(Amount);
+
+            if (HasEnough)
             {
-                return this.Amount == 0;
+                this.RemoveAmount(Amount);
             }
+
+            return HasEnough;
+        }
+
+        /// <summary>
+        /// Determines whether the user has enough amount of this currency.
+        /// </summary>
+        /// <param name="Amount">The amount.</param>
+        public bool HasEnough(int Amount)
+        {
+            if (this.Amount - Amount >= 0)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>

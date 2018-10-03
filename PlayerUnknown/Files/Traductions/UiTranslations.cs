@@ -46,18 +46,18 @@
                         }
                         else
                         {
-                            Logging.Warning(this.GetType(), "Json is either null or don't have values at ItemTranslations().");
+                            Log.Warning(this.GetType(), "Json is either null or don't have values at ItemTranslations().");
                         }
                     }
                     else
                     {
-                        Logging.Warning(this.GetType(), "Language key is empty at ItemTranslations().");
+                        Log.Warning(this.GetType(), "Language key is empty at ItemTranslations().");
                     }
                 }
             }
             else
             {
-                Logging.Warning(this.GetType(), "TranslationFiles.Length <= 0 at ItemTranslations().");
+                Log.Warning(this.GetType(), "TranslationFiles.Length <= 0 at ItemTranslations().");
             }
         }
 
@@ -76,12 +76,12 @@
                 }
                 else
                 {
-                    Logging.Warning(this.GetType(), "Couldn't translate {" + Key + "} to " + Language + ".");
+                    Log.Warning(this.GetType(), "Couldn't translate {" + Key + "} to " + Language + ".");
                 }
             }
             else
             {
-                Logging.Warning(this.GetType(), "Couldn't translate {" + Key + "} to " + Language + ".");
+                Log.Warning(this.GetType(), "Couldn't translate {" + Key + "} to " + Language + ".");
             }
 
             return null;
@@ -101,12 +101,12 @@
                 }
                 else
                 {
-                    Logging.Warning(this.GetType(), "Couldn't translate {" + Key + "} to " + Language + ".");
+                    Log.Warning(this.GetType(), "Couldn't translate {" + Key + "} to " + Language + ".");
                 }
             }
             else
             {
-                Logging.Warning(this.GetType(), "Couldn't translate {" + Key + "} to " + Language + ".");
+                Log.Warning(this.GetType(), "Couldn't translate {" + Key + "} to " + Language + ".");
             }
 
             Translation = null;

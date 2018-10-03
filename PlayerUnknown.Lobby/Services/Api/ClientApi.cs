@@ -1,8 +1,5 @@
 ﻿namespace PlayerUnknown.Lobby.Services.Api
 {
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-
     using PlayerUnknown.Lobby.Models.Sessions;
     using PlayerUnknown.Logic.Network;
 

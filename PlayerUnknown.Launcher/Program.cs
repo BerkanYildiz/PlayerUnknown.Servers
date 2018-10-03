@@ -25,7 +25,6 @@
             {
                 return new[]
                 {
-                    "-KoreanRating",
                     // "-LobbyUrl=http://prod-live-front.playprivategrounds.com/index.html",
                     "-LobbyUrl=https://prod-live-front.playbattlegrounds.com/index.html"
                 };
@@ -53,7 +52,6 @@
 
                 if (Users.HasValues == false)
                 {
-                    Logging.Warning(typeof(Program), "Users is empty.");
                     return;
                 }
 
@@ -61,7 +59,6 @@
 
                 if (MostRecent == null)
                 {
-                    Logging.Warning(typeof(Program), "MostRecent is empty.");
                     return;
                 }
 
@@ -84,13 +81,13 @@
                     }
                 };
 
-                Logging.Info(typeof(Program), "Game is installed.");
-                Logging.Info(typeof(Program), "Path : " + SteamHelper.GetGamePath("PUBG"));
+                Log.Info(typeof(Program), "Game is installed.");
+                Log.Info(typeof(Program), "Path : " + SteamHelper.GetGamePath("PUBG"));
 
                 var ExecutablePath = Path.Combine(SteamHelper.GetGamePath("PUBG"), @"TslGame\Binaries\Win64\TslGame_EAC.exe");
                 var ExecutableFile = new FileInfo(ExecutablePath);
 
-                Logging.Info(typeof(Program), "Executable at " + ExecutablePath + ".");
+                Log.Info(typeof(Program), "Executable at " + ExecutablePath + ".");
 
                 if (ExecutableFile.Exists)
                 {
@@ -132,20 +129,15 @@
                     Processus.WaitForInputIdle();
 
                     bool BEnabled   = Processus.Modules.Cast<ProcessModule>().Any(Module => Module.ModuleName.StartsWith("BattlEye"));
-
-                    if (BEnabled)
-                    {
-                        Logging.Warning(typeof(Program), "BattlEye has been detected, don't move!");
-                    }
                 }
                 else
                 {
-                    Logging.Warning(typeof(Program), "Executable not found.");
+                    Log.Warning(typeof(Program), "Executable not found.");
                 }
             }
             else
             {
-                Logging.Warning(typeof(Program), "Game not found.");
+                Log.Warning(typeof(Program), "Game not found.");
             }
 
             Console.ReadKey(false);
