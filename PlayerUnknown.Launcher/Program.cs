@@ -9,7 +9,6 @@
     using Gameloop.Vdf;
     using Gameloop.Vdf.JsonConverter;
 
-    using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
     using PlayerUnknown.Launcher.Helpers;
@@ -77,21 +76,21 @@
                       "SteamAppId", "578080"
                     },
                     {
-                      "SteamPath", "C:\\Program Files (x86)\\Steam"
+                      "SteamPath", SteamHelper.GetSteamPath()
                     }
                 };
 
                 Log.Info(typeof(Program), "Game is installed.");
-                Log.Info(typeof(Program), "Path : " + SteamHelper.GetGamePath("PUBG"));
+                Log.Info(typeof(Program), "Path       : " + SteamHelper.GetGamePath("PUBG"));
 
-                var ExecutablePath = Path.Combine(SteamHelper.GetGamePath("PUBG"), @"TslGame\Binaries\Win64\TslGame_EAC.exe");
+                var ExecutablePath = Path.Combine(SteamHelper.GetGamePath("PUBG"), @"TslGame\Binaries\Win64\TslGame.exe");
                 var ExecutableFile = new FileInfo(ExecutablePath);
 
-                Log.Info(typeof(Program), "Executable at " + ExecutablePath + ".");
+                Log.Info(typeof(Program), "Executable : " + ExecutablePath);
 
                 if (ExecutableFile.Exists)
                 {
-                    var Executable = new ProcessStartInfo(ExecutablePath, arguments: null)
+                    var Executable = new ProcessStartInfo(ExecutablePath, arguments: string.Join(" ", Parameters))
                     {
                         UseShellExecute = false
                     };
@@ -129,6 +128,11 @@
                     Processus.WaitForInputIdle();
 
                     bool BEnabled   = Processus.Modules.Cast<ProcessModule>().Any(Module => Module.ModuleName.StartsWith("BattlEye"));
+
+                    if (BEnabled)
+                    {
+                        Log.Warning(typeof(Program), "BattlEye is enabled.");
+                    }
                 }
                 else
                 {
