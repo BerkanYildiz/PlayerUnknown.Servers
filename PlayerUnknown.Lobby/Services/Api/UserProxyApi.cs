@@ -24,7 +24,6 @@
                 if (Inventory != null)
                 {
                     Callback.SetResult(Result: JObject.Parse(Inventory));
-                    // Callback.SetResult(Error: "You can all kill yourselves you fucking faggots piece of shit");
                 }
                 else
                 {
@@ -77,7 +76,7 @@
             }
             else
             {
-                Callback.SetResult(Error: "This faggot is not authenticated.");
+                Callback.SetResult(Error: "This nagger is not authenticated.");
             }
 
             Session.Client.SendMessage(Callback);
@@ -93,7 +92,7 @@
             }
             else
             {
-                Callback.SetResult(Error: "This faggot is not authenticated.");
+                Callback.SetResult(Error: "This nagger is not authenticated.");
             }
 
             Session.Client.SendMessage(Callback);
@@ -125,7 +124,7 @@
             }
             else
             {
-                Callback.SetResult(Error: "This faggot is not authenticated.");
+                Callback.SetResult(Error: "This nagger is not authenticated.");
             }
 
             Session.Client.SendMessage(Callback);
