@@ -24,8 +24,8 @@
             {
                 return new[]
                 {
-                    // "-LobbyUrl=http://prod-live-front.playprivategrounds.com/index.html",
-                    "-LobbyUrl=https://prod-live-front.playbattlegrounds.com/index.html"
+                    "-LobbyUrl=https://prod-live-front.playbattlegrounds.com/index.html",
+                    "-chineseLicensing"
                 };
             }
         }
